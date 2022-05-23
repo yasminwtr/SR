@@ -5,7 +5,7 @@ export default StyleSheet.create({
         padding: 15,
         justifyContent: 'center',
         alignContent: 'center',
-        backgroundColor: '#675a9e',
+        backgroundColor: '#3e4685',
         height: 130,
         borderBottomEndRadius: 20,
         borderBottomStartRadius: 20
@@ -35,11 +35,19 @@ export default StyleSheet.create({
         marginLeft: 10
     },
     divider: {
-        borderWidth: 1
+        width: 320,
+        height: 1,
+        backgroundColor: '#e3e3e3',
+        marginLeft: 20
+    },
+    deleteText: {
+        fontSize: 18,
+        color: '#b52d2d',
+        marginLeft: 10
     },
     exitText: {
         fontSize: 18,
-        color: '#b52d2d',
+        color: '#3e4685',
         marginLeft: 10
     }
 })

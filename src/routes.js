@@ -21,11 +21,11 @@ export default function Routes(){
         screenOptions={{
             headerShown:false,
             tabBarStyle: {
-                backgroundColor: '#917ab8',
+                backgroundColor: '#f3f8fe',
                 paddingBottom: 5,
                 paddingTop: 6
             },
-            tabBarActiveTintColor: '#fff',
+            tabBarActiveTintColor: '#3d4784',
             tabBarInactiveTintColor: '#e8e8e8'
             }}>
 

@@ -22,14 +22,14 @@ export default function Setting() {
 
           <TouchableOpacity style={styles.button}>
           <Icon name='trash' size={22} color='#b52d2d'/>
-          <Text style={styles.exitText}>Excluir conta</Text>
+          <Text style={styles.deleteText}>Excluir conta</Text>
           </TouchableOpacity>
 
           <View style={styles.divider}/>
 
           <TouchableOpacity style={styles.button}>
-          <Icon name='trash' size={22} color='#454545'/>
-          <Text style={styles.editText}>Sair</Text>
+          <Icon name='sign-out-alt' size={22} color='#3e4685'/>
+          <Text style={styles.exitText}>Sair</Text>
           </TouchableOpacity>
 
           <View style={styles.divider}/>
