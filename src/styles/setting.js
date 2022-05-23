@@ -1,0 +1,45 @@
+import { StyleSheet } from "react-native"
+
+export default StyleSheet.create({
+    container: {
+        padding: 15,
+        justifyContent: 'center',
+        alignContent: 'center',
+        backgroundColor: '#675a9e',
+        height: 130,
+        borderBottomEndRadius: 20,
+        borderBottomStartRadius: 20
+    },
+    name: {
+        textAlign: 'center',
+        fontSize: 22,
+        color: '#fff'
+    },
+    email: {
+        textAlign: 'center',
+        fontSize: 16,
+        color: '#e6e3e3'
+    },
+    configurations: {
+        marginTop: 20
+    },
+    button: {
+        flexDirection: 'row',
+        marginBottom: 25,
+        marginTop: 25,
+        marginLeft: 40
+    },
+    editText: {
+        fontSize: 18,
+        color: '#454545',
+        marginLeft: 10
+    },
+    divider: {
+        borderWidth: 1
+    },
+    exitText: {
+        fontSize: 18,
+        color: '#b52d2d',
+        marginLeft: 10
+    }
+})
