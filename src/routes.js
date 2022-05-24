@@ -23,10 +23,11 @@ export default function Routes(){
             tabBarStyle: {
                 backgroundColor: '#f3f8fe',
                 paddingBottom: 5,
-                paddingTop: 6
+                paddingTop: 6,
+                borderTopWidth: 0
             },
             tabBarActiveTintColor: '#3d4784',
-            tabBarInactiveTintColor: '#e8e8e8'
+            tabBarInactiveTintColor: '#4c4c4e'
             }}>
 
             <Tab.Screen

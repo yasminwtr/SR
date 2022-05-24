@@ -1,14 +1,21 @@
 import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
+    page: {
+        backgroundColor: '#f3f8fe'
+    },
     container: {
         padding: 15,
         justifyContent: 'center',
         alignContent: 'center',
-        backgroundColor: '#3e4685',
+        backgroundColor: '#3d4379',
         height: 130,
         borderBottomEndRadius: 20,
-        borderBottomStartRadius: 20
+        borderBottomStartRadius: 20,
+        shadowColor: '#3d4379',
+        shadowOffset: {width: -2, height: 4},
+        shadowOpacity: 0.2,
+        shadowRadius: 3
     },
     name: {
         textAlign: 'center',
@@ -21,7 +28,8 @@ export default StyleSheet.create({
         color: '#e6e3e3'
     },
     configurations: {
-        marginTop: 20
+        marginTop: 20,
+        backgroundColor: '#f3f8fe'
     },
     button: {
         flexDirection: 'row',
@@ -31,7 +39,7 @@ export default StyleSheet.create({
     },
     editText: {
         fontSize: 18,
-        color: '#454545',
+        color: '#343434',
         marginLeft: 10
     },
     divider: {
@@ -47,7 +55,7 @@ export default StyleSheet.create({
     },
     exitText: {
         fontSize: 18,
-        color: '#3e4685',
+        color: '#3d4379',
         marginLeft: 10
     }
 })

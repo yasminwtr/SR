@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default function Setting() {
   return (
-    <View>
+    <View style={{backgroundColor: '#f3f8fe', height: 2000}}>
       <View style={styles.container}>
         <Text style={styles.name}>Nome Sobrenome</Text>
         <Text style={styles.email}>email334454@gmail.com</Text>
@@ -14,7 +14,7 @@ export default function Setting() {
       <View>
         <View style={styles.configurations}>
           <TouchableOpacity style={styles.button}>
-          <Icon name='user-alt' size={22} color='#454545'/>
+          <Icon name='user-alt' size={22} color='#343434'/>
           <Text style={styles.editText}>Editar conta</Text>
           </TouchableOpacity>
 
@@ -28,7 +28,7 @@ export default function Setting() {
           <View style={styles.divider}/>
 
           <TouchableOpacity style={styles.button}>
-          <Icon name='sign-out-alt' size={22} color='#3e4685'/>
+          <Icon name='sign-out-alt' size={22} color='#3d4379'/>
           <Text style={styles.exitText}>Sair</Text>
           </TouchableOpacity>
 
