@@ -15,7 +15,7 @@ export default StyleSheet.create({
         shadowColor: '#3d4379',
         shadowOffset: {width: -2, height: 4},
         shadowOpacity: 0.2,
-        shadowRadius: 3
+        shadowRadius: 6
     },
     name: {
         textAlign: 'center',
