@@ -1,13 +1,13 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Service from './pages/Service'
-import Setting from './pages/Setting'
+import Service from './components/Service'
+import Setting from './components/Setting'
 
 // essas páginas não vão ser acessadas pela tab bar, mas estão aqui para cada um trabalhar em uma página específica por
 // um documento só, e ficam de fácil acesso.
-import Login from './pages/Login'
-import Profile from './pages/Profile'
+import Login from './components/Login'
+import Profile from './components/Profile'
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.
