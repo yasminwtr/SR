@@ -15,7 +15,7 @@ export default StyleSheet.create({
         shadowColor: '#3d4379',
         shadowOffset: {width: -2, height: 4},
         shadowOpacity: 0.2,
-        shadowRadius: 3
+        shadowRadius: 6
     },
     profileIcon: {
         width: 120,
@@ -35,7 +35,7 @@ export default StyleSheet.create({
         color: '#e6e3e3'
     },
     button: {
-        backgroundColor: '#e6e3e3',
+        backgroundColor: '#f2f2f2',
         padding: 18,
         borderRadius: 30,
         width: 280,
@@ -44,7 +44,7 @@ export default StyleSheet.create({
         shadowColor: '#3d4379',
         shadowOffset: {width: -2, height: 4},
         shadowOpacity: 0.2,
-        shadowRadius: 3
+        shadowRadius: 6
     },
     buttonText: {
         fontSize: 15,
@@ -61,7 +61,6 @@ export default StyleSheet.create({
     },
     titleContact: {
         color: '#555c92',
-        fontWeight: 'bold',
         fontSize: 17,
         marginLeft: 5
     },

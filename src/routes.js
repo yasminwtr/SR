@@ -6,8 +6,9 @@ import Setting from './components/Setting'
 
 // essas páginas não vão ser acessadas pela tab bar, mas estão aqui para cada um trabalhar em uma página específica por
 // um documento só, e ficam de fácil acesso.
-import Login from './components/Login'
-import Profile from './components/Profile'
+import Login from './pages/Login'
+import Profile from './pages/Profile'
+import Worker from './pages/Worker'
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.
@@ -24,7 +25,7 @@ export default function Routes(){
                 backgroundColor: '#f3f8fe',
                 paddingBottom: 5,
                 paddingTop: 6,
-                borderTopWidth: 0
+                borderTopWidth: 0,
             },
             tabBarActiveTintColor: '#3d4784',
             tabBarInactiveTintColor: '#4c4c4e'
@@ -36,6 +37,16 @@ export default function Routes(){
             options={{
                 tabBarIcon: ({ size, color }) => (
                     <Icon name='fingerprint' size={size} color={color}/>
+                )
+            }}
+            />
+
+            <Tab.Screen
+            name="Workers"
+            component={Worker}
+            options={{
+                tabBarIcon: ({ size, color }) => (
+                    <Icon name='hamsa' size={size} color={color}/>
                 )
             }}
             />
