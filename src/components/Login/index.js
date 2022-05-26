@@ -52,7 +52,6 @@ return(
         >
             
         </TextInput>
-        
 
         <TouchableOpacity
         style={styles.button}
