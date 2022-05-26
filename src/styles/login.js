@@ -5,6 +5,7 @@ export default StyleSheet.create({
         // flex:1,
         justifyContent:'center',
         alignItems:'center',
+        margin:40
     },
     title: {
         color:'#563d7d',
@@ -19,12 +20,12 @@ export default StyleSheet.create({
         fontSize: 14,
     },
     textInput: {
-        backgroundColor:'#d9d9d9',
-        marginBottom: 30,
-        height: 50,
-        width:'70%',
-        borderRadius: 8,
-        textAlign:'center'
+        // backgroundColor:'#d9d9d9',
+        // marginBottom: 30,
+        // height: 50,
+        // width:'70%',
+        // borderRadius: 8,
+        // textAlign:'center',
     },
     button: {
         backgroundColor:'#563d7d',
