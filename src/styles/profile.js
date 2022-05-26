@@ -35,7 +35,7 @@ export default StyleSheet.create({
         color: '#e6e3e3'
     },
     button: {
-        backgroundColor: '#e6e3e3',
+        backgroundColor: '#f2f2f2',
         padding: 18,
         borderRadius: 30,
         width: 280,
