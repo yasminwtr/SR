@@ -1,9 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import {View, Text, TouchableOpacity} from 'react-native';
 import styles from '../../styles/login'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import react from 'react';
 import { TextInput } from "@react-native-material/core";
+// import { Link } from 'react-router-dom';
 
 
 class LoginPage extends react.Component{
@@ -31,23 +31,24 @@ class LoginPage extends react.Component{
                     <View>
                         <TextInput
                             leading={props => <Icon name="user" {...props} /> }
-                            variant="outlined"
+                            variant=""
                             label="E-mail"
-                            style={{ margin: 16, width:300}}
+                            placeholder='email@email.com'
+                            style={styles.textInput}
                             type="text" 
                             className="form-control"
                             value={this.state.nickname}
                             onChange={e => this.setState({nickname : e.target.value})}
                             id="nickName" 
-                            placeholder="Usuário"
                             />
                     </View>
                      <TextInput 
                         leading={props => <Icon name="lock" {...props} /> }
-                        variant="outlined"
+                        variant=""
                         label="Senha"
-                        style={{ margin: 16, width:300 }}
+                        style={styles.textInput}
                         type="password" 
+                        placeholder='********'
                         value={this.state.password}
                         onChange={e => this.setState({password : e.target.value})}
                     /> 
@@ -56,10 +57,14 @@ class LoginPage extends react.Component{
                         style={styles.button}
                     >
                         <Text
-                            style={{color:'white', textAlign:'center'}}>
-                                Entrar
+                            style={{color:'white', textAlign:'center', fontSize:25}}>
+                                Login
                         </Text>
                     </TouchableOpacity>
+                    {/* <BrowserRouter>
+                        <Route component = { Login }  path="./Register/index.js" exact />
+                        <Route component = { Register }  path="/./Register/index.js" />
+                    </BrowserRouter> */}
             </View>
         )
     }

@@ -20,18 +20,23 @@ export default StyleSheet.create({
         fontSize: 14,
     },
     textInput: {
-        // backgroundColor:'#d9d9d9',
-        // marginBottom: 30,
-        // height: 50,
-        // width:'70%',
-        // borderRadius: 8,
-        // textAlign:'center',
+        margin: 16, 
+        width:300,
+        borderRightWidth:0.5,
+        borderLeftWidth:0.5,
+        borderBottomWidth:0.5,
+        borderRadius:31, borderTopWidth:0.5,
+        borderColor:'#fff',
+        backgroundColor:'#fff',
+        shadowColor:'# 52006A',
+        elevation: 10
     },
     button: {
-        backgroundColor:'#563d7d',
-        padding:15,
+        backgroundColor:'#3e4685',
+        padding:10,
         borderRadius:30,
         width:'90%',
-        margin:'5%'
+        margin:'5%',
+        height:60,
     },
 })
