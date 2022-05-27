@@ -1,75 +1,68 @@
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import {View, Text, TouchableOpacity} from 'react-native';
 import styles from '../../styles/login'
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import react from 'react';
+import { TextInput } from "@react-native-material/core";
 
-const Mensagem = (props) => {
-return(
-    <View style={styles.container}>
-        <Text
-        style={styles.title}>
-            {props.title}
-        </Text>
 
-        <Text
-        style={styles.titleInput}>
-            E-mail
-        </Text>
+class LoginPage extends react.Component{
+    constructor(props){
+        super(props)
+            this.state = {
+                nickname: '',
+                password: ''
+        }
+    }
 
-        <Icon
-        name='user'
-        style={{color:'#563d7d',
-        paddingRight:'65%',
-        position:'absolute',
-        left:75,
-        top:'51%'
-        }} 
-        />
-        <TextInput
-        style={styles.textInput}
-        placeholder='email@email.com'
-        keyboardType='email-address'
-        >
-        </TextInput>
-        
-        <Icon
-        name='lock'
-        style={{color:'#563d7d',
-        paddingRight:'90%',
-        position:'absolute',
-        left:75,
-        top:'71%'
-        }}
-        />
-        <Text
-        style={styles.titleInput}>
+    sendLogin = (event) => {
+        event.preventDefault();
+        let data = {
+            nickname : this.state.nickname,
+            password : this.state.password
+        }
+        console.log('data',data);
+    }
 
-            Senha
-        </Text>
-        <TextInput
-
-        style={styles.textInput}
-            placeholder='********'
-        >
-            
-        </TextInput>
-
-        <TouchableOpacity
-        style={styles.button}
-        >
-            <Text
-                style={{color:'white', textAlign:'center'}}>
-                Entrar
-            </Text>
-        </TouchableOpacity>
-
-        <Text>
-            Não possui uma conta?
-            <Text style={{color:'#563d7d'}}>
-             Cadastrar
-            </Text>
-        </Text>
-    </View>
-)
+    render() {
+        return (
+            <View> 
+                <View style={styles.container}>
+                    <View>
+                        <TextInput
+                            leading={props => <Icon name="user" {...props} /> }
+                            variant="outlined"
+                            label="E-mail"
+                            style={{ margin: 16, width:300}}
+                            type="text" 
+                            className="form-control"
+                            value={this.state.nickname}
+                            onChange={e => this.setState({nickname : e.target.value})}
+                            id="nickName" 
+                            placeholder="Usuário"
+                            />
+                    </View>
+                     <TextInput 
+                        leading={props => <Icon name="lock" {...props} /> }
+                        variant="outlined"
+                        label="Senha"
+                        style={{ margin: 16, width:300 }}
+                        type="password" 
+                        value={this.state.password}
+                        onChange={e => this.setState({password : e.target.value})}
+                    /> 
+                </View>
+                    <TouchableOpacity onPress={this.sendLogin}
+                        style={styles.button}
+                    >
+                        <Text
+                            style={{color:'white', textAlign:'center'}}>
+                                Entrar
+                        </Text>
+                    </TouchableOpacity>
+            </View>
+        )
+    }
 }
 
-export default Mensagem
+export default LoginPage;
