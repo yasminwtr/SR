@@ -8,6 +8,7 @@ import Setting from './components/Setting'
 // um documento só, e ficam de fácil acesso.
 import Login from './components/Login'
 import Profile from './components/Profile'
+import Register from './components/Register';
 // import Worker from './components/Worker'
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
@@ -64,6 +65,16 @@ export default function Routes(){
             <Tab.Screen
             name="Serviços"
             component={Service}
+            options={{
+                tabBarIcon: ({ size, color }) => (
+                    <Icon name='briefcase' size={size} color={color}/>
+                )
+            }}
+            />
+
+            <Tab.Screen
+            name="Teste"
+            component={Register}
             options={{
                 tabBarIcon: ({ size, color }) => (
                     <Icon name='briefcase' size={size} color={color}/>

@@ -3,7 +3,6 @@ import styles from '../../styles/login'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import react from 'react';
 import { TextInput } from "@react-native-material/core";
-// import { Link } from 'react-router-dom';
 
 
 class LoginPage extends react.Component{
@@ -61,10 +60,10 @@ class LoginPage extends react.Component{
                                 Login
                         </Text>
                     </TouchableOpacity>
-                    {/* <BrowserRouter>
-                        <Route component = { Login }  path="./Register/index.js" exact />
-                        <Route component = { Register }  path="/./Register/index.js" />
-                    </BrowserRouter> */}
+                    {/* <TouchableOpacity 
+                        title= "aaaa"
+                        onPress={() => navigation.navigate('./Register/index.js') }
+                    /> */}
             </View>
         )
     }

@@ -1,9 +1,9 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import styles from '../../styles/login'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import react from 'react';
+import React from 'react';
 import { TextInput } from "@react-native-material/core";
-import { Link } from 'react-router-dom';
+
 
 
 export default function Register(){
@@ -12,15 +12,27 @@ export default function Register(){
             <View style={styles.container}>
                 <View>
                     <TextInput
-                        leading={props => <Icon name="user" {...props} /> }
+                        leading={props => <Icon name="voicemail" {...props} /> }
                         variant=""
                         label="E-mail"
                         placeholder='email@email.com'
                         style={styles.textInput}
                         type="text" 
                         className="form-control"
-                        value={this.state.nickname}
-                        onChange={e => this.setState({nickname : e.target.value})}
+                        // value={this.state.nickname}
+                        // onChange={e => this.setState({nickname : e.target.value})}
+                        id="nickName" 
+                        />
+                    <TextInput
+                        leading={props => <Icon name="user" {...props} /> }
+                        variant=""
+                        label="Nome Completo"
+                        // placeholder=''
+                        style={styles.textInput}
+                        type="text" 
+                        className="form-control"
+                        // value={this.state.nickname}
+                        // onChange={e => this.setState({nickname : e.target.value})}
                         id="nickName" 
                         />
                 </View>
@@ -31,11 +43,20 @@ export default function Register(){
                     style={styles.textInput}
                     type="password" 
                     placeholder='********'
-                    value={this.state.password}
-                    onChange={e => this.setState({password : e.target.value})}
+                    // value={this.state.password}
+                    // onChange={e => this.setState({password : e.target.value})}
+                /> 
+                 <TextInput 
+                    leading={props => <Icon name="phone" {...props} /> }
+                    variant=""
+                    label="Telefone"
+                    style={styles.textInput}
+                    type="text" 
+                    // value={this.state.password}
+                    // onChange={e => this.setState({password : e.target.value})}
                 /> 
             </View>
-                <TouchableOpacity onPress={this.sendLogin}
+                <TouchableOpacity
                     style={styles.button}
                 >
                     <Text
