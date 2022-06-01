@@ -1,15 +1,13 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Service from './components/Service'
-import Setting from './components/Setting'
+import Service from './src/components/Service'
+import Setting from './src/components/Setting'
 
-// essas páginas não vão ser acessadas pela tab bar, mas estão aqui para cada um trabalhar em uma página específica por
-// um documento só, e ficam de fácil acesso.
-import Login from './components/Login'
-import Profile from './components/Profile'
-import Register from './components/Register';
-// import Worker from './components/Worker'
+import Login from './src/components/Login'
+import Profile from './src/components/Profile'
+import Register from './src/components/Register';
+
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.
@@ -31,16 +29,6 @@ export default function Routes(){
             tabBarActiveTintColor: '#3d4784',
             tabBarInactiveTintColor: '#4c4c4e'
             }}>
-
-            <Tab.Screen
-            name="Login"
-            component={Login}
-            options={{
-                tabBarIcon: ({ size, color }) => (
-                    <Icon name='fingerprint' size={size} color={color}/>
-                )
-            }}
-            />
 
             {/* <Tab.Screen
             name="Workers"
