@@ -23,65 +23,81 @@ export const Service=()=>{
               
               <View style={style.container4}>
 
-                <TouchableOpacity>
+                
                 <View>
+                <TouchableOpacity>
                   <Image source={require('../../assets/diarista.png')} style={style.imagem1}/>
+                </TouchableOpacity>
                   <Text style={style.legenda}>Diarista</Text>
                 </View>
-                </TouchableOpacity>
+                
 
-                <TouchableOpacity>
+                
                 <View>
+                <TouchableOpacity>
                   <Image source={require('../../assets/manicure.png')} style={style.imagem2}/>
+                </TouchableOpacity>
                   <Text style={style.legenda}>Manicure</Text>
                 </View>
-                </TouchableOpacity>
+                
 
-                <TouchableOpacity>  
+                 
                 <View>
+                <TouchableOpacity>
                   <Image source={require('../../assets/costureira.png')} style={style.imagem3}/>
+                </TouchableOpacity>
                   <Text style={style.legenda}>Costureira</Text>
                 </View>
-                </TouchableOpacity>
+                
                   
-                <TouchableOpacity>
+                
                 <View>
+                <TouchableOpacity>
                   <Image source={require('../../assets/maridodealuguel.png')} style={style.imagem4}/>
+                </TouchableOpacity>
                   <Text style={style.legenda}>Marido de aluguel</Text>
                 </View>
-                </TouchableOpacity>
+                
 
               </View>
 
               <View style={style.container5}>
 
-              <TouchableOpacity>
+              
                 <View>
+                <TouchableOpacity>
                   <Image source={require('../../assets/eletricista.png')} style={style.imagem5}/>
+                </TouchableOpacity>
                   <Text style={style.legenda}>Eletricista</Text>
                 </View>
-                </TouchableOpacity>
+                
 
-                <TouchableOpacity>
+                
                 <View>
+                <TouchableOpacity>
                   <Image source={require('../../assets/maquiadora.png')} style={style.imagem6}/>
+                </TouchableOpacity>
                   <Text style={style.legenda}>Maquiadora</Text>
                 </View>
-                </TouchableOpacity>
+                
 
-                <TouchableOpacity>
+                
                 <View>
+                <TouchableOpacity>
                   <Image source={require('../../assets/pintor.png')} style={style.imagem7}/>
+                  </TouchableOpacity>
                   <Text style={style.legenda}>Pintor</Text>
                 </View>
-                </TouchableOpacity>
+                
 
-                <TouchableOpacity>
+                
                 <View>
+                <TouchableOpacity>
                   <Image source={require('../../assets/jardineiro.png')} style={style.imagem8}/>
+                </TouchableOpacity>
                   <Text style={style.legenda}>Jardineiro</Text>
                 </View>
-                </TouchableOpacity>
+                
 
             </View>
 
