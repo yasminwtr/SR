@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity, ScrollView, Image} from 'react-native';
-import styles from '../../styles/profile'
+import styles from '../styles/profile'
 import { StatusBar } from 'expo-status-bar';
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
@@ -8,7 +8,7 @@ export default function Profile(){
         <View style={styles.page}>
             <ScrollView>
             <View style={styles.container}>
-                <Image source={require('../../../assets/circle.png')}
+                <Image source={require('../../assets/circle.png')}
                 style={styles.profileIcon}/>
 
                 <Text style={styles.name}>Alice Silva, 26 anos</Text>

@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Service from './src/components/Service'
-import Setting from './src/components/Setting'
+import Setting from './src/components/Settings'
 
 import Login from './src/components/Login'
 import Profile from './src/components/Profile'

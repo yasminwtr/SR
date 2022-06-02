@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity, ScrollView, Image, TextInput} from 'react-native';
-import styles from '../../styles/worker'
+import styles from '../styles/worker'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default function Worker(){

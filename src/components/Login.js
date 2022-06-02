@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity} from 'react-native';
-import styles from '../../styles/login'
+import styles from '../styles/login'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import react from 'react';
 import { TextInput } from "@react-native-material/core";

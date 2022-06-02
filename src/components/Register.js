@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity} from 'react-native';
-import styles from '../../styles/login'
+import styles from '../styles/login'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import React from 'react';
 import { TextInput } from "@react-native-material/core";
@@ -61,7 +61,7 @@ export default function Register(){
                 >
                     <Text
                         style={{color:'white', textAlign:'center', fontSize:25}}>
-                            Login
+                            Criar Conta
                     </Text>
                 </TouchableOpacity>
             <Text style={{textAlign:'center', letterSpacing:1}}>

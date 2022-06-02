@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity } from 'react-native';
-import styles from '../../styles/setting'
+import styles from '../styles/setting'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default function Setting() {
