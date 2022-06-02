@@ -1,31 +1,22 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import styles from '../styles/login'
+import React , { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import react from 'react';
 import { TextInput } from "@react-native-material/core";
+// import { useForm } from 'react-hook-form'
 
+// const [ name, setName ] = useForm('');
+// const [ password, setPassword ] = useForm('');
 
-// class LoginPage extends react.Component{
-//     constructor(props){
-//         super(props)
-//             this.state = {
-//                 nickname: '',
-//                 password: ''
-//         }
-//     }
+function checkToNavigate() {
+    if((name, password) !== '')
+      return console.log('aa');
+  }
 
-//     sendLogin = (event) => {
-//         event.preventDefault();
-//         let data = {
-//             nickname : this.state.nickname,
-//             password : this.state.password
-//         }
-//         console.log('data',data);
-//     }
-
-const Login = ({ navigation }) => {
-    return (
-        <View>
+    
+    const Login = ({ navigation }) => {
+        return (
+            <View>
             <View style={styles.container}>
                 <View>
                     <TextInput
@@ -36,9 +27,7 @@ const Login = ({ navigation }) => {
                         style={styles.textInput}
                         type="text"
                         className="form-control"
-                        // value={this.state.nickname}
-                        // onChange={e => this.setState({nickname : e.target.value})}
-                        // id="nickName"
+            
                         />
                 </View>
                     <TextInput
@@ -48,13 +37,12 @@ const Login = ({ navigation }) => {
                     style={styles.textInput}
                     type="password"
                     placeholder='********'
-                    // value={this.state.password}
-                    // onChange={e => this.setState({password : e.target.value})}
                 />
             </View>
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => {
+                        // checkToNavigate()
                         navigation.navigate('NavigationBar')
                     }}
                 >
