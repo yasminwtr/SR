@@ -1,15 +1,35 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, CheckBox} from 'react-native';
 import styles from '../styles/login'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import React from 'react';
+import React, { useState } from "react";
 import { TextInput } from "@react-native-material/core";
 
 
-
 export default function Register(){
+    const [isSelected, setSelection] = useState(false);
+    const [isSelected2, setSelection2] = useState(false);
+
     return(
         <View> 
             <View style={styles.container}>
+                <View style={styles.checkbox}>
+                    <CheckBox
+                        style={{marginRight:10}}
+                        value={isSelected}
+                        onValueChange={setSelection}
+                        color='#3e4685'
+                        />
+                    <Text>Cliente</Text>
+                </View>
+                <View style={styles.checkbox}>
+                    <CheckBox
+                        style={{marginRight:10}}
+                        value={isSelected2}
+                        onValueChange={setSelection2}
+                        color='#3e4685'
+                        />
+                    <Text>Prestador de Serviços</Text>
+                </View>
                 <View>
                     <TextInput
                         leading={props => <Icon name="voicemail" {...props} /> }

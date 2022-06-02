@@ -5,19 +5,14 @@ export default StyleSheet.create({
         // flex:1,
         justifyContent:'center',
         alignItems:'center',
-        margin:40
+        margin:100
     },
     title: {
-        color:'#563d7d',
+        color:'#3e4685',
         fontWeight:'bold',
         fontSize:30,
-        marginTop:'40%',
+        marginTop:'10%',
         marginBottom:'15%',
-    },
-    titleInput: {
-        margin: 10,
-        marginRight: '60%',
-        fontSize: 14,
     },
     textInput: {
         margin: 16, 
@@ -39,4 +34,17 @@ export default StyleSheet.create({
         margin:'5%',
         height:60,
     },
+    checkbox: {
+        marginTop:2,
+        flexDirection: "row",
+        marginBottom: 5,
+        alignItems:'center',
+        // alignContent:'center'
+    },
+    btnNavigate: {
+        textAlign:'center',
+    },
+    svg: {
+        alignContent:"flex-end"
+    }
 })
