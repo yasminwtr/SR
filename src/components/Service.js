@@ -1,6 +1,6 @@
 import React from 'react'
-import {View, TextInput, Text, Image} from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+
+import {View, TextInput, Text, Image, TouchableOpacity} from 'react-native'
 import style from '../styles/servicecategory'
 
 export const Service=()=>{
