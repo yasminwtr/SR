@@ -1,18 +1,21 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-    container: {
-        // flex:1,
+    container:{
+        backgroundColor:'#3d4379',
+        height:2000,
+    },
+    container2: {
         justifyContent:'center',
         alignItems:'center',
-        margin:100
+        margin:150,
     },
     title: {
-        color:'#3e4685',
-        fontWeight:'bold',
-        fontSize:30,
-        marginTop:'10%',
-        marginBottom:'15%',
+        color:'#3d4379',
+        fontSize:20,
+        alignSelf:'center',
+        marginTop:60,
+        marginBottom:30
     },
     textInput: {
         margin: 16, 
@@ -21,30 +24,49 @@ export default StyleSheet.create({
         borderLeftWidth:0.5,
         borderBottomWidth:0.5,
         borderRadius:31, borderTopWidth:0.5,
-        borderColor:'#fff',
+        borderColor:'#bababa',
         backgroundColor:'#fff',
-        shadowColor:'# 52006A',
-        elevation: 10
+
     },
-    button: {
-        backgroundColor:'#3e4685',
+    buttonLogin: {
+        backgroundColor:'#3d4379',
         padding:10,
         borderRadius:30,
-        width:'90%',
         margin:'5%',
-        height:60,
+    },
+    buttonRegister:{
+        backgroundColor:'#3d4379',
+        padding:10,
+        borderRadius:30,
+        margin:'5%',
+        height:50,
+        marginTop:30
     },
     checkbox: {
         marginTop:2,
         flexDirection: "row",
         marginBottom: 5,
-        alignItems:'center',
-        // alignContent:'center'
+        alignItems:'center'
     },
     btnNavigate: {
         textAlign:'center',
     },
-    svg: {
-        alignContent:"flex-end"
+    boxContainerLogin:{
+        backgroundColor: '#f3f8fe',
+        borderRadius:10,
+        height:500,
+        // shadowColor:'#0000',
+        // elevation: 50
+    },
+    boxContainerRegister:{
+        backgroundColor: '#f3f8fe',
+        borderRadius:10,
+        height:600,
+        // shadowColor:'#0000',
+        // elevation: 50
+    },
+    textNavigate:{
+        marginTop:20,
+        textAlign:'center'
     }
 })
