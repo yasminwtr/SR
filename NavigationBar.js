@@ -26,8 +26,8 @@ export default function Routes(){
                 paddingTop: 6,
                 borderTopWidth: 0,
             },
-            tabBarActiveTintColor: '#3d4784',
-            tabBarInactiveTintColor: '#4c4c4e'
+            tabBarActiveTintColor: '#a17792',
+            tabBarInactiveTintColor: '#d88b9f'
             }}>
 
             {/* <Tab.Screen

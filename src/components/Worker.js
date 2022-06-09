@@ -16,13 +16,13 @@ export default function Worker(){
 
                 <View>
                     <TouchableOpacity style={styles.profileButton}>
-                        <Image source={require("../../../assets/circle.png")} style={styles.profileIcon}/>
+                        <Image source={require("../../assets/circle.png")} style={styles.profileIcon}/>
                         <Text style={styles.name}>Alice Silva</Text>
                         <Text style={styles.km}>2,4km</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.profileButton}>
-                        <Image source={require("../../../assets/circle.png")} style={styles.profileIcon}/>
+                        <Image source={require("../../assets/circle.png")} style={styles.profileIcon}/>
                         <Text style={styles.name}>Alice Silva</Text>
                         <Text style={styles.km}>3,4km</Text>
                     </TouchableOpacity>

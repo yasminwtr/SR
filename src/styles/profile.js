@@ -60,7 +60,7 @@ export default StyleSheet.create({
         flexDirection: 'row'
     },
     titleContact: {
-        color: '#555c92',
+        color: '#565d61',
         fontSize: 17,
         marginLeft: 5
     },

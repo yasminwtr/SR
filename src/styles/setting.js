@@ -55,7 +55,7 @@ export default StyleSheet.create({
     },
     exitText: {
         fontSize: 18,
-        color: '#3d4379',
+        color: '#a17792',
         marginLeft: 10
     }
 })

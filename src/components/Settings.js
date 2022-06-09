@@ -1,15 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity } from 'react-native';
 import styles from '../styles/setting'
+import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default function Setting() {
   return (
     <View style={{backgroundColor: '#f3f8fe', height: 2000}}>
-      <View style={styles.container}>
+      <LinearGradient
+      style={styles.container}
+      colors={["#e7977e", "#d88b9f"]}
+      >
         <Text style={styles.name}>Nome Sobrenome</Text>
         <Text style={styles.email}>email334454@gmail.com</Text>
-      </View>
+      </LinearGradient>
 
       <View>
         <View style={styles.configurations}>
@@ -28,7 +32,7 @@ export default function Setting() {
           <View style={styles.divider}/>
 
           <TouchableOpacity style={styles.button}>
-          <Icon name='sign-out-alt' size={22} color='#3d4379'/>
+          <Icon name='sign-out-alt' size={22} color='#a17792'/>
           <Text style={styles.exitText}>Sair</Text>
           </TouchableOpacity>
 

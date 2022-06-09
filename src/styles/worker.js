@@ -20,7 +20,7 @@ export default StyleSheet.create({
         marginBottom: 15
     },
     title: {
-        color: '#3d4379',
+        color: '#d88b9f',
         fontSize: 23,
         marginLeft: 20,
         marginTop: 40
@@ -50,13 +50,13 @@ export default StyleSheet.create({
     name: {
         fontSize: 17,
         position: 'absolute',
-        color: '#3d4379',
+        color: '#a17792',
         left: 70
     },
     km: {
         fontSize: 14,
         position: 'absolute',
         left: 260,
-        color: '#343434'
+        color: '#565d61'
     }
 })
