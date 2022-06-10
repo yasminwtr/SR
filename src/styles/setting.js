@@ -9,7 +9,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignContent: 'center',
         backgroundColor: '#3d4379',
-        height: 130,
+        height: 250,
         borderBottomEndRadius: 20,
         borderBottomStartRadius: 20,
         shadowColor: '#3d4379',
@@ -17,14 +17,22 @@ export default StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 6
     },
+    profileIcon: {
+        width: 120,
+        height: 120,
+        alignSelf: 'center',
+        marginTop: 20
+    },
+
     name: {
+        marginTop: 10,
+        fontSize: 25,
         textAlign: 'center',
-        fontSize: 22,
         color: '#fff'
     },
     email: {
+        fontSize: 20,
         textAlign: 'center',
-        fontSize: 16,
         color: '#e6e3e3'
     },
     configurations: {
@@ -34,16 +42,16 @@ export default StyleSheet.create({
     button: {
         flexDirection: 'row',
         marginBottom: 25,
-        marginTop: 25,
+        marginTop: 20,
         marginLeft: 40
     },
     editText: {
         fontSize: 18,
-        color: '#343434',
+        color: '#565d61',
         marginLeft: 10
     },
     divider: {
-        width: 320,
+        width: 372,
         height: 1,
         backgroundColor: '#e3e3e3',
         marginLeft: 20
@@ -57,5 +65,8 @@ export default StyleSheet.create({
         fontSize: 18,
         color: '#a17792',
         marginLeft: 10
-    }
+    },
+    viewEspaco:{
+        marginTop: 313,
+}
 })

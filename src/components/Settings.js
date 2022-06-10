@@ -1,19 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native';
 import styles from '../styles/setting'
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default function Settings() {
   return (
-    <View style={{backgroundColor: '#f3f8fe', height: 2000}}>
-      <LinearGradient
-      style={styles.container}
-      colors={["#e7977e", "#d88b9f"]}
-      >
+    <View style={styles.page}>
+    <LinearGradient
+    style={styles.container}
+    colors={["#e7977e", "#d88b9f"]}
+    >
+        <TouchableOpacity>
+        <Image source={require('../../assets/circle.png')}
+        style={styles.profileIcon}/>
+        </TouchableOpacity>
+
         <Text style={styles.name}>Nome Sobrenome</Text>
-        <Text style={styles.email}>email334454@gmail.com</Text>
-      </LinearGradient>
+        <Text style={styles.email}>email@gmail.com</Text>
+
+    </LinearGradient>
 
       <View>
         <View style={styles.configurations}>
@@ -24,10 +30,12 @@ export default function Settings() {
 
           <View style={styles.divider}/>
 
+          <View style={styles.viewEspaco}>
           <TouchableOpacity style={styles.button}>
           <Icon name='trash' size={22} color='#b52d2d'/>
           <Text style={styles.deleteText}>Excluir conta</Text>
           </TouchableOpacity>
+          </View>
 
           <View style={styles.divider}/>
 
@@ -35,11 +43,8 @@ export default function Settings() {
           <Icon name='sign-out-alt' size={22} color='#a17792'/>
           <Text style={styles.exitText}>Sair</Text>
           </TouchableOpacity>
-
-          <View style={styles.divider}/>
         </View>
       </View>
-
       <StatusBar style="auto" />
     </View>
   );
