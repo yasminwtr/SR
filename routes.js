@@ -4,9 +4,10 @@ import NavigationBar from './NavigationBar';
 import Login from './src/components/Login';
 import Profile from './src/components/Profile';
 import Register from './src/components/Register';
+import Worker from './src/components/Worker';
 
 import { NavigationContainer } from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack'
 
 const Routes = () => {
     const Stack = createStackNavigator();
@@ -14,21 +15,25 @@ const Routes = () => {
         <NavigationContainer>
             <Stack.Navigator initialRouteName='Login'>
                 <Stack.Screen
-                    options={{headerShown: false}}
-                    name='Login' 
-                    component={Login}/>
+                    options={{ headerShown: false }}
+                    name='Login'
+                    component={Login} />
                 <Stack.Screen
-                    options={{headerShown: false}}
-                    name='Profile' 
-                    component={Profile}/>
+                    options={{ headerShown: false }}
+                    name='Profile'
+                    component={Profile} />
                 <Stack.Screen
-                    options={{headerShown: false}}
-                    name='Register' 
-                    component={Register}/>
+                    options={{ headerShown: false }}
+                    name='Register'
+                    component={Register} />
                 <Stack.Screen
-                    options={{headerShown: false}}
-                    name='NavigationBar' 
-                    component={NavigationBar}/>
+                    options={{ headerShown: false }}
+                    name='Worker'
+                    component={Worker} />
+                <Stack.Screen
+                    options={{ headerShown: false }}
+                    name='NavigationBar'
+                    component={NavigationBar} />
             </Stack.Navigator>
         </NavigationContainer>
     )

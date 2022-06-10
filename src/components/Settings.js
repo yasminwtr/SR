@@ -4,7 +4,7 @@ import styles from '../styles/setting'
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
-export default function Setting() {
+export default function Settings() {
   return (
     <View style={{backgroundColor: '#f3f8fe', height: 2000}}>
       <LinearGradient

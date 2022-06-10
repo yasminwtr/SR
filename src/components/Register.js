@@ -15,12 +15,10 @@ export default function Register() {
             setEmail(null)
             setFullName(null)
             setPassword(null)
-            setFullName(null)
-            setFullName(null)
             setNumber(null)
         } else {
             setErrorMessage(null)
-            setErrorMessage("Todos os campos são obrigatórios!")
+            setErrorMessage("Todos os campos são obrigatórios!*")
             Vibration.vibrate()
             return;
         }

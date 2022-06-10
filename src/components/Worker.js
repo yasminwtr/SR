@@ -1,6 +1,7 @@
 import {View, Text, TouchableOpacity, ScrollView, Image, TextInput} from 'react-native';
 import styles from '../styles/worker'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+
+import 'react-native-gesture-handler';
 
 export default function Worker(){
     return(
@@ -12,6 +13,7 @@ export default function Worker(){
             maxLength={8}
             />
             <ScrollView>
+
                 <Text style={styles.title}>Diarista</Text>
 
                 <View>
