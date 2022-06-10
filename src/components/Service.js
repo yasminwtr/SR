@@ -1,16 +1,20 @@
 import React from 'react'
-import {View, TextInput, Text, Image, TouchableOpacity} from 'react-native'
+import {View, Text, Image, TouchableOpacity} from 'react-native'
 import styles from '../styles/service'
+import { TextInput } from 'react-native-paper';
 
 export const Service = () => {
     return (
         <View style={styles.container1}>
             <View style={styles.container2}>
               <View style={styles.viewdoinput}>
-                  <TextInput
-                    style={styles.input}
-                    placeholder='Buscar categoria'
-                    placeholderTextColor='black'/>
+              <TextInput
+                        style={styles.textInput}
+                        type="text"
+                        left={<TextInput.Icon name="filter" />}
+                        activeUnderlineColor="pink"
+                        underlineColor="pink"
+                    />
               </View>
                 <Text style={styles.text}>
                   Serviços

@@ -45,7 +45,7 @@ export default function Routes(){
             component={Profile}
             options={{
                 tabBarIcon: ({ size, color }) => (
-                    <Icon name='frog' size={size} color={color}/>
+                    <Icon name='user-alt' size={size} color={color}/>
                 )
             }}
             />
@@ -55,7 +55,7 @@ export default function Routes(){
             component={Service}
             options={{
                 tabBarIcon: ({ size, color }) => (
-                    <Icon name='briefcase' size={size} color={color}/>
+                    <Icon name='tools' size={size} color={color}/>
                 )
             }}
             />
@@ -65,7 +65,7 @@ export default function Routes(){
             component={Register}
             options={{
                 tabBarIcon: ({ size, color }) => (
-                    <Icon name='briefcase' size={size} color={color}/>
+                    <Icon name='dice' size={size} color={color}/>
                 )
             }}
             />
