@@ -1,6 +1,5 @@
-import { View, Text, TouchableOpacity, Pressable, Keyboard, FlatList, Vibration } from 'react-native';
+import { View, Text, TouchableOpacity, Pressable, Keyboard, Vibration } from 'react-native';
 import styles from '../styles/login'
-import Icon from 'react-native-vector-icons/FontAwesome5'
 import React, { useState } from "react";
 import { TextInput } from 'react-native-paper';
 
@@ -9,39 +8,27 @@ export default function Register() {
     const [fullName, setFullName] = useState('')
     const [password, setPassword] = useState('')
     const [number, setNumber] = useState('')
+    const [errorMessage, setErrorMessage] = useState(null)
 
-    const verificateFields = () => {
+    function validationFields() {
         if ((email, fullName, password, number) !== '') {
-            alert('aaaaaaaaaaaavoce conseguiuuuuuuuuuuuu')
+            setEmail(null)
+            setFullName(null)
+            setPassword(null)
+            setFullName(null)
+            setFullName(null)
+            setNumber(null)
         } else {
+            setErrorMessage(null)
+            setErrorMessage("Todos os campos são obrigatórios!")
             Vibration.vibrate()
-            alert('naaaaaaaaaaaaao')
             return;
         }
     }
 
-    // const validateFields = () => {
-    //     if (email != null && fullName != null && password != null && number != null) {
-    //         // TESTE()
-    //         setEmail(null)
-    //         setFullName(null)
-    //         setPassword(null)
-    //         setNumber(null)
-    //         console.log('if');
-    //         // setErrorMessage(null)
-    //         // setFilledFields([])
-    //         return;
-    //     } else {
-    //         console.log('else validateFields');
-    //         verificateFields()
-    //         return;
-    //     }
-    // }
-
     return (
         <View style={styles.container}>
             <Pressable onPress={Keyboard.dismiss} style={styles.container2}>
-                {/* <Text>{errorMessage}</Text> */}
                 <View style={styles.boxContainerRegister}>
                     <TextInput
                         onChangeText={setFullName}
@@ -86,7 +73,8 @@ export default function Register() {
                         activeUnderlineColor="pink"
                         underlineColor="pink"
                     />
-                    <TouchableOpacity onPress={() => verificateFields()}
+                    <Text style={styles.errorMessage}>{errorMessage}</Text>
+                    <TouchableOpacity onPress={() => validationFields()}
                         style={styles.buttonRegister}
                     >
                         <Text

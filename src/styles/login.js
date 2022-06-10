@@ -47,22 +47,14 @@ export default StyleSheet.create({
     btnNavigate: {
         textAlign:'center',
     },
-    // boxContainerLogin:{
-    //     backgroundColor: '#f3f8fe',
-    //     borderRadius:10,
-    //     height:500,
-    //     // shadowColor:'#0000',
-    //     // elevation: 50
-    // },
-    boxContainerRegister:{
-        borderRadius:10,
-        height:600,
-        // shadowColor:'#0000',
-        // elevation: 50
-    },
     textNavigate:{
         marginTop:10,
         textAlign:'center',
         color:'#7abcdb'
+    },
+    errorMessage:{
+        textAlign:'center',
+        marginTop:5
     }
+
 })
