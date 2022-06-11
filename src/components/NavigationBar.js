@@ -1,14 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-import Service from './src/components/Service'
-import Settings from './src/components/Settings'
-
-import Login from './src/components/Login'
-import Profile from './src/components/Profile'
-import Register from './src/components/Register';
-
-import Worker from './src/components/Worker';
+import Service from './Service'
+import Settings from './Settings'
+import Profile from './Profile'
+import Worker from './Worker';
 
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
@@ -38,19 +33,19 @@ export default function NavigationBar() {
                 component={Profile}
                 options={{
                     tabBarIcon: ({ size, color }) => (
-                        <Icon name='frog' size={size} color={color} />
+                        <Icon name='user-alt' size={size} color={color} />
                     )
                 }}
             />
 
             <Tab.Screen
-            name="Worker"
-            component={Worker}
-            options={{
-                tabBarIcon: ({ size, color }) => (
-                    <Icon name='hamsa' size={size} color={color}/>
-                )
-            }}
+                name="Worker"
+                component={Worker}
+                options={{
+                    tabBarIcon: ({ size, color }) => (
+                        <Icon name='hamsa' size={size} color={color} />
+                    )
+                }}
             />
 
             <Tab.Screen
@@ -58,7 +53,7 @@ export default function NavigationBar() {
                 component={Service}
                 options={{
                     tabBarIcon: ({ size, color }) => (
-                        <Icon name='briefcase' size={size} color={color} />
+                        <Icon name='tools' size={size} color={color} />
                     )
                 }}
             />

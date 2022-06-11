@@ -1,10 +1,10 @@
 import React from 'react';
 
 import NavigationBar from './NavigationBar';
-import Login from './src/components/Login';
-import Profile from './src/components/Profile';
-import Register from './src/components/Register';
-import Worker from './src/components/Worker';
+import Login from '../components//Login';
+import Profile from '../components/Profile';
+import Register from '../components//Register';
+import Worker from '../components/Worker';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'

@@ -5,7 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import 'react-native-gesture-handler';
-import NavigationBar from '../../NavigationBar';
 
 export default function Profile({ route }) {
     return (
@@ -18,8 +17,7 @@ export default function Profile({ route }) {
                     <Image source={require('../../assets/circle.png')}
                         style={styles.profileIcon} />
 
-                    {/* <Text style={styles.name}>{route.params.paramKey}</Text> */}
-                    <Text style={styles.name}>griejogjrerge</Text>
+                    <Text style={styles.name}>nome_usuario</Text>
                     <Text style={styles.service}>Diarista</Text>
 
 
@@ -29,7 +27,6 @@ export default function Profile({ route }) {
                         }} style={styles.buttonText}>Enviar mensagem</Text>
                     </TouchableOpacity>
 
-                    
                 </LinearGradient>
 
                 <View style={styles.containerContact}>
