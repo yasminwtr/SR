@@ -39,5 +39,17 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
-  "private": true
+  "private": true,
+  "description": "Sistema desenvolvido para a Situação de Aprendizagem do 2º semestre no curso técnico de Desenvolvimento de Sistemas no SENAI.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasminwtr/SA2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasminwtr/SA2/issues"
+  },
+  "homepage": "https://github.com/yasminwtr/SA2#readme"
 }
