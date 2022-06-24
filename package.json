@@ -1,7 +1,7 @@
 {
-  "name": "saprofile",
+  "name": "sa2",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "expo start --tunnel",
     "android": "expo start --android",
@@ -17,8 +17,10 @@
     "expo": "^45.0.4",
     "expo-linear-gradient": "~11.3.0",
     "expo-status-bar": "~1.3.0",
+    "express": "^4.18.1",
     "install": "^0.13.0",
     "npx": "^10.2.2",
+    "pg": "^8.7.3",
     "pod": "^0.9.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
