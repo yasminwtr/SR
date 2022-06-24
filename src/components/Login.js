@@ -3,32 +3,28 @@ import styles from '../styles/login'
 import React, { useState } from 'react';
 import { TextInput } from 'react-native-paper';
 
-
 const Login = ({ navigation }) => {
 
     const [emailInput, setEmailInput] = useState('')
     const [senhaInput, setSenhaInput] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
-    
+
     function validateLogin() {
-        
+
         let dadosLogin = {
             email: '123',
             senha: '123'
         }
-        
+
         if (emailInput === dadosLogin.email && senhaInput === dadosLogin.senha) {
             setSenhaInput(null)
             setEmailInput(null)
             navigation.navigate('NavigationBar')
-            // navigation.navigate('Profile', {
-            //     paramKey: dadosLogin.email,})
-            } else {
+        } else {
             setErrorMessage(null)
             setErrorMessage("Usuário ou Senha incorretos")
             return;
         }
-        
     }
 
     return (
@@ -84,7 +80,6 @@ const Login = ({ navigation }) => {
                     <TouchableOpacity
                         style={styles.buttonLogin}
                         onPress={() => {
-                            // navigation.navigate('NavigationBar')
                             validateLogin()
                         }}
                     >

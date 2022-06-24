@@ -1,6 +1,5 @@
 import React from 'react';
-import Routes from './routes';
-import Register from './src/components/Register';
+import Routes from './src/components/Routes';
 
 export default function App() {
   return (
