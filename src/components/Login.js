@@ -1,7 +1,9 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/login'
 import React, { useState } from 'react';
+import api from "../api";
 import { TextInput } from 'react-native-paper';
+import axios from 'axios';
 
 const Login = ({ navigation }) => {
 
@@ -9,7 +11,19 @@ const Login = ({ navigation }) => {
     const [senhaInput, setSenhaInput] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
 
-    async function validateLogin() {
+    async function requisicaoParaApi() {
+        const retornoApi = await api.get();
+        console.log(retornoApi);
+    }
+
+    async function buscarTrabalhadores() {
+        const resposta = await api.post('/trabalhadores', { nome: "João Franco", idade: "24 anos" });
+        console.log("Resposta da API em buscarTrabalhadores(), =>", resposta);
+    }
+
+    buscarTrabalhadores();
+
+    function validateLogin() {
 
         let dadosLogin = {
             email: '123',

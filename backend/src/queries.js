@@ -95,10 +95,26 @@ const deleteUser = (request, response) => {
     }
 }
 
+const postTrabalhadores = (request, response) => {
+    try {
+        const { nome, idade } = request.body;
+        console.log("Corpo da requisição POST em postTrabalhadores(): ", request.body)
+        response.json({ info: `Bateu em postTrabalhadores pra salvar um trabalhador, também recebi os seguintes parâmetros: ${nome} e ${idade}` })
+        db.query(`insert into trabalhadores values (${nome}, ${idade})`
+    } catch (error) {
+        console.log('Erro: ' + error);
+        response.status(400).send({
+            status: 400,
+            message: 'Erro ao deletar o usuário. ' + error
+        })
+    }
+}
+
 module.exports = {
     getUsers,
     getUserById,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    postTrabalhadores
 }
