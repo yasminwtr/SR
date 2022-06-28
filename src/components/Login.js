@@ -9,7 +9,7 @@ const Login = ({ navigation }) => {
     const [senhaInput, setSenhaInput] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
 
-    function validateLogin() {
+    async function validateLogin() {
 
         let dadosLogin = {
             email: '123',

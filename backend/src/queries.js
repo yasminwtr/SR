@@ -5,9 +5,11 @@ const db = new Pool({
     host: 'localhost',
     database: 'user',
     user: 'postgres',
-    password: '123',
+    password: 'senai',
     port: 5432
 })
+
+// Referência
 
 const getUsers = (request, response) => {
     db.query('select * from userdata order by name',
