@@ -25,6 +25,7 @@ const Login = ({ navigation }) => {
     async function login() {
         const response = await api.post('/login', { email: emailInput, password: passwordInput });
         console.log('response login:',response);
+        navigation.navigate('NavigationBar')
     }
 
 

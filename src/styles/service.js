@@ -112,6 +112,26 @@ export const styles = StyleSheet.create({
         width: '50%',
         height: '50%',
         alignItems: 'center'
+    },
+    buttonService: {
+        backgroundColor: '#ff9796',
+        padding: 10,
+        borderRadius: 30,
+        margin: '5%',
+        height: 50,
+        marginTop: 30,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 10,
+    },
+    textButtonService: {
+        fontSize: 20,
+        color: '#fff',
     }
 })
 
