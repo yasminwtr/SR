@@ -8,38 +8,44 @@ import axios from 'axios';
 const Login = ({ navigation }) => {
 
     const [emailInput, setEmailInput] = useState('')
-    const [senhaInput, setSenhaInput] = useState('')
+    const [passwordInput, setPasswordInput] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
 
-    async function requisicaoParaApi() {
-        const retornoApi = await api.get();
-        console.log(retornoApi);
-    }
-
-    async function buscarTrabalhadores() {
-        const resposta = await api.post('/trabalhadores', { nome: "João Franco", idade: "24 anos" });
-        console.log("Resposta da API em buscarTrabalhadores(), =>", resposta);
-    }
-
-    buscarTrabalhadores();
-
-    function validateLogin() {
-
-        let dadosLogin = {
-            email: '123',
-            senha: '123'
-        }
-
-        if (emailInput === dadosLogin.email && senhaInput === dadosLogin.senha) {
-            setSenhaInput(null)
-            setEmailInput(null)
-            navigation.navigate('NavigationBar')
+    function validationLogin() {
+        if ((emailInput, passwordInput) !== '') {
+            login()
         } else {
             setErrorMessage(null)
-            setErrorMessage("Usuário ou Senha incorretos")
+            setErrorMessage("Todos os campos são obrigatórios!*")
+            Vibration.vibrate()
             return;
         }
     }
+
+    async function login() {
+        const response = await api.post('/login', { email: emailInput, password: passwordInput });
+        console.log('response login:',response);
+    }
+
+
+
+    // function validateLogin() {
+
+    //     let dadosLogin = {
+    //         email: '123',
+    //         senha: '123'
+    //     }
+
+    //     if (emailInput === dadosLogin.email && passwordInput === dadosLogin.senha) {
+    //         setPasswordInput(null)
+    //         setEmailInput(null)
+    //         navigation.navigate('NavigationBar')
+    //     } else {
+    //         setErrorMessage(null)
+    //         setErrorMessage("Usuário ou Senha incorretos")
+    //         return;
+    //     }
+    // }
 
     return (
         <View style={styles.container}>
@@ -68,8 +74,8 @@ const Login = ({ navigation }) => {
                         underlineColor="pink"
                     />
                     <TextInput
-                        value={senhaInput}
-                        onChangeText={setSenhaInput}
+                        value={passwordInput}
+                        onChangeText={setPasswordInput}
                         label="Senha"
                         left={<TextInput.Icon name="lock" />}
                         style={styles.textInput}
@@ -94,7 +100,7 @@ const Login = ({ navigation }) => {
                     <TouchableOpacity
                         style={styles.buttonLogin}
                         onPress={() => {
-                            validateLogin()
+                            validationLogin()
                         }}
                     >
                         <Text

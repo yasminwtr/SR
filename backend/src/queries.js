@@ -3,9 +3,9 @@ const { response } = require('express')
 const Pool = require('pg').Pool
 const db = new Pool({
     host: 'localhost',
-    database: 'user',
+    database: 'application_database',
     user: 'postgres',
-    password: 'senai',
+    password: '123',
     port: 5432
 })
 
@@ -95,17 +95,42 @@ const deleteUser = (request, response) => {
     }
 }
 
-const postTrabalhadores = (request, response) => {
+const postPerson = (request, response) => {
     try {
-        const { nome, idade } = request.body;
-        console.log("Corpo da requisição POST em postTrabalhadores(): ", request.body)
-        response.json({ info: `Bateu em postTrabalhadores pra salvar um trabalhador, também recebi os seguintes parâmetros: ${nome} e ${idade}` })
-        db.query(`insert into trabalhadores values (${nome}, ${idade})`
+        const { name, email, about, password, phoneNumber } = request.body
+        console.log('valores postPerson:', { name, email, about, password, phoneNumber });
+
+        db.query('INSERT INTO person ( email, pass, fullName, phoneNumber, about ) values ($1, $2, $3, $4, $5)',
+            [email, password, name, phoneNumber, about], (error, results) => {
+                response.status(201).send('Usuário adicionado')
+            }
+        )
     } catch (error) {
         console.log('Erro: ' + error);
         response.status(400).send({
             status: 400,
-            message: 'Erro ao deletar o usuário. ' + error
+            message: 'Erro ao adicionar usuário. ' + error
+        })
+    }
+}
+
+const authenticate = (request, response) => {
+    try {
+        const { email, password } = request.body
+        console.log('valores authenticate:', { email, password });
+
+        db.query('SELECT * FROM person WHERE email = $1 AND pass = $2',
+            [email, password], (error, results) => {
+                console.log('error:', error, 'results:', results);
+                if (error || results.rowCount === 0) {
+                    throw new Error(error || 'Impossível logar com as credenciais fornecidas')
+                } response.status(200).send({ user: results.rows[0] })
+            })
+    } catch (error) {
+        console.log('Erro: ' + error);
+        response.status(401).send({
+            status: 401,
+            message: 'Erro ao autenticar o usuário. ' + error
         })
     }
 }
@@ -116,5 +141,6 @@ module.exports = {
     createUser,
     updateUser,
     deleteUser,
-    postTrabalhadores
+    postPerson,
+    authenticate
 }

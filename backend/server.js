@@ -11,10 +11,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', (request, response) => {
-    response.json({ info: 'API REST running with success'})
+    response.json({ info: 'API REST running with success' })
 });
 
-app.post('/trabalhadores', routes.postTrabalhadores)
+app.post('/login', routes.authenticate)
+app.post('/registerPerson', routes.postPerson)
 app.get('/userdata', routes.getUsers)
 app.get('/userdata/:id', routes.getUserById)
 app.post('/userdata', routes.createUser)

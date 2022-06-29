@@ -2,20 +2,19 @@ import { View, Text, TouchableOpacity, Pressable, Keyboard, Vibration } from 're
 import styles from '../styles/login'
 import React, { useState } from "react";
 import { TextInput } from 'react-native-paper';
+import api from "../api";
 
 export default function Register() {
     const [email, setEmail] = useState('')
-    const [fullName, setFullName] = useState('')
+    const [name, setName] = useState('')
     const [password, setPassword] = useState('')
-    const [number, setNumber] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [about, setAbout] = useState('')
     const [errorMessage, setErrorMessage] = useState(null)
 
     function validationFields() {
-        if ((email, fullName, password, number) !== '') {
-            setEmail(null)
-            setFullName(null)
-            setPassword(null)
-            setNumber(null)
+        if ((email, name, password, phoneNumber) !== '') {
+            registerNewUser()
         } else {
             setErrorMessage(null)
             setErrorMessage("Todos os campos são obrigatórios!*")
@@ -24,13 +23,18 @@ export default function Register() {
         }
     }
 
+    async function registerNewUser() {
+        const response = await api.post('/registerPerson', { name, email, about, password, phoneNumber });
+        console.log('response registerPerson:',response);
+    }
+
     return (
         <View style={styles.container}>
             <Pressable onPress={Keyboard.dismiss} style={styles.container2}>
                 <View style={styles.boxContainerRegister}>
                     <TextInput
-                        onChangeText={setFullName}
-                        value={fullName}
+                        onChangeText={setName}
+                        value={name}
                         label="Nome Completo"
                         style={styles.textInput}
                         type="text"
@@ -50,8 +54,19 @@ export default function Register() {
                         underlineColor="pink"
                     />
                     <TextInput
-                        onChangeText={setNumber}
-                        value={number}
+                        onChangeText={setAbout}
+                        value={about}
+                        label="Descrição"
+                        placeholder='Descreva um pouco sobre você'
+                        style={styles.textInput}
+                        type="text"
+                        left={<TextInput.Icon name="account" />}
+                        activeUnderlineColor="pink"
+                        underlineColor="pink"
+                    />
+                    <TextInput
+                        onChangeText={setPhoneNumber}
+                        value={phoneNumber}
                         label="Telefone"
                         placeholder='ex. (48)991234-4567'
                         style={styles.textInput}
