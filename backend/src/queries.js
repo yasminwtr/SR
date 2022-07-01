@@ -5,11 +5,9 @@ const db = new Pool({
     host: 'localhost',
     database: 'application_database',
     user: 'postgres',
-    password: 'senai',
+    password: '123',
     port: 5432
 })
-
-// Referência
 
 const getUsers = (request, response) => {
     db.query('select * from userdata order by name',
@@ -123,13 +121,16 @@ const authenticate = (request, response) => {
             [email, password], (error, results) => {
                 console.log('error:', error, 'results:', results);
                 if (error || results.rowCount === 0) {
-                    throw new Error(error || 'Impossível logar com as credenciais fornecidas')
+                  return response.status(401).send({
+                    status: 401,
+                    message: 'Erro ao autenticar o usuário. ' + error
+                })
                 } response.status(200).send({ user: results.rows[0] })
             })
     } catch (error) {
-        console.log('Erro: ' + error);
-        response.status(401).send({
-            status: 401,
+        console.log('Erro @ authenticate: ' + error);
+        response.status(500).send({
+            status: 500,
             message: 'Erro ao autenticar o usuário. ' + error
         })
     }

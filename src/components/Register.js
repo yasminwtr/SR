@@ -5,111 +5,111 @@ import { TextInput } from 'react-native-paper';
 import api from "../api";
 
 export default function Register() {
-    const [email, setEmail] = useState('')
-    const [name, setName] = useState('')
-    const [password, setPassword] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
-    const [about, setAbout] = useState('')
-    const [errorMessage, setErrorMessage] = useState(null)
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [about, setAbout] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
 
-    function validationFields() {
-        if ((email, name, password, phoneNumber) !== '') {
-            registerNewUser()
-        } else {
-            setErrorMessage(null)
-            setErrorMessage("Todos os campos são obrigatórios!*")
-            Vibration.vibrate()
-            return;
-        }
+  function validationFields() {
+    if ((email, name, password, phoneNumber) !== '') {
+      registerNewUser()
+    } else {
+      setErrorMessage(null)
+      setErrorMessage("Todos os campos são obrigatórios!*")
+      Vibration.vibrate()
+      return;
     }
+  }
 
-    async function registerNewUser() {
-        const response = await api.post('/registerPerson', { name, email, about, password, phoneNumber });
-        console.log('response registerPerson:',response);
-    }
+  async function registerNewUser() {
+    const response = await api.post('/registerPerson', { name, email, about, password, phoneNumber });
+    console.log('response registerPerson:', response);
+  }
 
-    return (
-        <View style={styles.container}>
-            <Pressable onPress={Keyboard.dismiss} style={styles.container2}>
-                <View style={styles.boxContainerRegister}>
-                    <TextInput
-                        onChangeText={setName}
-                        value={name}
-                        label="Nome Completo"
-                        style={styles.textInput}
-                        type="text"
-                        left={<TextInput.Icon name="account" />}
-                        activeUnderlineColor="pink"
-                        underlineColor="pink"
-                    />
-                    <TextInput
-                        onChangeText={setEmail}
-                        value={email}
-                        label="E-mail"
-                        placeholder='email@email.com'
-                        style={styles.textInput}
-                        type="text"
-                        left={<TextInput.Icon name="email" />}
-                        activeUnderlineColor="pink"
-                        underlineColor="pink"
-                    />
-                    <TextInput
-                        onChangeText={setAbout}
-                        value={about}
-                        label="Descrição"
-                        placeholder='Descreva um pouco sobre você'
-                        style={styles.textInput}
-                        type="text"
-                        left={<TextInput.Icon name="account" />}
-                        activeUnderlineColor="pink"
-                        underlineColor="pink"
-                    />
-                    <TextInput
-                        onChangeText={setPhoneNumber}
-                        value={phoneNumber}
-                        label="Telefone"
-                        placeholder='ex. (48)991234-4567'
-                        style={styles.textInput}
-                        type="text"
-                        left={<TextInput.Icon name="phone" />}
-                        activeUnderlineColor="pink"
-                        underlineColor="pink"
-                    />
-                    <TextInput
-                        onChangeText={setPassword}
-                        value={password}
-                        label="Senha"
-                        placeholder='********'
-                        style={styles.textInput}
-                        type="text"
-                        left={<TextInput.Icon name="lock" />}
-                        activeUnderlineColor="pink"
-                        underlineColor="pink"
-                    />
-                    <Text style={styles.errorMessage}>{errorMessage}</Text>
-                    <TouchableOpacity onPress={() => validationFields()}
-                        style={styles.buttonRegister}
-                    >
-                        <Text
-                            style={{ color: '#ffff', textAlign: 'center', fontSize: 25 }}>
-                            Criar Conta
-                        </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.btnNavigate}
-                        onPress={() => {
-                            navigation.navigate('Login')
-                        }}>
-                        <Text style={styles.textNavigate}>
-                            Não tenho uma conta
-                        </Text>
-                        <Text style={{ color: '#7abcdb', textAlign: 'center', marginBottom: 20 }}>
-                            Esqueci a senha
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-            </Pressable>
+  return (
+    <View style={styles.container}>
+      <Pressable onPress={Keyboard.dismiss} style={styles.container2}>
+        <View style={styles.boxContainerRegister}>
+          <TextInput
+            onChangeText={setName}
+            value={name}
+            label="Nome Completo"
+            style={styles.textInput}
+            type="text"
+            left={<TextInput.Icon name="account" />}
+            activeUnderlineColor="pink"
+            underlineColor="pink"
+          />
+          <TextInput
+            onChangeText={setEmail}
+            value={email}
+            label="E-mail"
+            placeholder='email@email.com'
+            style={styles.textInput}
+            type="text"
+            left={<TextInput.Icon name="email" />}
+            activeUnderlineColor="pink"
+            underlineColor="pink"
+          />
+          <TextInput
+            onChangeText={setAbout}
+            value={about}
+            label="Descrição"
+            placeholder='Descreva um pouco sobre você'
+            style={styles.textInput}
+            type="text"
+            left={<TextInput.Icon name="account" />}
+            activeUnderlineColor="pink"
+            underlineColor="pink"
+          />
+          <TextInput
+            onChangeText={setPhoneNumber}
+            value={phoneNumber}
+            label="Telefone"
+            placeholder='ex. (48)991234-4567'
+            style={styles.textInput}
+            type="text"
+            left={<TextInput.Icon name="phone" />}
+            activeUnderlineColor="pink"
+            underlineColor="pink"
+          />
+          <TextInput
+            onChangeText={setPassword}
+            value={password}
+            label="Senha"
+            placeholder='********'
+            style={styles.textInput}
+            type="text"
+            left={<TextInput.Icon name="lock" />}
+            activeUnderlineColor="pink"
+            underlineColor="pink"
+          />
+          <Text style={styles.errorMessage}>{errorMessage}</Text>
+          <TouchableOpacity onPress={() => validationFields()}
+            style={styles.buttonRegister}
+          >
+            <Text
+              style={{ color: '#ffff', textAlign: 'center', fontSize: 25 }}>
+              Criar Conta
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.btnNavigate}
+            onPress={() => {
+              navigation.navigate('Login')
+            }}>
+            <Text style={styles.textNavigate}>
+              Não tenho uma conta
+            </Text>
+            <Text style={{ color: '#7abcdb', textAlign: 'center', marginBottom: 20 }}>
+              Esqueci a senha
+            </Text>
+          </TouchableOpacity>
         </View>
-    )
+      </Pressable>
+    </View>
+  )
 }
 

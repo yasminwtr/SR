@@ -1,8 +1,16 @@
 import React from 'react';
-import Routes from './src/components/Routes';
+import {NavigationContainer} from '@react-navigation/native';
+import {AuthProvider} from './src/components/pages/contexts/auth';
+import Routes from './src/components/pages/services/routes/index';
 
-export default function App() {
+const App = () => {
   return (
-      <Routes/>
+    <NavigationContainer>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+    </NavigationContainer>
   );
-}
+};
+
+export default App;
