@@ -2,9 +2,7 @@ import { View, Text, TouchableOpacity, Button } from 'react-native';
 import React, { useState, useContext } from 'react';
 import styles from '../../../styles/login'
 import { TextInput } from 'react-native-paper';
-import axios from 'axios';
 import AuthContext from '../contexts/auth';
-import Routes from '../../Routes';
 
 const SignIn = ({navigation}) => {
   const { signed, signIn, user } = useContext(AuthContext);

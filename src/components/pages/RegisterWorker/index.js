@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, TextInput } from "react-native";
 import api from '../../../api'
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>{item.titleservice}</Text>
+    <Text style={[styles.titleService, textColor]}>{item.titleservice}</Text>
   </TouchableOpacity>
 );
 
@@ -24,21 +24,24 @@ const RegisterWorker = () => {
 
   const renderItem = ({ item }) => {
     console.log('item', item);
-    const backgroundColor = item.idservice === selectedId ? "#6e3b6e" : "#f9c2ff";
+    const backgroundColor = item.idservice === selectedId ? "#ff9796" : "#fff";
     const color = item.idservice === selectedId ? 'white' : 'black';
 
     return (
-      <Item
-        item={item}
-        onPress={() => setSelectedId(item.idservice)}
-        backgroundColor={{ backgroundColor }}
-        textColor={{ color }}
-      />
+        <Item
+          item={item}
+          onPress={() => setSelectedId(item.idservice)}
+          backgroundColor={{ backgroundColor }}
+          textColor={{ color }}
+        />
     );
   };
 
   return (
     <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={styles.title}>Escolha o serviço que deseja anunciar</Text>
+      </View>
       <FlatList
         data={services}
         renderItem={renderItem}
@@ -55,13 +58,21 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    padding: 20,
+    padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
+    borderRadius: 30
+  },
+  titleService: {
+    fontSize: 25,
+    textAlign: 'center'
   },
   title: {
-    fontSize: 32,
-  },
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    margin: 20
+  }
 });
 
 export default RegisterWorker;

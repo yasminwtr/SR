@@ -11648,6 +11648,11 @@
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
 
+"react-native-currency-input@^1.0.1":
+  "integrity" "sha512-1AbXXMAyNBEV2M0snh6e/B1w+rxRBgu9IARVaeF0tkUuaGX4kl/tQVXzyNa0fV2GX89U8Hyb0HaMvjaIZGniAA=="
+  "resolved" "https://registry.npmjs.org/react-native-currency-input/-/react-native-currency-input-1.0.1.tgz"
+  "version" "1.0.1"
+
 "react-native-flex-layout@^0.1.5":
   "integrity" "sha512-DrLir5Wl0RhgJXHeDBSaa1Y1LdpNuoz0PEe5E1T1+xVWt2DAz/r+1N8bnhtVkTKJE6WrH6jIH2hoe8kogR0X+w=="
   "resolved" "https://registry.npmjs.org/react-native-flex-layout/-/react-native-flex-layout-0.1.5.tgz"
