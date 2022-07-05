@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   async function signIn(loginData) {
     const loggedUser = await auth.signIn(loginData);
+    console.log('loginData',loginData); 
 
     setUser(loggedUser);
   }

@@ -1,11 +1,16 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from '../styles/service'
+import AuthRoutes from './pages/services/routes/auth.routes'
 
-export const Service = () => {
+export const Service = (props) => {
   return (
     <View style={styles.container1}>
-      <TouchableOpacity style={styles.buttonService}>
+      <TouchableOpacity
+      style={styles.buttonService}
+        onPress={() => {
+          props.navigation.navigate('RegisterWorker')
+        }}>
         <Text style={styles.textButtonService}>
           Quero Prestar Serviços
         </Text>

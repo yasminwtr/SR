@@ -5,7 +5,7 @@ CREATE DATABASE application_database
     CONNECTION LIMIT = -1;
 
 CREATE TABLE person(
-    personId SERIAL PRIMARY KEY,
+    idPerson SERIAL PRIMARY KEY,
     email VARCHAR(45) NOT NULL,
     pass VARCHAR(45) NOT NULL,
     fullName VARCHAR(45) NOT NULL,
@@ -13,3 +13,16 @@ CREATE TABLE person(
     about VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE service(
+    idService SERIAL PRIMARY KEY,
+    titleService VARCHAR(45),
+    description VARCHAR(100)
+);
+
+CREATE TABLE worker(
+    idWorker SERIAL PRIMARY KEY,
+    idPerson INT NOT NULL,
+    idService INT NOT NULL,
+    FOREIGN KEY (idPerson) references Person (idPerson),
+    FOREIGN KEY (idService) references service (idService)
+);

@@ -15,6 +15,7 @@ app.get('/', (request, response) => {
 });
 
 app.post('/login', routes.authenticate)
+app.get('/services', routes.getServices)
 app.post('/registerPerson', routes.postPerson)
 app.get('/userdata', routes.getUsers)
 app.get('/userdata/:id', routes.getUserById)

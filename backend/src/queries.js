@@ -136,6 +136,18 @@ const authenticate = (request, response) => {
     }
 }
 
+const getServices = (request, response) => {
+  console.log('getServices');
+  db.query('select * from service',
+      (error, results) => {
+        console.log('results',results);
+          if (error) {
+              throw error
+          }
+          response.status(200).json(results.rows)
+      })
+}
+
 module.exports = {
     getUsers,
     getUserById,
@@ -143,5 +155,6 @@ module.exports = {
     updateUser,
     deleteUser,
     postPerson,
-    authenticate
+    authenticate,
+    getServices
 }
