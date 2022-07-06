@@ -14,6 +14,7 @@ app.get('/', (request, response) => {
     response.json({ info: 'API REST running with success' })
 });
 
+app.post('/registerWorker', routes.registerWorker)
 app.post('/login', routes.authenticate)
 app.get('/services', routes.getServices)
 app.post('/registerPerson', routes.postPerson)

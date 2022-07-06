@@ -23,6 +23,8 @@ CREATE TABLE worker(
     idWorker SERIAL PRIMARY KEY,
     idPerson INT NOT NULL,
     idService INT NOT NULL,
-    FOREIGN KEY (idPerson) references Person (idPerson),
-    FOREIGN KEY (idService) references service (idService)
+    descriptionService VARCHAR(100),
+    priceService NUMERIC,
+    FOREIGN KEY (idPerson) REFERENCES person (idPerson),
+    FOREIGN KEY (idService) REFERENCES service (idService)
 );
