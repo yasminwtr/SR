@@ -3,11 +3,11 @@ import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, 
 import api from '../../../api'
 import Description from "./description";
 import AuthContext from "../contexts/auth";
-import { Snackbar } from 'react-native-paper';
+import { Snackbar, Title } from 'react-native-paper';
 
-const Item = ({ item, onPress, backgroundColor, textColor }) => (
+const Item = ({ item, onPress, backgroundColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>{item.titleservice}</Text>
+    <Text style={styles.titleService}>{item.titleservice}</Text>
   </TouchableOpacity>
 );
 
@@ -24,7 +24,7 @@ const RegisterWorker = (props) => {
   async function registerWorker() {
     try {
       const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price });
-      setSnackbarMessage('OK')
+      setSnackbarMessage('Serviço registrado com sucesso!')
       setSnackbarVisible(true)
     } catch (error) {
 
@@ -40,10 +40,10 @@ const RegisterWorker = (props) => {
       .catch(console.error);
   }, [])
 
+
   const renderItem = ({ item }) => {
-    console.log('item', item);
-    const backgroundColor = item.idservice === selectedId ? "#6e3b6e" : "#f9c2ff";
-    const color = item.idservice === selectedId ? 'white' : 'black';
+    const backgroundColor = item.idservice === selectedId ? "black" : "#fff";
+    const color = item.idservice === selectedId ? '#b899ad' : '#b899ad';
 
     return (
       <Item
@@ -58,6 +58,10 @@ const RegisterWorker = (props) => {
   if (selectedId == null) {
     return (
       <SafeAreaView style={styles.container}>
+        <Title style={styles.title}>
+          Escolha o serviço
+          que deseja anunciar
+        </Title>
         <FlatList
           data={services}
           renderItem={renderItem}
@@ -76,25 +80,25 @@ const RegisterWorker = (props) => {
           price={price}
           setPrice={setPrice}
         />
-
         <Snackbar
           visible={snackbarVisible}
           onDismiss={() => setSnackbarVisible(false)}
           action={{
-            label: 'Fechar',
+            label: 'Ok',
             onPress: () => {
               setSnackbarVisible(false)
             },
           }}
-          style={{ backgroundColor: "#fff"}}
-          theme={{colors: {surface: 'black', accent: 'red'},}}
+          style={{ backgroundColor: "#fff" }}
+          theme={{ colors: { surface: 'black', accent: 'red' }, }}
         >
-          <View><Text>{snackbarMessage}</Text></View>
+          <Text>
+            {snackbarMessage}
+          </Text>
         </Snackbar>
       </View>
     )
   }
-
 };
 
 const styles = StyleSheet.create({
@@ -103,12 +107,33 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    padding: 20,
+    margin: 20,
+    padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
+    borderRadius: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
+  },
+  titleService: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#b899ad',
   },
   title: {
     fontSize: 32,
+    textAlign: 'left',
+    margin: 30,
+    marginTop: 50,
+    marginBottom: 30,
+    color: '#ff9796'
   },
 });
 
