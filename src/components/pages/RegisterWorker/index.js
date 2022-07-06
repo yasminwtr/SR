@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import api from '../../../api'
 import Description from "./description";
 import AuthContext from "../contexts/auth";
+import { Snackbar } from 'react-native-paper';
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
@@ -15,13 +16,19 @@ const RegisterWorker = (props) => {
   const [services, setServices] = useState(null);
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
   const { user } = useContext(AuthContext);
 
-  console.log('user', user);
   async function registerWorker() {
-    const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price });
-    console.log('response registerWorker:', response);
+    try {
+      const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price });
+      setSnackbarMessage('OK')
+      setSnackbarVisible(true)
+    } catch (error) {
+
+    }
   }
 
   useEffect(() => {
@@ -32,7 +39,6 @@ const RegisterWorker = (props) => {
     fetchData()
       .catch(console.error);
   }, [])
-  console.log('services', services);
 
   const renderItem = ({ item }) => {
     console.log('item', item);
@@ -62,13 +68,30 @@ const RegisterWorker = (props) => {
     )
   } else {
     return (
-      <Description
-        finish={registerWorker}
-        description={description}
-        setDescription={setDescription}
-        price={price}
-        setPrice={setPrice}
-      />
+      <View>
+        <Description
+          finish={registerWorker}
+          description={description}
+          setDescription={setDescription}
+          price={price}
+          setPrice={setPrice}
+        />
+
+        <Snackbar
+          visible={snackbarVisible}
+          onDismiss={() => setSnackbarVisible(false)}
+          action={{
+            label: 'Fechar',
+            onPress: () => {
+              setSnackbarVisible(false)
+            },
+          }}
+          style={{ backgroundColor: "#fff"}}
+          theme={{colors: {surface: 'black', accent: 'red'},}}
+        >
+          <View><Text>{snackbarMessage}</Text></View>
+        </Snackbar>
+      </View>
     )
   }
 
