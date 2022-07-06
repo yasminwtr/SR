@@ -5,7 +5,7 @@ const db = new Pool({
   host: 'localhost',
   database: 'application_database',
   user: 'postgres',
-  password: 'senai',
+  password: '123',
   port: 5432
 })
 
@@ -17,6 +17,16 @@ const getWorkers = (request, response) => {
             }
             response.status(200).json(results.rows)
         })
+}
+
+const getWorkerId = (request, response) => {
+  db.query('select idperson from person',
+      (error, results) => {
+        if (error) {
+          throw error
+        }
+        response.status(200).json(results.rows)
+      })
 }
 
 // const getUserById = (request, response) => {
