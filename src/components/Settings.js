@@ -3,8 +3,13 @@ import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native';
 import styles from '../styles/setting'
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import React, { useContext } from "react";
+import AuthContext from "../components/pages/contexts/auth";
+import Dashboard from './pages/DashBoard';
 
 export default function Settings() {
+  const { user } = useContext(AuthContext);
+
   return (
     <View style={styles.page}>
       <LinearGradient
@@ -16,12 +21,14 @@ export default function Settings() {
             style={styles.profileIcon} />
         </TouchableOpacity>
 
-        <Text style={styles.name}>Nome Sobrenome</Text>
-        <Text style={styles.email}>email@gmail.com</Text>
+        <Text style={styles.name}>{user?.fullname}</Text>
+        <Text style={styles.email}>{user?.email}</Text>
 
       </LinearGradient>
 
       <View>
+        <Dashboard />
+
         <View style={styles.configurations}>
           <TouchableOpacity style={styles.button}>
             <Icon name='user-alt' size={22} color='#343434' />
@@ -39,10 +46,10 @@ export default function Settings() {
 
           <View style={styles.divider} />
 
-          <TouchableOpacity style={styles.button}>
-            <Icon name='sign-out-alt' size={22} color='#a17792' />
-            <Text style={styles.exitText}>Sair</Text>
-          </TouchableOpacity>
+          {/* <TouchableOpacity style={styles.button}>
+          <Icon name='sign-out-alt' size={22} color='#a17792' />
+          <Text style={styles.exitText}>Sair</Text>
+          </TouchableOpacity> */}
         </View>
       </View>
       <StatusBar style="auto" />

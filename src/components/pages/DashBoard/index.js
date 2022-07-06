@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Button, StyleSheet } from "react-native";
+import { View, Button, StyleSheet, Text } from "react-native";
 import AuthContext from "../contexts/auth";
 
 const styles = StyleSheet.create({
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Dashboard = () => {
+export default function Dashboard() {
   const { signOut } = useContext(AuthContext);
 
   function handleSignOut() {
@@ -22,5 +22,3 @@ const Dashboard = () => {
     </View>
   );
 };
-
-export default Dashboard;

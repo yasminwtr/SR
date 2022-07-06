@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import 'react-native-gesture-handler';
 
-export default function Profile({ route }) {
+export default function Profile({route}) {
   return (
     <View style={styles.page}>
       <ScrollView>
@@ -17,7 +17,7 @@ export default function Profile({ route }) {
           <Image source={require('../../assets/circle.png')}
             style={styles.profileIcon} />
 
-          <Text style={styles.name}>nome_usuario</Text>
+          <Text style={styles.name}></Text>
           <Text style={styles.service}>Diarista</Text>
 
 

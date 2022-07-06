@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import Service from './Service'
 import Settings from './Settings'
 import Profile from './Profile'
@@ -11,8 +12,28 @@ import Worker from './Worker';
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-export default function NavigationBar() {
+const ServiceStack = ({navigation}) => (
+  <Stack.Navigator>
+      <Stack.Screen
+      name='Serviço'
+      component={Service}
+      />
+
+      <Stack.Screen
+      name='Workers'
+      component={Worker}
+      />
+
+      <Stack.Screen
+      name='Perfil'
+      component={Profile}
+      />
+  </Stack.Navigator>
+)
+
+const NavigationBar = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -49,7 +70,7 @@ export default function NavigationBar() {
 
       <Tab.Screen
         name="Serviços"
-        component={Service}
+        component={ServiceStack}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Icon name='tools' size={size} color={color} />
@@ -69,3 +90,5 @@ export default function NavigationBar() {
     </Tab.Navigator>
   )
 }
+
+export default NavigationBar

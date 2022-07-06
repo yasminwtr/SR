@@ -27,7 +27,7 @@ export const Service = (props) => {
 
 
           <TouchableOpacity onPress={() => {
-          props.navigation.navigate('RegisterWorker')}}>
+          props.navigation.navigate('Worker')}}>
             <Image source={require('../../assets/diarista.png')} style={styles.imagem1} />
           </TouchableOpacity>
           <Text style={styles.legenda}>
