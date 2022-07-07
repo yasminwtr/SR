@@ -47,12 +47,23 @@ export default function Settings() {
 
           <View style={styles.divider} />
 
-          <View style={styles.viewEspaco}>
+          <View>
+            <TouchableOpacity
+              onPress={() => {props.navigation.navigate('RegisterWorker')}} 
+              style={styles.buttonService}>
+              <Text style={styles.serviceText}>Quero anunciar um serviço</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.divider} />
+
+          <View>
             <TouchableOpacity style={styles.button}>
               <Icon name='trash' size={22} color='#b52d2d' />
               <Text style={styles.deleteText}>Excluir conta</Text>
             </TouchableOpacity>
           </View>
+
         </View>
       </View>
       <StatusBar style="auto" />

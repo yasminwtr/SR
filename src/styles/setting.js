@@ -64,4 +64,13 @@ export default StyleSheet.create({
         color: '#a17792',
         marginLeft: 10,
     },
+    serviceText: {
+        fontSize: 18,
+        color: '#565d61'
+    },
+    buttonService: {
+        textAlign:'center',
+        marginBottom: 25,
+        marginTop: 20,
+    }
 })

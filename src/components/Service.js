@@ -5,19 +5,6 @@ import styles from '../styles/service'
 export const Service = (props) => {
   return (
     <View style={styles.container1}>
-      <TouchableOpacity
-        style={styles.buttonService}
-        onPress={() => {
-          props.navigation.navigate('RegisterWorker')
-        }}>
-
-
-        <Text style={styles.textButtonService}>
-          Quero Prestar Serviços
-        </Text>
-
-
-      </TouchableOpacity>
       <Text style={styles.text}>
         Serviços Disponíveis
       </Text>
