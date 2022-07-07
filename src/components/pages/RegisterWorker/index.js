@@ -38,19 +38,6 @@ const RegisterWorker = (props) => {
     }
   }
 
-  // function verificationFields(){
-  //   if((description, price) !== '') {
-  //     props.navigation.navigate('NavigationBar')
-  //     setSnackbarMessage('Serviço registrado com sucesso!')
-  //     setSnackbarVisible(true)
-  //     registerWorker()
-  //   }
-  //   else{
-  //     setSnackbarMessage('Preencha todos os campos')
-  //     setSnackbarVisible(true)
-  //   }
-  // }
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await api.get('/services');
