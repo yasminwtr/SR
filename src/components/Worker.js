@@ -27,16 +27,9 @@ export default function Worker(props, onPress) {
     getWorkers()
   }, [])
 
-
   
   return (
     <View style={styles.page}>
-      {/* <TextInput
-        style={styles.input}
-        placeholder='Buscar mais próximo por CEP'
-        keyboardType='numeric'
-        maxLength={8}
-      /> */}
       <ScrollView>
 
         <Text style={styles.title}>Diarista</Text>
@@ -44,8 +37,13 @@ export default function Worker(props, onPress) {
           {
             workers.map((data) => {
               return (
-                <WorkerItem key={data.idperson} name={data.fullname} idperson={data.idperson}
-                onPress={() => props.navigation.navigate('Profile', {idperson: data.idperson})}/>
+                <View>
+                <TouchableOpacity style={styles.profileButton} onPress={() => props.navigation.navigate('Profile', data.idperson)}>
+                    <Image source={require("../../assets/circle.png")} style={styles.profileIcon} />
+                    <Text style={styles.name}>{data.email}</Text>
+                    <Text style={styles.km}>{data.idperson}</Text>
+                </TouchableOpacity>
+                </View>
               )
             })
           }
