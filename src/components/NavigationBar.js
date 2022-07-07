@@ -17,7 +17,7 @@ const Stack = createStackNavigator();
 const ServiceStack = ({navigation}) => (
   <Stack.Navigator>
       <Stack.Screen
-      name='Serviço'
+      name='Service'
       component={Service}
       />
 
@@ -27,7 +27,7 @@ const ServiceStack = ({navigation}) => (
       />
 
       <Stack.Screen
-      name='Perfil'
+      name='Profile'
       component={Profile}
       />
   </Stack.Navigator>

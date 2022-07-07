@@ -4,9 +4,10 @@ import 'react-native-gesture-handler';
 import { useEffect, useState } from 'react';
 import WorkerItem from './WorkerItem';
 
-export default function Worker(props) {
+export default function Worker(props, onPress) {
 
   const [workers, setWorkers] = useState([])
+  const [id, setId] = useState([])
 
   const getWorkers = async() => {
     try{
@@ -39,11 +40,12 @@ export default function Worker(props) {
       <ScrollView>
 
         <Text style={styles.title}>Diarista</Text>
-        <Button title="Teste" onPress={() => props.navigation.navigate('Perfil')}></Button>
+        <Button title="Teste" onPress={() => props.navigation.navigate('Profile')}></Button>
           {
             workers.map((data) => {
               return (
-                <WorkerItem key={data.idperson} name={data.fullname} onPress={() => props.navigation.navigate('Perfil', data.idperson)}/>
+                <WorkerItem key={data.idperson} name={data.fullname} idperson={data.idperson}
+                onPress={() => props.navigation.navigate('Profile', {idperson: data.idperson})}/>
               )
             })
           }

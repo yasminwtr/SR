@@ -8,7 +8,7 @@ export const WorkerItem = (props) => {
             <TouchableOpacity style={styles.profileButton}>
                 <Image source={require("../../assets/circle.png")} style={styles.profileIcon} />
                 <Text style={styles.name}>{props.name}</Text>
-                <Text style={styles.km}>2,4km</Text>
+                <Text style={styles.km}>{props.idperson}</Text>
             </TouchableOpacity>
         </View>
     )
