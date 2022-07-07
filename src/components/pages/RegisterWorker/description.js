@@ -9,6 +9,19 @@ import { Title, Button } from 'react-native-paper';
 const Description = (props) => {
   const { description, setDescription, price, setPrice, finish } = props
 
+
+
+  // function validateLogin() {
+  //   if ((emailInput, passwordInput) !== '') {
+  //     signIn({ email: emailInput, password: passwordInput })
+  //   } else {
+  //     setErrorMessage(null)
+  //     setErrorMessage("Todos os campos são obrigatórios!*")
+  //     // Vibration.vibrate()
+  //     return;
+  //   }
+  // }
+
   return (
     <View>
       <Title style={styles.title}
@@ -39,7 +52,7 @@ const Description = (props) => {
         color='#fff'
         labelStyle={{ color: "#fad0d0", fontSize: 18 }}
       >
-        Próximo Passo
+        Finalizar
       </Button>
     </View>
   )
@@ -73,9 +86,9 @@ const styles = StyleSheet.create({
 
     // backgroundColor: '#ff9796',
     padding: 8,
-    width:'70%',
-    alignSelf:'center',
-    borderRadius:20,
+    width: '70%',
+    alignSelf: 'center',
+    borderRadius: 20,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -90,7 +103,7 @@ const styles = StyleSheet.create({
     // color: '#fff'
   },
   CurrencyInput: {
-    marginBottom:'30%',
+    marginBottom: '30%',
     borderRadius: 15,
     width: '30%',
     height: 40,

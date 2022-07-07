@@ -2,14 +2,12 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
     page: {
-        backgroundColor: '#f3f8fe'
+        backgroundColor: '#f3f8fe',
     },
     container: {
-        padding: 15,
         justifyContent: 'center',
         alignContent: 'center',
         backgroundColor: '#3d4379',
-        height: 250,
         borderBottomEndRadius: 20,
         borderBottomStartRadius: 20,
         shadowColor: '#3d4379',
@@ -59,14 +57,20 @@ export default StyleSheet.create({
     deleteText: {
         fontSize: 18,
         color: '#b52d2d',
-        marginLeft: 10
+        marginLeft: 10,
     },
     exitText: {
         fontSize: 18,
         color: '#a17792',
-        marginLeft: 10
+        marginLeft: 10,
     },
-    viewEspaco:{
-        marginTop: 313,
-}
+    serviceText: {
+        fontSize: 18,
+        color: '#565d61'
+    },
+    buttonService: {
+        textAlign:'center',
+        marginBottom: 25,
+        marginTop: 20,
+    }
 })

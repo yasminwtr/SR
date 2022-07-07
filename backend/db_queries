@@ -28,3 +28,4 @@ CREATE TABLE worker(
     FOREIGN KEY (idPerson) REFERENCES person (idPerson),
     FOREIGN KEY (idService) REFERENCES service (idService)
 );
+

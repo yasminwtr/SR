@@ -1,14 +1,18 @@
+import React, { useContext } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 import styles from '../styles/setting'
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import React, { useContext } from "react";
 import AuthContext from "../components/pages/contexts/auth";
-import Dashboard from './pages/DashBoard';
 
 export default function Settings() {
   const { user } = useContext(AuthContext);
+  const { signOut } = useContext(AuthContext);
+
+  function handleSignOut() {
+    signOut();
+  }
 
   return (
     <View style={styles.page}>
@@ -25,10 +29,7 @@ export default function Settings() {
         <Text style={styles.email}>{user?.email}</Text>
 
       </LinearGradient>
-
       <View>
-        <Dashboard />
-
         <View style={styles.configurations}>
           <TouchableOpacity style={styles.button}>
             <Icon name='user-alt' size={22} color='#343434' />
@@ -37,19 +38,32 @@ export default function Settings() {
 
           <View style={styles.divider} />
 
-          <View style={styles.viewEspaco}>
+          <TouchableOpacity
+            onPress={handleSignOut}
+            style={styles.button}>
+            <Icon name='sign-out-alt' size={22} color='#a17792' />
+            <Text style={styles.exitText}>Sair</Text>
+          </TouchableOpacity>
+
+          <View style={styles.divider} />
+
+          <View>
+            <TouchableOpacity
+              onPress={() => {props.navigation.navigate('RegisterWorker')}} 
+              style={styles.buttonService}>
+              <Text style={styles.serviceText}>Quero anunciar um serviço</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.divider} />
+
+          <View>
             <TouchableOpacity style={styles.button}>
               <Icon name='trash' size={22} color='#b52d2d' />
               <Text style={styles.deleteText}>Excluir conta</Text>
             </TouchableOpacity>
           </View>
 
-          <View style={styles.divider} />
-
-          {/* <TouchableOpacity style={styles.button}>
-          <Icon name='sign-out-alt' size={22} color='#a17792' />
-          <Text style={styles.exitText}>Sair</Text>
-          </TouchableOpacity> */}
         </View>
       </View>
       <StatusBar style="auto" />

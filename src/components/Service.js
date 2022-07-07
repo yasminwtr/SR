@@ -1,30 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from '../styles/service'
 
 export const Service = (props) => {
+
+  const RenderService = (props) => {
+    const [titleService, setTitleService] = useState('')
+    const handleTitleServiceChange = titleService => setTitleService(titleService)
+    const postTitleService = async () => {
+      if (titleService != "") {
+        try {
+          const requestOptions = {
+            method: "POST",
+            Headers: { 'Content-type': 'aplication/json' },
+            body: JSON.stringify({
+              titleService: titleService
+            })
+          }
+          await fetch('http://localhost:3000/service', requestOptions)
+          props.addService()
+        } catch (error) {
+          console.log('Erro: ' + error)
+          setTitleService('')
+        }
+      } else { 'aaaaa' }
+    }
+  }
+
   return (
     <View style={styles.container1}>
-      <TouchableOpacity
-        style={styles.buttonService}
-        onPress={() => {
-          props.navigation.navigate('RegisterWorker')
-        }}>
-
-
-        <Text style={styles.textButtonService}>
-          Quero Prestar Serviços
-        </Text>
-
-
-      </TouchableOpacity>
       <Text style={styles.text}>
         Serviços Disponíveis
       </Text>
       <View style={styles.container3}>
         <View style={styles.container4}>
-
-
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
@@ -36,7 +45,7 @@ export const Service = (props) => {
 
 
           <TouchableOpacity onPress={() => {
-            props.navigation.navigate('RegisterWorker')
+            props.navigation.navigate('Worker')
           }}>
             <Image source={require('../../assets/manicure.png')} style={styles.imagem2} />
           </TouchableOpacity>
@@ -46,7 +55,7 @@ export const Service = (props) => {
           </Text>
 
           <TouchableOpacity onPress={() => {
-            props.navigation.navigate('RegisterWorker')
+            props.navigation.navigate('Worker')
           }}>
             <Image source={require('../../assets/costureira.png')} style={styles.imagem3} />
           </TouchableOpacity>
@@ -56,7 +65,7 @@ export const Service = (props) => {
 
 
           <TouchableOpacity onPress={() => {
-            props.navigation.navigate('RegisterWorker')
+            props.navigation.navigate('Worker')
           }}>
             <Image source={require('../../assets/maridodealuguel.png')} style={styles.imagem4} />
           </TouchableOpacity>
@@ -68,7 +77,7 @@ export const Service = (props) => {
 
 
           <TouchableOpacity onPress={() => {
-            props.navigation.navigate('RegisterWorker')
+            props.navigation.navigate('Worker')
           }}>
             <Image source={require('../../assets/eletricista.png')} style={styles.imagem5} />
           </TouchableOpacity>
@@ -78,7 +87,7 @@ export const Service = (props) => {
 
 
           <TouchableOpacity onPress={() => {
-            props.navigation.navigate('RegisterWorker')
+            props.navigation.navigate('Worker')
           }}>
             <Image source={require('../../assets/maquiadora.png')} style={styles.imagem6} />
           </TouchableOpacity>
@@ -88,7 +97,7 @@ export const Service = (props) => {
 
 
           <TouchableOpacity onPress={() => {
-            props.navigation.navigate('RegisterWorker')
+            props.navigation.navigate('Worker')
           }}>
             <Image source={require('../../assets/pintor.png')} style={styles.imagem7} />
           </TouchableOpacity>
@@ -98,7 +107,7 @@ export const Service = (props) => {
 
 
           <TouchableOpacity onPress={() => {
-            props.navigation.navigate('RegisterWorker')
+            props.navigation.navigate('Worker')
           }}>
             <Image source={require('../../assets/jardineiro.png')} style={styles.imagem8} />
           </TouchableOpacity>

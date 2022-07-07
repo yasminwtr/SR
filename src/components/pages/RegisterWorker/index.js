@@ -23,9 +23,16 @@ const RegisterWorker = (props) => {
 
   async function registerWorker() {
     try {
-      const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price });
-      setSnackbarMessage('Serviço registrado com sucesso!')
-      setSnackbarVisible(true)
+      if ((description, price) !== '') {
+        setSnackbarMessage('Serviço registrado com sucesso!')
+        setSnackbarVisible(true)
+        const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price });
+        props.navigation.navigate('NavigationBar')
+      }
+      else {
+        setSnackbarMessage('Preencha todos os campos')
+        setSnackbarVisible(true)
+      }
     } catch (error) {
 
     }
@@ -39,7 +46,6 @@ const RegisterWorker = (props) => {
     fetchData()
       .catch(console.error);
   }, [])
-
 
   const renderItem = ({ item }) => {
     const backgroundColor = item.idservice === selectedId ? "black" : "#fff";
@@ -86,7 +92,7 @@ const RegisterWorker = (props) => {
           action={{
             label: 'Ok',
             onPress: () => {
-              setSnackbarVisible(false)
+              registerWorker
             },
           }}
           style={{ backgroundColor: "#fff" }}
