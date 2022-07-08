@@ -82,4 +82,10 @@ export default StyleSheet.create({
         backgroundColor: '#e3e3e3',
         marginLeft: 20
     },
+    buttonChangePassword: {
+        borderColor: '#dc9cae',
+        width:'40%',
+        alignSelf:'center',
+        marginTop:20
+    }
 })

@@ -37,7 +37,10 @@ export const ChangePassword = () => {
 
             <View style={styles.divider} />
 
-            <Button>
+            <Button
+                mode='outlined'
+                color='#dc9cae'
+                style={styles.buttonChangePassword}>
                 Alterar senha
             </Button>
             
