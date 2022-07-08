@@ -1,9 +1,9 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import NavigationBar from '../../../NavigationBar';
-import RegisterWorker from '../../RegisterWorker';
-import Description from '../../RegisterWorker/description';
-import { ChangePassword } from '../../Settings/changePassword'; 
+import NavigationBar from '../../NavigationBar';
+import RegisterWorker from '../../pages/RegisterWorker';
+import Description from '../../pages/RegisterWorker/description';
+import { ChangePassword } from '../../pages/Settings/changePassword'; 
 
 const AppStack = createStackNavigator();
 

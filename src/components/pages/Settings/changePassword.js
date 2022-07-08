@@ -1,6 +1,5 @@
 import { View, StatusBar } from 'react-native';
 import React from 'react';
-import AuthContext from '../contexts/auth';
 import { Button, TextInput } from 'react-native-paper';
 import styles from './styles'
 

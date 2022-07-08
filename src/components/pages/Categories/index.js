@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import styles from '../styles/service'
+import styles from './styles'
 
-export const Service = (props) => {
+export const Categories = (props) => {
 
   const RenderService = (props) => {
     const [titleService, setTitleService] = useState('')
@@ -37,7 +37,7 @@ export const Service = (props) => {
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
-            <Image source={require('../../assets/diarista.png')} style={styles.imagem1} />
+            <Image source={require('../../../../assets/diarista.png')} style={styles.imagem1} />
           </TouchableOpacity>
           <Text style={styles.legenda}>
             Diarista
@@ -47,7 +47,7 @@ export const Service = (props) => {
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
-            <Image source={require('../../assets/manicure.png')} style={styles.imagem2} />
+            <Image source={require('../../../../assets/manicure.png')} style={styles.imagem2} />
           </TouchableOpacity>
           <Text
             style={styles.legenda}>
@@ -57,7 +57,7 @@ export const Service = (props) => {
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
-            <Image source={require('../../assets/costureira.png')} style={styles.imagem3} />
+            <Image source={require('../../../../assets/costureira.png')} style={styles.imagem3} />
           </TouchableOpacity>
           <Text style={styles.legenda}>
             Costureira
@@ -67,7 +67,7 @@ export const Service = (props) => {
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
-            <Image source={require('../../assets/maridodealuguel.png')} style={styles.imagem4} />
+            <Image source={require('../../../../assets/maridodealuguel.png')} style={styles.imagem4} />
           </TouchableOpacity>
           <Text style={styles.legenda}>
             Marido de aluguel
@@ -79,7 +79,7 @@ export const Service = (props) => {
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
-            <Image source={require('../../assets/eletricista.png')} style={styles.imagem5} />
+            <Image source={require('../../../../assets/eletricista.png')} style={styles.imagem5} />
           </TouchableOpacity>
           <Text style={styles.legenda}>
             Eletricista
@@ -89,7 +89,7 @@ export const Service = (props) => {
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
-            <Image source={require('../../assets/maquiadora.png')} style={styles.imagem6} />
+            <Image source={require('../../../../assets/maquiadora.png')} style={styles.imagem6} />
           </TouchableOpacity>
           <Text style={styles.legenda}>
             Maquiadora
@@ -99,7 +99,7 @@ export const Service = (props) => {
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
-            <Image source={require('../../assets/pintor.png')} style={styles.imagem7} />
+            <Image source={require('../../../../assets/pintor.png')} style={styles.imagem7} />
           </TouchableOpacity>
           <Text style={styles.legenda}>
             Pintor
@@ -109,7 +109,7 @@ export const Service = (props) => {
           <TouchableOpacity onPress={() => {
             props.navigation.navigate('Worker')
           }}>
-            <Image source={require('../../assets/jardineiro.png')} style={styles.imagem8} />
+            <Image source={require('../../../../assets/jardineiro.png')} style={styles.imagem8} />
           </TouchableOpacity>
           <Text style={styles.legenda}>
             Jardineiro
@@ -123,4 +123,4 @@ export const Service = (props) => {
   )
 }
 
-export default Service
+export default Categories

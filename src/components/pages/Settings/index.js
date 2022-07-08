@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
-import styles from '../../../styles/setting'
+import styles from './styles'
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import AuthContext from "../contexts/auth";
+import AuthContext from "../../contexts/auth";
 
 export default function Settings(props) {
   const { user } = useContext(AuthContext);

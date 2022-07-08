@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import Service from './Service'
+import Categories from './pages/Categories/index'
 import Settings from '../components/pages/Settings/index'
-import Profile from './Profile'
-import Worker from './Worker';
+import Profile from '../../src/components/pages/Profile/Profile'
+import Worker from '../components/pages/Worker/index';
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.
@@ -17,8 +17,8 @@ const Stack = createStackNavigator();
 const ServiceStack = ({navigation}) => (
   <Stack.Navigator>
       <Stack.Screen
-      name='Service'
-      component={Service}
+      name='Categories'
+      component={Categories}
       />
 
       <Stack.Screen

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import api from '../../../api'
 import Description from "./description";
-import AuthContext from "../contexts/auth";
+import AuthContext from "../../contexts/auth";
 import { Snackbar, Title } from 'react-native-paper';
 
 const Item = ({ item, onPress, backgroundColor }) => (

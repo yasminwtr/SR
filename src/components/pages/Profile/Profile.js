@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
-import styles from '../styles/profile'
+import styles from './styles'
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
@@ -14,7 +14,7 @@ export default function Profile({navigation, route}) {
           style={styles.container}
           colors={["#e7977e", "#d88b9f"]}
         >
-          <Image source={require('../../assets/circle.png')}
+          <Image source={require('../../../../assets/circle.png')}
             style={styles.profileIcon} />
 
           <Text style={styles.name}>{route.params ? route.params.idperson : 'teste'}</Text>

@@ -1,15 +1,10 @@
 import React from "react"
-import { View, FlatList, SafeAreaView, Text, TouchableOpacity, onPress, StyleSheet, TextInput } from "react-native";
-import AuthContext from "../contexts/auth";
+import { View, StyleSheet, TextInput } from "react-native";
 import CurrencyInput from 'react-native-currency-input';
-import registerWorker from ".";
 import { Title, Button } from 'react-native-paper';
-
 
 const Description = (props) => {
   const { description, setDescription, price, setPrice, finish } = props
-
-
 
   // function validateLogin() {
   //   if ((emailInput, passwordInput) !== '') {

@@ -1,8 +1,8 @@
 import { View, Text, TouchableOpacity, Pressable, Keyboard, Vibration } from 'react-native';
-import styles from '../styles/login'
+import styles from '../SignIn/styles'
 import React, { useState } from "react";
 import { TextInput } from 'react-native-paper';
-import api from "../api";
+import api from "../../../api";
 
 export default function Register() {
   const [email, setEmail] = useState('')

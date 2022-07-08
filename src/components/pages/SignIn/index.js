@@ -1,8 +1,8 @@
-import { View, Text, TouchableOpacity, Button } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import React, { useState, useContext } from 'react';
-import styles from '../../../styles/login'
+import styles from './styles'
 import { TextInput } from 'react-native-paper';
-import AuthContext from '../contexts/auth';
+import AuthContext from '../../contexts/auth';
 
 const SignIn = ({navigation}) => {
   const { signed, signIn, user } = useContext(AuthContext);
