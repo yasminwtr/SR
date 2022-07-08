@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Service from './Service'
-import Settings from './Settings'
+import Settings from '../components/pages/Settings/index'
 import Profile from './Profile'
 import Worker from './Worker';
 

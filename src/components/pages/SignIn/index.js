@@ -20,17 +20,6 @@ const SignIn = ({navigation}) => {
       return;
     }
   }
-
-  // async function login() {
-  //   const response = await api.post('/login', { email: emailInput, password: passwordInput });
-  //   console.log('response login @ pages/SignIn:', response);
-  // }
-
-  // async function handleSignIn() {
-  //   signIn();
-  //   const response = await signIn();
-  //   console.log("response @ SignIn @ handleSign", response);
-  // }
   
   return (
     <View style={styles.container}>

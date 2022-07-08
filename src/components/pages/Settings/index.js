@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
-import styles from '../styles/setting'
+import styles from '../../../styles/setting'
 import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import AuthContext from "../components/pages/contexts/auth";
+import AuthContext from "../contexts/auth";
 
-export default function Settings() {
+export default function Settings(props) {
   const { user } = useContext(AuthContext);
   const { signOut } = useContext(AuthContext);
 
@@ -21,7 +21,7 @@ export default function Settings() {
         colors={["#e7977e", "#d88b9f"]}
       >
         <TouchableOpacity>
-          <Image source={require('../../assets/circle.png')}
+          <Image source={require('../../../../assets/circle.png')}
             style={styles.profileIcon} />
         </TouchableOpacity>
 
@@ -31,9 +31,11 @@ export default function Settings() {
       </LinearGradient>
       <View>
         <View style={styles.configurations}>
-          <TouchableOpacity style={styles.button}>
-            <Icon name='user-alt' size={22} color='#343434' />
-            <Text style={styles.editText}>Editar conta</Text>
+          <TouchableOpacity
+            onPress={() => { props.navigation.navigate('ChangePassword') }} 
+            style={styles.button}>
+            <Icon name='key' size={22} color='#343434' />
+            <Text style={styles.editText}>Senha</Text>
           </TouchableOpacity>
 
           <View style={styles.divider} />
@@ -49,7 +51,7 @@ export default function Settings() {
 
           <View>
             <TouchableOpacity
-              onPress={() => {props.navigation.navigate('RegisterWorker')}} 
+              onPress={() => { props.navigation.navigate('RegisterWorker') }}
               style={styles.buttonService}>
               <Text style={styles.serviceText}>Quero anunciar um serviço</Text>
             </TouchableOpacity>
