@@ -3,9 +3,9 @@ const { response } = require('express')
 const Pool = require('pg').Pool
 const db = new Pool({
   host: 'localhost',
-  database: 'application_database',
+  database: 'postgres',
   user: 'postgres',
-  password: 'senai',
+  password: 'yasmin',
   port: 5432
 })
 

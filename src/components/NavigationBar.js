@@ -5,6 +5,9 @@ import Categories from './pages/Categories/index'
 import Settings from '../components/pages/Settings/index'
 import Profile from '../../src/components/pages/Profile/Profile'
 import Worker from '../components/pages/Worker/index';
+import RegisterWorker from './pages/RegisterWorker/index';
+import Description from './pages/RegisterWorker/description';
+import EditProfile from './pages/Settings/EditProfile'; 
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.
@@ -13,6 +16,39 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+
+const Register = ({navigation}) => (
+  <Stack.Navigator>
+    <Stack.Screen
+    name='RegisterForm'
+    component={RegisterWorker}
+    />
+
+    <Stack.Screen
+    name='Description'
+    component={Description}
+    />
+  </Stack.Navigator>
+)
+
+const Configuration = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+    name='Settings'
+    component={Settings}
+    />
+
+    <Stack.Screen
+    name='RegisterWorker'
+    component={Register}
+    />
+
+    <Stack.Screen
+    name='EditProfile'
+    component={EditProfile}
+    />
+  </Stack.Navigator>
+)
 
 const ServiceStack = ({navigation}) => (
   <Stack.Navigator>
@@ -80,7 +116,7 @@ const NavigationBar = () => {
 
       <Tab.Screen
         name="Configurações"
-        component={Settings}
+        component={Configuration}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Icon name='cogs' size={size} color={color} />

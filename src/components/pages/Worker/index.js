@@ -1,13 +1,10 @@
-import { View, Text, TouchableOpacity, ScrollView, Image, Button } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image, Button, FlatList } from 'react-native';
 import styles from './styles'
 import 'react-native-gesture-handler';
-import { useEffect, useState } from 'react';
-// import WorkerItem from './WorkerItem';
+import React, { useEffect, useState } from 'react';
 
-export default function Worker(props, onPress) {
-
+const Worker = ({ navigation }) => {
   const [workers, setWorkers] = useState([])
-  const [id, setId] = useState([])
 
   const getWorkers = async () => {
     try {
@@ -34,20 +31,29 @@ export default function Worker(props, onPress) {
 
         <Text style={styles.title}>Diarista</Text>
         <Button title="Teste" onPress={() => props.navigation.navigate('Profile')}></Button>
-        {
-          workers.map((data) => {
+
+        <FlatList
+          data={workers}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => {
             return (
               <View>
-                <TouchableOpacity style={styles.profileButton} onPress={() => props.navigation.navigate('Profile', data.idperson)}>
+                <TouchableOpacity style={styles.profileButton}
+                  onPress={() => navigation.navigate('Profile',
+                    { workerId: `${item.idperson}`, name: `${item.fullname}`, email: `${item.email}`, phonenumber: `${item.phonenumber}` })}>
+
+
                   <Image source={require("../../../../assets/circle.png")} style={styles.profileIcon} />
-                  <Text style={styles.name}>{data.email}</Text>
-                  <Text style={styles.km}>{data.idperson}</Text>
+                  <Text style={styles.name}>{item.email}</Text>
+                  <Text style={styles.km}>{item.idperson}</Text>
                 </TouchableOpacity>
               </View>
             )
-          })
-        }
+          }}
+        />
       </ScrollView>
     </View>
   )
 }
+
+export default Worker

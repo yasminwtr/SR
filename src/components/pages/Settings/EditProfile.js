@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, TextInput } from 'react-native-paper';
 import styles from './styles'
 
-export const ChangePassword = () => {
+const EditProfile = () => {
     return(
         <View>
             <StatusBar barStyle="dark-content" />
@@ -47,3 +47,5 @@ export const ChangePassword = () => {
         </View>
     )
 }
+
+export default EditProfile

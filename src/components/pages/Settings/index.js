@@ -32,7 +32,7 @@ export default function Settings(props) {
       <View>
         <View style={styles.configurations}>
           <TouchableOpacity
-            onPress={() => { props.navigation.navigate('ChangePassword') }} 
+            onPress={() => { props.navigation.navigate('EditProfile') }} 
             style={styles.button}>
             <Icon name='key' size={22} color='#343434' />
             <Text style={styles.editText}>Senha</Text>

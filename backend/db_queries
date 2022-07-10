@@ -9,14 +9,12 @@ CREATE TABLE person(
     email VARCHAR(45) NOT NULL,
     pass VARCHAR(45) NOT NULL,
     fullName VARCHAR(45) NOT NULL,
-    phoneNumber VARCHAR(45) NOT NULL,
-    about VARCHAR(100) NOT NULL
+    phoneNumber VARCHAR(45) NOT NULL
 );
 
 CREATE TABLE service(
     idService SERIAL PRIMARY KEY,
-    titleService VARCHAR(45),
-    description VARCHAR(100)
+    titleService VARCHAR(45)
 );
 
 CREATE TABLE worker(
@@ -24,7 +22,7 @@ CREATE TABLE worker(
     idPerson INT NOT NULL,
     idService INT NOT NULL,
     descriptionService VARCHAR(100),
-    priceService NUMERIC,
+    localization VARCHAR(100)
     FOREIGN KEY (idPerson) REFERENCES person (idPerson),
     FOREIGN KEY (idService) REFERENCES service (idService)
 );
