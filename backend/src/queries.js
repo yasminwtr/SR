@@ -63,25 +63,25 @@ const db = new Pool({
 //   }
 // }
 
-// const deleteUser = (request, response) => {
-//   try {
-//     const id = parseInt(request.params.id)
+const deleteUser = (request, response) => {
+  try {
+    const id = parseInt(request.params.id)
 
-//     db.query('delete from userdata where id = $1', [id],
-//       (error, results) => {
-//         if (error) {
-//           throw error
-//         } response.status(200).send('Usuário deletado com sucesso!')
-//       })
+    db.query('delete from userdata where id = $1', [id],
+      (error, results) => {
+        if (error) {
+          throw error
+        } response.status(200).send('Usuário deletado com sucesso!')
+      })
 
-//   } catch (error) {
-//     console.log('Erro: ' + error);
-//     response.status(400).send({
-//       status: 400,
-//       message: 'Erro ao deletar o usuário. ' + error
-//     })
-//   }
-// }
+  } catch (error) {
+    console.log('Erro: ' + error);
+    response.status(400).send({
+      status: 400,
+      message: 'Erro ao deletar o usuário. ' + error
+    })
+  }
+}
 
 const postPerson = (request, response) => {
   try {
@@ -187,7 +187,7 @@ module.exports = {
   //   getUserById,
   //   createUser,
   //   updateUser,
-  //   deleteUser,
+  deleteUser,
   getWorkersByServiceId,
   postPerson,
   authenticate,

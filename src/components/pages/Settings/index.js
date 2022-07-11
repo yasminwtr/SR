@@ -13,6 +13,19 @@ export default function Settings(props) {
   function handleSignOut() {
     signOut();
   }
+  const deleteUser = async (deleteId) => {
+    const requestOptions = {
+      method: 'delete',
+      headers: {'Content-type': 'aplication/json'}
+    }
+    try{
+      console.log(deleteId)
+      await fetch('http://localhost:3000/person/'+ deleteId, requestOptions)
+      setPerson(person.filter(person => person.id != deleteId))
+    } catch(error){
+      console.log("Erro: " + error)
+    }
+  }
 
   return (
     <View style={styles.page}>
@@ -60,7 +73,8 @@ export default function Settings(props) {
           <View style={styles.divider} />
 
           <View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}
+             onPress={ () => {deleteUser()}}>
               <Icon name='trash' size={22} color='#b52d2d' />
               <Text style={styles.deleteText}>Excluir conta</Text>
             </TouchableOpacity>
