@@ -27,7 +27,8 @@ const RegisterWorker = (props) => {
         setSnackbarMessage('Serviço registrado com sucesso!')
         setSnackbarVisible(true)
         const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price });
-        props.navigation.navigate('NavigationBar')
+        console.log('response', response);
+        // props.navigation.navigate('NavigationBar')
       }
       else {
         setSnackbarMessage('Preencha todos os campos')

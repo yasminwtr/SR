@@ -1,124 +1,54 @@
-import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native'
 import styles from './styles'
+import api from '../../../api'
 
 export const Categories = (props) => {
 
-  const RenderService = (props) => {
-    const [titleService, setTitleService] = useState('')
-    const handleTitleServiceChange = titleService => setTitleService(titleService)
-    const postTitleService = async () => {
-      if (titleService != "") {
-        try {
-          const requestOptions = {
-            method: "POST",
-            Headers: { 'Content-type': 'aplication/json' },
-            body: JSON.stringify({
-              titleService: titleService
-            })
-          }
-          await fetch('http://localhost:3000/service', requestOptions)
-          props.addService()
-        } catch (error) {
-          console.log('Erro: ' + error)
-          setTitleService('')
-        }
-      } else { 'aaaaa' }
-    }
+  const [services, setServices] = useState(null);
+
+  const getWorkersByServiceId = async (service) => {
+    console.log('service', service);
+    const response = await api.get(`/getWorkersByServiceId?idService=${service.idservice}`);
+    console.log('response', response);
+    props.navigation.navigate('Worker',
+    { serviceCategory: service.titleservice, filteredWorkers: response.data })  
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.get('/services');
+      setServices(response.data)
+    }
+    fetchData()
+      .catch(console.error);
+  }, [])
+
+  const Item = ({ item, onPress, backgroundColor }) => (
+    <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+      <Text style={styles.titleService}>{item.titleservice}</Text>
+    </TouchableOpacity>
+  );
+
+  const renderItem = ({ item }) => {
+    return (
+      <Item
+        item={item}
+        onPress={() => { getWorkersByServiceId(item) }}
+      />
+    );
+  };
 
   return (
     <View style={styles.container1}>
       <Text style={styles.text}>
         Serviços Disponíveis
       </Text>
-      <View style={styles.container3}>
-        <View style={styles.container4}>
-          <TouchableOpacity onPress={() => {
-            props.navigation.navigate('Worker')
-          }}>
-            <Image source={require('../../../../assets/diarista.png')} style={styles.imagem1} />
-          </TouchableOpacity>
-          <Text style={styles.legenda}>
-            Diarista
-          </Text>
-
-
-          <TouchableOpacity onPress={() => {
-            props.navigation.navigate('Worker')
-          }}>
-            <Image source={require('../../../../assets/manicure.png')} style={styles.imagem2} />
-          </TouchableOpacity>
-          <Text
-            style={styles.legenda}>
-            Manicure
-          </Text>
-
-          <TouchableOpacity onPress={() => {
-            props.navigation.navigate('Worker')
-          }}>
-            <Image source={require('../../../../assets/costureira.png')} style={styles.imagem3} />
-          </TouchableOpacity>
-          <Text style={styles.legenda}>
-            Costureira
-          </Text>
-
-
-          <TouchableOpacity onPress={() => {
-            props.navigation.navigate('Worker')
-          }}>
-            <Image source={require('../../../../assets/maridodealuguel.png')} style={styles.imagem4} />
-          </TouchableOpacity>
-          <Text style={styles.legenda}>
-            Marido de aluguel
-          </Text>
-        </View>
-        <View style={styles.container5}>
-
-
-          <TouchableOpacity onPress={() => {
-            props.navigation.navigate('Worker')
-          }}>
-            <Image source={require('../../../../assets/eletricista.png')} style={styles.imagem5} />
-          </TouchableOpacity>
-          <Text style={styles.legenda}>
-            Eletricista
-          </Text>
-
-
-          <TouchableOpacity onPress={() => {
-            props.navigation.navigate('Worker')
-          }}>
-            <Image source={require('../../../../assets/maquiadora.png')} style={styles.imagem6} />
-          </TouchableOpacity>
-          <Text style={styles.legenda}>
-            Maquiadora
-          </Text>
-
-
-          <TouchableOpacity onPress={() => {
-            props.navigation.navigate('Worker')
-          }}>
-            <Image source={require('../../../../assets/pintor.png')} style={styles.imagem7} />
-          </TouchableOpacity>
-          <Text style={styles.legenda}>
-            Pintor
-          </Text>
-
-
-          <TouchableOpacity onPress={() => {
-            props.navigation.navigate('Worker')
-          }}>
-            <Image source={require('../../../../assets/jardineiro.png')} style={styles.imagem8} />
-          </TouchableOpacity>
-          <Text style={styles.legenda}>
-            Jardineiro
-          </Text>
-
-
-
-        </View>
-      </View>
+      <FlatList
+        data={services}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.idservice}
+      />
     </View>
   )
 }

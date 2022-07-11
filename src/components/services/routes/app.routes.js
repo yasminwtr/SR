@@ -4,6 +4,7 @@ import NavigationBar from '../../NavigationBar';
 import RegisterWorker from '../../pages/RegisterWorker';
 import Description from '../../pages/RegisterWorker/description';
 import { ChangePassword } from '../../pages/Settings/changePassword'; 
+import Profile from '../../pages/Profile/Profile';
 
 const AppStack = createStackNavigator();
 
@@ -13,6 +14,7 @@ const AppRoutes = () => (
     <AppStack.Screen name="RegisterWorker" component={RegisterWorker} />
     <AppStack.Screen name="Description" component={Description} />
     <AppStack.Screen name="ChangePassword" component={ChangePassword} />
+    <AppStack.Screen name="Profile" component={Profile} />
   </AppStack.Navigator>
 );
 

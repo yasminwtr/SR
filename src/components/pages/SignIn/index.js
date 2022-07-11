@@ -55,7 +55,7 @@ const SignIn = ({navigation}) => {
           <TouchableOpacity
             style={styles.btnNavigate}
             onPress={() => {
-              navigation.navigate('Register')
+              navigation.navigate('RegisterUser')
             }}>
             <Text style={styles.textNavigate}>
               Não tenho uma conta

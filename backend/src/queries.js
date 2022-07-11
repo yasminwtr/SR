@@ -1,33 +1,13 @@
-const { response } = require('express')
+const { response, request } = require('express')
 
 const Pool = require('pg').Pool
 const db = new Pool({
   host: 'localhost',
-  database: 'postgres',
+  database: 'application_database',
   user: 'postgres',
-  password: 'yasmin',
+  password: '123',
   port: 5432
 })
-
-const getWorkers = (request, response) => {
-    db.query('select * from person',
-        (error, results) => {
-            if (error) {
-                throw error
-            }
-            response.status(200).json(results.rows)
-        })
-}
-
-const getWorkerId = (request, response) => {
-  db.query('select idperson from person',
-      (error, results) => {
-        if (error) {
-          throw error
-        }
-        response.status(200).json(results.rows)
-      })
-}
 
 // const getUserById = (request, response) => {
 //   const id = parseInt(request.params.id)
@@ -148,7 +128,7 @@ const authenticate = (request, response) => {
 
 const getServices = (request, response) => {
   console.log('getServices');
-  db.query('select * from service',
+  db.query('SELECT * FROM service',
     (error, results) => {
       console.log('results', results);
       if (error) {
@@ -165,7 +145,7 @@ const registerWorker = (request, response) => {
 
     db.query('INSERT INTO worker ( idPerson, idService, descriptionService, priceService ) values ($1, $2, $3, $4)',
       [idPerson, idService, descriptionService, priceService], (error, results) => {
-        console.log('Error',error);
+        console.log('Error', error);
         response.status(201).send('Trabalhador adicionado')
       }
     )
@@ -178,14 +158,39 @@ const registerWorker = (request, response) => {
   }
 }
 
+const getWorkersByServiceId = (request, response) => {
+  const { idService } = request.query
+  console.log('getWorkersByServiceId', getWorkersByServiceId);
+  db.query(`SELECT 
+    idWorker, 
+    worker.idPerson,
+    person.idPerson, 
+    fullname, phoneNumber,
+    idService,
+    descriptionService, 
+    localization 
+    FROM worker 
+    INNER JOIN 
+    person 
+    ON person.idPerson = worker.idPerson 
+    WHERE worker.idService = $1`,
+    [idService], (error, results) => {
+      console.log('results', results);
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+}
+
 module.exports = {
-  getWorkers,
-//   getUserById,
-//   createUser,
-//   updateUser,
-//   deleteUser,
+  //   getUserById,
+  //   createUser,
+  //   updateUser,
+  //   deleteUser,
+  getWorkersByServiceId,
   postPerson,
   authenticate,
   getServices,
-  registerWorker
+  registerWorker,
 }
