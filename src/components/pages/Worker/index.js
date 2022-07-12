@@ -43,7 +43,6 @@ const Worker = ({ navigation }) => {
       <ScrollView>
 
         <Text style={styles.title}>{serviceCategory ?? 'Trabalhadores'}</Text>
-        <Button title="Teste" onPress={() => props.navigation.navigate('Profile')}></Button>
 
         <FlatList
           data={workers}
@@ -53,10 +52,10 @@ const Worker = ({ navigation }) => {
               <View>
                 <TouchableOpacity style={styles.profileButton}
                   onPress={() => navigation.navigate('Profile',
-                    { workerId: `${item.idperson}`, name: `${item.fullname}`, email: `${item.email}`, phonenumber: `${item.phonenumber}` })}>
+                    { workerId: `${item.idperson}`, name: `${item.fullname}`, email: `${item.email}`, phonenumber: `${item.phonenumber}`,
+                    price: `${item.priceservice}`, localization: `${item.localization}`, whatsapp: `${item.whatsapp}`, description: `${item.descriptionservice}` })}>
                   <Image source={require("../../../../assets/circle.png")} style={styles.profileIcon} />
                   <Text style={styles.name}>{item.fullname}</Text>
-                  <Text style={styles.km}>{item.idperson}</Text>
                 </TouchableOpacity>
               </View>
             )

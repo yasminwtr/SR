@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image, Linking } from 'react-native';
 import styles from './styles'
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient'
@@ -14,6 +14,10 @@ const Profile = () => {
   const name = route.params?.name
   const email = route.params?.email
   const phonenumber = route.params?.phonenumber
+  const price = route.params?.price
+  const localization = route.params?.localization
+  const whatsapp = route.params?.whatsapp
+  const description = route.params?.description
 
   return (
     <View style={styles.page}>
@@ -31,16 +35,16 @@ const Profile = () => {
           { route.params ? (
             <>
              <TouchableOpacity style={styles.button}
-             onPress={() => {navigation.navigate('NavigationBar')}}>
-              <Text style={styles.buttonText}>Enviar mensagem</Text>
-            </TouchableOpacity>
+             onPress={() => {Linking.openURL(`${whatsapp}`)}}>
+              <Text style={styles.buttonText}>WhatsApp</Text>
+             </TouchableOpacity>
             </>
           ) : (
             <>
              <TouchableOpacity style={styles.button}
              onPress={() => {navigation.navigate('NavigationBar')}}>
-              <Text style={styles.buttonText}>Teste</Text>
-            </TouchableOpacity>
+              <Text style={styles.buttonText}>Conferir link</Text>
+             </TouchableOpacity>
             </>
           )
           }
@@ -64,15 +68,21 @@ const Profile = () => {
 
               <View style={styles.viewContact}>
                 <Icon name='map-marked-alt' size={17} color='#565d61' />
+                <Text style={styles.titleContact}>Preço médio dos serviços</Text>
+              </View>
+              <Text style={styles.textContact}>{price}</Text>
+
+              <View style={styles.viewContact}>
+                <Icon name='map-marked-alt' size={17} color='#565d61' />
                 <Text style={styles.titleContact}>Localização</Text>
               </View>
-              <Text style={styles.textContact}>Florianópolis, SC</Text>
+              <Text style={styles.textContact}>{localization}</Text>
 
               <View style={styles.viewContact}>
                 <Icon name='th-list' size={17} color='#565d61' />
                 <Text style={styles.titleContact}>Descrição</Text>
               </View>
-              <Text style={styles.textContact}>Limpeza, higienização e organização de todos os cômodos. Limpeza, higienização e organização de todos os cômodos. Limpeza, higienização e organização de todos os cômodos. Limpeza, higienização e organização de todos os cômodos. Limpeza, higienização e organização de todos os cômodos. Limpeza, umapa.</Text>
+              <Text style={styles.textContact}>{description}</Text>
             </View>
             </>
           ) : (

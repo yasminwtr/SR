@@ -153,20 +153,21 @@ const getWorkersByServiceId = (request, response) => {
   const { idService } = request.query
   console.log('getWorkersByServiceId', getWorkersByServiceId);
   db.query(`SELECT 
-    idWorker, 
-    worker.idPerson,
-    person.idPerson, 
-    fullname, phoneNumber,
-    idService,
-    descriptionService,
-    priceService, 
-    localization,
-    whatsapp 
-    FROM worker 
-    INNER JOIN 
-    person 
-    ON person.idPerson = worker.idPerson 
-    WHERE worker.idService = $1`,
+        idWorker, 
+        worker.idPerson,
+        person.idPerson,
+        person.email, 
+        person.fullname, person.phoneNumber,
+        idService,
+        descriptionService,
+        priceService, 
+        localization,
+        whatsapp 
+        FROM worker 
+        INNER JOIN 
+        person 
+        ON person.idPerson = worker.idPerson 
+        WHERE worker.idService = $1`,
     [idService], (error, results) => {
       console.log('results', results);
       if (error) {
