@@ -3,14 +3,14 @@ CREATE DATABASE application_database
 CREATE TABLE person(
     idPerson SERIAL PRIMARY KEY,
     email VARCHAR(45) NOT NULL,
-    pass VARCHAR(45) NOT NULL,
+    pass VARCHAR(25) NOT NULL,
     fullName VARCHAR(45) NOT NULL,
     phoneNumber VARCHAR(45) NOT NULL
 );
 
 CREATE TABLE service(
     idService SERIAL PRIMARY KEY,
-    titleService VARCHAR(45),
+    titleService VARCHAR(25),
     icon VARCHAR(300)
 );
 
@@ -18,9 +18,10 @@ CREATE TABLE worker(
     idWorker SERIAL PRIMARY KEY,
     idPerson INT NOT NULL,
     idService INT NOT NULL,
-    descriptionService VARCHAR(100),
-    localization VARCHAR(100),
+    descriptionService VARCHAR(300),
     priceService NUMERIC,
+    localization VARCHAR(100),
+    whatsapp VARCHAR(100),
     FOREIGN KEY (idPerson) REFERENCES person (idPerson),
     FOREIGN KEY (idService) REFERENCES service (idService)
 );

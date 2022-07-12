@@ -16,6 +16,8 @@ const RegisterWorker = (props) => {
   const [services, setServices] = useState(null);
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [localization, setLocalization] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
   const [snackbarVisible, setSnackbarVisible] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
 
@@ -23,10 +25,10 @@ const RegisterWorker = (props) => {
 
   async function registerWorker() {
     try {
-      if ((description, price) !== '') {
+      if ((description, price, localization) !== '') {
         setSnackbarMessage('Serviço registrado com sucesso!')
         setSnackbarVisible(true)
-        const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price });
+        const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price, localization: localization, whatsapp: whatsapp });
         console.log('response', response);
         // props.navigation.navigate('NavigationBar')
       }
@@ -86,6 +88,10 @@ const RegisterWorker = (props) => {
           setDescription={setDescription}
           price={price}
           setPrice={setPrice}
+          localization={localization}
+          setLocalization={setLocalization}
+          whatsapp={whatsapp}
+          setWhatsapp={setWhatsapp}
         />
         <Snackbar
           visible={snackbarVisible}

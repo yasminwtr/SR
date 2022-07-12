@@ -44,6 +44,7 @@ export default function Register() {
             left={<TextInput.Icon name="account" />}
             activeUnderlineColor="pink"
             underlineColor="pink"
+            maxLength={45}
           />
           <TextInput
             onChangeText={setEmail}
@@ -55,6 +56,7 @@ export default function Register() {
             left={<TextInput.Icon name="email" />}
             activeUnderlineColor="pink"
             underlineColor="pink"
+            maxLength={45}
           />
           <TextInput
             onChangeText={setPhoneNumber}
@@ -66,6 +68,7 @@ export default function Register() {
             left={<TextInput.Icon name="phone" />}
             activeUnderlineColor="pink"
             underlineColor="pink"
+            maxLength={14}
           />
           <TextInput
             onChangeText={setPassword}
@@ -77,6 +80,7 @@ export default function Register() {
             left={<TextInput.Icon name="lock" />}
             activeUnderlineColor="pink"
             underlineColor="pink"
+            maxLength={25}
           />
           <Text style={styles.errorMessage}>{errorMessage}</Text>
           <TouchableOpacity onPress={() => validationFields()}

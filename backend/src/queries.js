@@ -131,11 +131,11 @@ const getUsers = (request, response) => {
 
 const registerWorker = (request, response) => {
   try {
-    const { idPerson, idService, descriptionService, priceService } = request.body
-    console.log('valores registerWorker:', { idPerson, idService, descriptionService, priceService });
+    const { idPerson, idService, descriptionService, priceService, localization, whatsapp } = request.body
+    console.log('valores registerWorker:', { idPerson, idService, descriptionService, priceService, localization, whatsapp });
 
-    db.query('INSERT INTO worker ( idPerson, idService, descriptionService, priceService ) values ($1, $2, $3, $4)',
-      [idPerson, idService, descriptionService, priceService], (error, results) => {
+    db.query('INSERT INTO worker ( idPerson, idService, descriptionService, priceService, localization, whatsapp ) values ($1, $2, $3, $4, $5, $6)',
+      [idPerson, idService, descriptionService, priceService, localization, whatsapp], (error, results) => {
         console.log('Error', error);
         response.status(201).send('Trabalhador adicionado')
       }
@@ -158,8 +158,10 @@ const getWorkersByServiceId = (request, response) => {
     person.idPerson, 
     fullname, phoneNumber,
     idService,
-    descriptionService, 
-    localization 
+    descriptionService,
+    priceService, 
+    localization,
+    whatsapp 
     FROM worker 
     INNER JOIN 
     person 

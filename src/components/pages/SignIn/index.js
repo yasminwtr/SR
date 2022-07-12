@@ -39,6 +39,7 @@ const SignIn = ({navigation}) => {
             left={<TextInput.Icon name="account" />}
             activeUnderlineColor="pink"
             underlineColor="pink"
+            maxLength={45}
             />
           <TextInput
             value={passwordInput}
@@ -50,6 +51,7 @@ const SignIn = ({navigation}) => {
             secureTextEntry={true}
             activeUnderlineColor="pink"
             underlineColor="pink"
+            maxLength={25}
             />
           <Text style={styles.errorMessage}>{errorMessage}</Text>
           <TouchableOpacity
