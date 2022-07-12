@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Categories from './pages/Categories/index'
@@ -7,7 +8,7 @@ import Profile from '../../src/components/pages/Profile/Profile'
 import Worker from '../components/pages/Worker/index';
 import RegisterWorker from './pages/RegisterWorker/index';
 import Description from './pages/RegisterWorker/description';
-import EditProfile from './pages/Settings/EditProfile'; 
+import EditProfile from './pages/Settings/EditProfile';
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.
@@ -17,16 +18,16 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const Register = ({navigation}) => (
+const Register = ({ navigation }) => (
   <Stack.Navigator>
     <Stack.Screen
-    name='RegisterForm'
-    component={RegisterWorker}
+      name='RegisterForm'
+      component={RegisterWorker}
     />
 
     <Stack.Screen
-    name='Description'
-    component={Description}
+      name='Description'
+      component={Description}
     />
   </Stack.Navigator>
 )
@@ -34,38 +35,38 @@ const Register = ({navigation}) => (
 const Configuration = () => (
   <Stack.Navigator>
     <Stack.Screen
-    name='Settings'
-    component={Settings}
+      name='Settings'
+      component={Settings}
     />
 
     <Stack.Screen
-    name='RegisterWorker'
-    component={Register}
+      name='RegisterWorker'
+      component={Register}
     />
 
     <Stack.Screen
-    name='EditProfile'
-    component={EditProfile}
+      name='EditProfile'
+      component={EditProfile}
     />
   </Stack.Navigator>
 )
 
-const ServiceStack = ({navigation}) => (
+const ServiceStack = ({ navigation }) => (
   <Stack.Navigator>
-      <Stack.Screen
+    <Stack.Screen
       name='Categories'
       component={Categories}
-      />
+    />
 
-      <Stack.Screen
+    <Stack.Screen
       name='Workers'
       component={Worker}
-      />
+    />
 
-      <Stack.Screen
+    <Stack.Screen
       name='Profile'
       component={Profile}
-      />
+    />
   </Stack.Navigator>
 )
 
@@ -75,21 +76,31 @@ const NavigationBar = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#f3f8fe',
+          backgroundColor: '#fff',
           paddingBottom: 5,
           paddingTop: 6,
           borderTopWidth: 0,
         },
-        tabBarActiveTintColor: '#a17792',
-        tabBarInactiveTintColor: '#d88b9f'
+        tabBarActiveTintColor: '#000000',
+        tabBarInactiveTintColor: '#000000'
       }}>
+
+      <Tab.Screen
+        name="Home"
+        component={Categories}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <Image source={require('../../assets/home.png')} />
+          )
+        }}
+      />
 
       <Tab.Screen
         name="Perfil"
         component={Profile}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Icon name='user-alt' size={size} color={color} />
+            <Image source={require('../../assets/profile.png')} />
           )
         }}
       />
@@ -104,22 +115,14 @@ const NavigationBar = () => {
         }}
       />
 
-      <Tab.Screen
-        name="Serviços"
-        component={ServiceStack}
-        options={{
-          tabBarIcon: ({ size, color }) => (
-            <Icon name='tools' size={size} color={color} />
-          )
-        }}
-      />
+
 
       <Tab.Screen
         name="Configurações"
         component={Configuration}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Icon name='cogs' size={size} color={color} />
+            <Image source={require('../../assets/settings.png')} />
           )
         }}
       />

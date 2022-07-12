@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Text, TouchableOpacity, FlatList, Image, View } from 'react-native'
+import { Text, TouchableOpacity, Image, View, StatusBar } from 'react-native'
 import api from '../../../api'
 import styles from './styles'
 import { Title } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
+import 'react-native-gesture-handler';
 export const Categories = (props) => {
 
   const [services, setServices] = useState([]);
@@ -47,7 +47,7 @@ export const Categories = (props) => {
     <SafeAreaView style={styles.box}>
       <TouchableOpacity onPress={onPress} >
         <Image
-          style={{ width: 50, height: 50 }}
+          style={styles.icon}
           source={{
             uri: `${item.icon}`,
           }}
@@ -60,14 +60,22 @@ export const Categories = (props) => {
   );
 
   return (
-    <View>
-      <Title> Categorias </Title>
-      <TouchableOpacity onPress={fetchData}>
-        <Text>
-          Atualizar
-        </Text>
-      </TouchableOpacity>
+    <SafeAreaView>
+      <StatusBar
+        animated={true}
+        backgroundColor="#F85C70"
+      />
+      <View style={styles.header}>
+        <Title style={styles.titleHeader}> Serviços Residênciais </Title>
+      </View>
       <View style={styles.container}>
+        <Title style={styles.titleContainer}> Categorias </Title>
+        <TouchableOpacity
+          onPress={fetchData}>
+          <Title style={styles.btnContainer}> Atualizar </Title>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.containerBox}>
         {
           services?.map(service => {
             return (
@@ -80,7 +88,7 @@ export const Categories = (props) => {
           })
         }
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
