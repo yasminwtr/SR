@@ -10,7 +10,8 @@ CREATE TABLE person(
 
 CREATE TABLE service(
     idService SERIAL PRIMARY KEY,
-    titleService VARCHAR(45)
+    titleService VARCHAR(45),
+    icon VARCHAR(300)
 );
 
 CREATE TABLE worker(
@@ -37,3 +38,9 @@ FROM worker
 INNER JOIN person
 ON person.idPerson = worker.idPerson
 WHERE worker.idService = 1
+
+insert into service(titleservice, icon) values ('Mecânico','https://cdn-icons-png.flaticon.com/512/2555/2555013.png') 
+insert into service(titleservice, icon) values ('Programador','https://cdn-icons-png.flaticon.com/512/711/711284.png')
+insert into service(titleservice, icon) values ('Jardinagem','https://cdn-icons-png.flaticon.com/512/1518/1518965.png')
+insert into service(titleservice, icon) values ('Manicure','https://cdn-icons.flaticon.com/png/512/1658/premium/1658273.png?token=exp=1657588718~hmac=538ae2973f424bd11730be803c36c80f')
+insert into service(titleservice, icon) values ('Diarista','https://cdn-icons.flaticon.com/png/512/2954/premium/2954891.png?token=exp=1657589237~hmac=3aba855ca707bb745a514dadf8229596') 

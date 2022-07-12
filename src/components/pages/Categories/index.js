@@ -1,54 +1,85 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native'
-import styles from './styles'
+import { Text, TouchableOpacity, FlatList, Image, View } from 'react-native'
 import api from '../../../api'
+import styles from './styles'
+import { Title } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const Categories = (props) => {
 
-  const [services, setServices] = useState(null);
+  const [services, setServices] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   const getWorkersByServiceId = async (service) => {
-    console.log('service', service);
     const response = await api.get(`/getWorkersByServiceId?idService=${service.idservice}`);
-    console.log('response', response);
     props.navigation.navigate('Worker',
-    { serviceCategory: service.titleservice, filteredWorkers: response.data })  
+      { serviceCategory: service.titleservice, filteredWorkers: response.data })
+  }
+
+  const fetchData = async () => {
+    setServices(null)
+    const response = await api.get('/services');
+    setServices([...response.data])
+    if (refresh) {
+      setRefresh(null)
+      setRefresh(false)
+    } else {
+      setRefresh(null)
+      setRefresh(true)
+    }
   }
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await api.get('/services');
-      setServices(response.data)
-    }
-    fetchData()
-      .catch(console.error);
+    fetchData().catch(console.error);
   }, [])
 
-  const Item = ({ item, onPress, backgroundColor }) => (
-    <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-      <Text style={styles.titleService}>{item.titleservice}</Text>
-    </TouchableOpacity>
+  useEffect(() => {
+  }, [services])
+
+  useEffect(() => {
+    const copyServices = [...services];
+    setServices(null)
+    setServices(undefined)
+    setServices(copyServices);
+  }, [refresh])
+
+  const Item = ({ item, onPress }) => (
+    <SafeAreaView style={styles.box}>
+      <TouchableOpacity onPress={onPress} >
+        <Image
+          style={{ width: 50, height: 50 }}
+          source={{
+            uri: `${item.icon}`,
+          }}
+        />
+        <Text style={styles.titleservice}>
+          {item.titleservice}
+        </Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 
-  const renderItem = ({ item }) => {
-    return (
-      <Item
-        item={item}
-        onPress={() => { getWorkersByServiceId(item) }}
-      />
-    );
-  };
-
   return (
-    <View style={styles.container1}>
-      <Text style={styles.text}>
-        Serviços Disponíveis
-      </Text>
-      <FlatList
-        data={services}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.idservice}
-      />
+    <View>
+      <Title> Categorias </Title>
+      <TouchableOpacity onPress={fetchData}>
+        <Text>
+          Atualizar
+        </Text>
+      </TouchableOpacity>
+      <View style={styles.container}>
+        {
+          services?.map(service => {
+            return (
+              <Item
+                item={service}
+                onPress={() => { getWorkersByServiceId(service) }}
+                key={service.titleservice}
+              />
+            );
+          })
+        }
+      </View>
     </View>
   )
 }

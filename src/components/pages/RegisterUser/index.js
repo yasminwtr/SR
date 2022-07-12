@@ -24,8 +24,12 @@ export default function Register() {
   }
 
   async function registerNewUser() {
-    const response = await api.post('/registerPerson', { name, email, about, password, phoneNumber });
-    console.log('response registerPerson:', response);
+    try {
+      const response = await api.post('/registerPerson', { name, email, about, password, phoneNumber });
+      console.log('response registerPerson:', response);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
