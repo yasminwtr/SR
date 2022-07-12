@@ -3,65 +3,45 @@ const { response, request } = require('express')
 const Pool = require('pg').Pool
 const db = new Pool({
   host: 'localhost',
-  database: 'application_database',
+  database: 'postgres',
   user: 'postgres',
-  password: '123',
+  password: 'yasmin',
   port: 5432
 })
 
-// const getUserById = (request, response) => {
-//   const id = parseInt(request.params.id)
+const getUserById = (request, response) => {
+  const id = parseInt(request.params.id)
 
-//   db.query('select * from userdata where id = $1',
-//     [id], (error, results) => {
-//       if (error) {
-//         throw error
-//       }
-//       response.status(200).json(results.rows)
-//     })
-// }
+  db.query('select * from person where idperson = $1',
+    [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+}
 
-// const createUser = (request, response) => {
-//   try {
-//     const { name, password, fullName, birthDate } = request.body
+const updateUser = (request, response) => {
+  try {
+    const id = parseInt(request.params.id)
+    const { email, password, name, phoneNumber } = request.body
 
-//     db.query('insert into userdata (name, password, fullName, birthDate)'
-//       + 'values($1, $2)', [name, password, fullName, birthDate],
-//       (error, results) => {
-//         if (error) {
-//           throw error
-//         }
-//         response.status(201).send('Usuário adicionado')
-//       })
-//   } catch (error) {
-//     console.log("Erro: " + error)
-//     response.status(500).send({
-//       status: 500,
-//       message: 'Erro ao inserir o registro. ' + error
-//     })
-//   }
-// }
+    db.query('update person set email = $1, pass = $2, fullName = $3, phoneNumber =  $4 where idperson = $5',
+    [email, password, name, phoneNumber, id],
+      (error, results) => {
+        if (error) {
+          throw error
+        } response.status(201).send('Usuário atualizado com sucesso!')
+      })
 
-// const updateUser = (request, response) => {
-//   try {
-//     const id = parseInt(request.params.id)
-//     const { name, password, fullName, birthDate } = request.body
-
-//     db.query('update userdata set name = $1, password = $2, fullName = $3, birthDate= $4 where id=$5', [name, password, fullName, birthDate, id],
-//       (error, results) => {
-//         if (error) {
-//           throw error
-//         } response.status(201).send('Usuário atualizado com sucesso!')
-//       })
-
-//   } catch (error) {
-//     console.log('Erro: ' + error);
-//     response.status(400).send({
-//       status: 400,
-//       message: 'Erro ao atualizar o registro. ' + error
-//     })
-//   }
-// }
+  } catch (error) {
+    console.log('Erro: ' + error);
+    response.status(400).send({
+      status: 400,
+      message: 'Erro ao atualizar o registro. ' + error
+    })
+  }
+}
 
 const deleteUser = (request, response) => {
   try {
@@ -85,11 +65,11 @@ const deleteUser = (request, response) => {
 
 const postPerson = (request, response) => {
   try {
-    const { name, email, about, password, phoneNumber } = request.body
-    console.log('valores postPerson:', { name, email, about, password, phoneNumber });
+    const { name, email, password, phoneNumber } = request.body
+    console.log('valores postPerson:', { name, email, password, phoneNumber });
 
-    db.query('INSERT INTO person ( email, pass, fullName, phoneNumber, about ) values ($1, $2, $3, $4, $5)',
-      [email, password, name, phoneNumber, about], (error, results) => {
+    db.query('INSERT INTO person ( email, pass, fullName, phoneNumber ) values ($1, $2, $3, $4)',
+      [email, password, name, phoneNumber], (error, results) => {
         response.status(201).send('Usuário adicionado')
       }
     )
@@ -129,6 +109,17 @@ const authenticate = (request, response) => {
 const getServices = (request, response) => {
   console.log('getServices');
   db.query('SELECT * FROM service',
+    (error, results) => {
+      console.log('results', results);
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+}
+
+const getUsers = (request, response) => {
+  db.query('SELECT * FROM person',
     (error, results) => {
       console.log('results', results);
       if (error) {
@@ -184,13 +175,13 @@ const getWorkersByServiceId = (request, response) => {
 }
 
 module.exports = {
-  //   getUserById,
-  //   createUser,
-  //   updateUser,
+  updateUser,
   deleteUser,
   getWorkersByServiceId,
   postPerson,
   authenticate,
   getServices,
   registerWorker,
+  getUsers,
+  getUserById
 }

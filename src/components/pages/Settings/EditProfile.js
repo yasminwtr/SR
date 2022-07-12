@@ -1,9 +1,52 @@
 import { View, StatusBar } from 'react-native';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, TextInput } from 'react-native-paper';
 import styles from './styles'
+import AuthContext from '../../contexts/auth';
+import api from '../../../api/index';
 
 const EditProfile = () => {
+    const { user } = useContext(AuthContext)
+
+    const [fullname, setFullname] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+
+    function validationFields() {
+        if ((fullname || email || password || phoneNumber) !== '') {
+          updateUser()
+        } else {
+          setErrorMessage(null)
+          setErrorMessage("Preencha o campo que você deseja alterar.*")
+          Vibration.vibrate()
+          return;
+        }
+      }
+
+    const updateUser = async () => {
+        const idPerson = user.idperson; 
+        try{
+            const response = await api.put(`/users/${idPerson}`, {email, password, fullname, phoneNumber})
+            const data = response;    
+            console.log('updateUserData', data);
+  
+            user.fullname = data.fullname;
+            user.email = data.email;
+            user.password = data.password;
+            user.phoneNumber = data.phoneNumber;
+
+            setFullname(fullname)
+            setEmail(email)
+            setPassword(password)
+            setPhoneNumber(phoneNumber)
+
+        } catch (error) {
+            console.log(error)
+        }
+      }
+    
+
     return(
         <View>
             <StatusBar barStyle="dark-content" />
@@ -12,27 +55,39 @@ const EditProfile = () => {
                 activeOutlineColor='#0000'
                 outlineColor='#0000'
                 mode='outlined'
-                label='Senha atual'>
+                label='Mudar nome'
+                value={fullname}
+                onChangeText={setFullname}>
             </TextInput>
-
-            <View style={styles.divider} />
 
             <TextInput
                 style={styles.textInput}
                 activeOutlineColor='#0000'
                 outlineColor='#0000'
                 mode='outlined'
-                label='Nova senha'>
+                label='Novo email'
+                value={email}
+                onChangeText={setEmail}>
             </TextInput>
 
-            <View style={styles.divider} />
-            
             <TextInput
                 style={styles.textInput}
                 activeOutlineColor='#0000'
                 outlineColor='#0000'
                 mode='outlined'
-                label='Repita a nova senha'>
+                label='Nova senha'
+                value={password}
+                onChangeText={setPassword}>
+            </TextInput>
+
+            <TextInput
+                style={styles.textInput}
+                activeOutlineColor='#0000'
+                outlineColor='#0000'
+                mode='outlined'
+                label='Mudar número de telefone'
+                value={phoneNumber}
+                onChangeText={setPhoneNumber}>
             </TextInput>
 
             <View style={styles.divider} />
@@ -40,8 +95,9 @@ const EditProfile = () => {
             <Button
                 mode='outlined'
                 color='#dc9cae'
+                onPress={() => validationFields()}
                 style={styles.buttonChangePassword}>
-                Alterar senha
+                Editar
             </Button>
             
         </View>

@@ -9,7 +9,6 @@ export default function Register() {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [about, setAbout] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
 
   function validationFields() {
@@ -25,7 +24,7 @@ export default function Register() {
 
   async function registerNewUser() {
     try {
-      const response = await api.post('/registerPerson', { name, email, about, password, phoneNumber });
+      const response = await api.post('/registerPerson', { name, email, password, phoneNumber });
       console.log('response registerPerson:', response);
     } catch (error) {
       console.log(error)
@@ -54,17 +53,6 @@ export default function Register() {
             style={styles.textInput}
             type="text"
             left={<TextInput.Icon name="email" />}
-            activeUnderlineColor="pink"
-            underlineColor="pink"
-          />
-          <TextInput
-            onChangeText={setAbout}
-            value={about}
-            label="Descrição"
-            placeholder='Descreva um pouco sobre você'
-            style={styles.textInput}
-            type="text"
-            left={<TextInput.Icon name="account" />}
             activeUnderlineColor="pink"
             underlineColor="pink"
           />
