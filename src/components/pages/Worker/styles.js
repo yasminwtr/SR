@@ -12,7 +12,7 @@ export default StyleSheet.create({
         color: '#F85C70',
         fontSize: 23,
         marginLeft: 20,
-        marginTop: 40,
+        marginTop: 60,
         fontFamily: 'Rubik-Medium'
     },
     profileButton: {

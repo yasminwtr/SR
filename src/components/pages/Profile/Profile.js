@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 import { useRoute } from '@react-navigation/native';
 import AuthContext from "../../contexts/auth";
 
-const Profile = (navigation) => {
+const Profile = ({ navigation }) => {
   const { user } = useContext(AuthContext);
   const route = useRoute()
 
@@ -22,8 +22,6 @@ const Profile = (navigation) => {
     <View style={styles.page}>
       <ScrollView>
         <View style={styles.container}>
-          <Icon name='angle-left' size={50} color='fff'
-          onPress={() => {navigation.pop()}}/>
 
           <Image source={require('../../../../assets/circle.png')}
             style={styles.profileIcon} />

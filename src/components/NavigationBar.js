@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Categories from './pages/Categories/index'
@@ -18,11 +18,14 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const Register = ({ navigation }) => (
+const Register = () => (
   <Stack.Navigator>
     <Stack.Screen
       name='RegisterForm'
       component={RegisterWorker}
+      options={{
+        headerShown: false
+      }}
     />
 
     <Stack.Screen
@@ -45,11 +48,21 @@ const Configuration = () => (
     <Stack.Screen
       name='RegisterWorker'
       component={Register}
+      options={{
+        headerTransparent: true,
+        title: '',
+        headerTintColor: '#F85C70'
+      }}
     />
 
     <Stack.Screen
       name='EditProfile'
       component={EditProfile}
+      options={{
+        headerTransparent: true,
+        title: '',
+        headerTintColor: '#F85C70'
+      }}
     />
   </Stack.Navigator>
 )
@@ -67,11 +80,21 @@ const ServiceStack = ({ navigation }) => (
     <Stack.Screen
       name='Workers'
       component={Worker}
+      options={{
+        headerTransparent: true,
+        title: '',
+        headerTintColor: '#F85C70'
+      }}
     />
 
     <Stack.Screen
       name='Profile'
       component={Profile}
+      options={{
+        headerTransparent: true,
+        title: '',
+        headerTintColor: '#fff'
+      }}
     />
   </Stack.Navigator>
 )
@@ -110,18 +133,6 @@ const NavigationBar = () => {
           )
         }}
       />
-
-      <Tab.Screen
-        name="Worker"
-        component={Worker}
-        options={{
-          tabBarIcon: ({ size, color }) => (
-            <Icon name='hamsa' size={size} color={color} />
-          )
-        }}
-      />
-
-
 
       <Tab.Screen
         name="Configurações"

@@ -46,7 +46,7 @@ export default function Settings(props) {
             <TouchableOpacity
               onPress={() => { props.navigation.navigate('RegisterWorker') }}
               style={styles.button}>
-              <Icon name='key' size={20} color='#F85C70' />
+              <Icon name='star' size={20} color='#F85C70' />
               <Text style={styles.serviceText}>Quero anunciar um serviço</Text>
             </TouchableOpacity>
           </View>
@@ -56,7 +56,7 @@ export default function Settings(props) {
           <TouchableOpacity
             onPress={() => { props.navigation.navigate('EditProfile') }} 
             style={styles.button}>
-            <Icon name='key' size={20} color='#3f4040' />
+            <Icon name='edit' size={20} color='#3f4040' />
             <Text style={styles.editText}>Editar conta</Text>
           </TouchableOpacity>
 

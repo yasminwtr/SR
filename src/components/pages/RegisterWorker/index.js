@@ -4,6 +4,7 @@ import api from '../../../api'
 import Description from "./description";
 import AuthContext from "../../contexts/auth";
 import { Snackbar, Title } from 'react-native-paper';
+import styles from './styles'
 
 const Item = ({ item, onPress, backgroundColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
@@ -25,7 +26,7 @@ const RegisterWorker = (props) => {
 
   async function registerWorker() {
     try {
-      if ((description, price, localization) !== '') {
+      if ((description, price, localization, whatsapp) !== '') {
         setSnackbarMessage('Serviço registrado com sucesso!')
         setSnackbarVisible(true)
         const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price, localization: localization, whatsapp: whatsapp });
@@ -113,41 +114,5 @@ const RegisterWorker = (props) => {
     )
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    margin: 20,
-    padding: 10,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    borderRadius: 15,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-
-    elevation: 3,
-  },
-  titleService: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#b899ad',
-  },
-  title: {
-    fontSize: 32,
-    textAlign: 'left',
-    margin: 30,
-    marginTop: 50,
-    marginBottom: 30,
-    color: '#ff9796'
-  },
-});
 
 export default RegisterWorker;

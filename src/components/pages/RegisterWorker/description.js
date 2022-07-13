@@ -2,6 +2,7 @@ import React from "react"
 import { View, StyleSheet, TextInput } from "react-native";
 import CurrencyInput from 'react-native-currency-input';
 import { Title, Button } from 'react-native-paper';
+import styles from "./styles";
 
 const Description = (props) => {
   const { description, setDescription, price, setPrice, localization, setLocalization, whatsapp, setWhatsapp, finish } = props
@@ -19,7 +20,7 @@ const Description = (props) => {
 
   return (
     <View>
-      <Title style={styles.title}>
+      <Title style={styles.titleInput}>
         Adicione uma breve descrição sobre o serviço a ser anunciado
       </Title>
       <TextInput
@@ -30,7 +31,7 @@ const Description = (props) => {
         maxLength={100}
       />
 
-      <Title style={styles.title}>
+      <Title style={styles.titleInput}>
         Preço médio dos seus serviços
       </Title>
       <CurrencyInput
@@ -44,7 +45,7 @@ const Description = (props) => {
         placeholder="$0"
         />
 
-      <Title style={styles.title}>
+      <Title style={styles.titleInput}>
         Preencha a localização a qual você realiza os seus serviços
       </Title>
       <TextInput
@@ -55,7 +56,7 @@ const Description = (props) => {
         placeholder="Florianópolis, Santa Catarina"
       />
 
-      <Title style={styles.title}>
+      <Title style={styles.titleInput}>
         Caso você queira pode adicionar um link rápido para seu WhatsApp.
         Usamos o site Convertte para criá-los.
       </Title>
@@ -78,69 +79,5 @@ const Description = (props) => {
     </View>
   )
 }
-
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginTop: 30,
-    color: '#fdc9c9'
-  },
-  TextInput: {
-    borderRadius: 15,
-    borderColor: '#fff',
-    margin: 20,
-    marginTop: 30,
-    backgroundColor: '#fff',
-    padding: 30,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  btn: {
-
-    // backgroundColor: '#ff9796',
-    padding: 8,
-    width: '70%',
-    alignSelf: 'center',
-    borderRadius: 20,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    // borderRadius: 30,
-    // margin: '5%',
-    // textAlign: 'center',
-    // color: '#fff'
-  },
-  CurrencyInput: {
-    marginBottom: '30%',
-    borderRadius: 15,
-    width: '30%',
-    height: 40,
-    alignSelf: 'center',
-    backgroundColor: '#fff',
-    textAlign: 'center',
-    flexDirection: 'row',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  }
-});
 
 export default Description

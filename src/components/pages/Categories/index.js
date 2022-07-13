@@ -12,7 +12,7 @@ export const Categories = (props) => {
 
   const getWorkersByServiceId = async (service) => {
     const response = await api.get(`/getWorkersByServiceId?idService=${service.idservice}`);
-    props.navigation.navigate('Worker',
+    props.navigation.navigate('Workers',
       { serviceCategory: service.titleservice, filteredWorkers: response.data, idService: service })
   }
 

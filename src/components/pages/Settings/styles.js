@@ -13,7 +13,8 @@ export default StyleSheet.create({
         shadowColor: '#3d4379',
         shadowOffset: { width: -2, height: 4 },
         shadowOpacity: 0.2,
-        shadowRadius: 6
+        shadowRadius: 6,
+        paddingBottom: 40
     },
     profileIcon: {
         width: 120,
