@@ -1,10 +1,10 @@
 import { View, Text, TouchableOpacity, Pressable, Keyboard, Vibration } from 'react-native';
-import styles from '../SignIn/styles'
+import styles from './styles'
 import React, { useState } from "react";
-import { TextInput } from 'react-native-paper';
+import { TextInput, Title } from 'react-native-paper';
 import api from "../../../api";
 
-export default function Register() {
+export default function Register(props) {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
@@ -26,6 +26,7 @@ export default function Register() {
     try {
       const response = await api.post('/registerPerson', { name, email, password, phoneNumber });
       console.log('response registerPerson:', response);
+      props.navigation.navigate('NavigationBar')
     } catch (error) {
       console.log(error)
     }
@@ -36,51 +37,59 @@ export default function Register() {
       <Pressable onPress={Keyboard.dismiss} style={styles.container2}>
         <View style={styles.boxContainerRegister}>
           <TextInput
+            mode='outlined'
             onChangeText={setName}
             value={name}
             label="Nome Completo"
             style={styles.textInput}
             type="text"
-            left={<TextInput.Icon name="account" />}
-            activeUnderlineColor="pink"
-            underlineColor="pink"
+            left={<TextInput.Icon name="account-outline" />}
+            activeOutlineColor="#F85C70"
+            outlineColor="#fff"
             maxLength={45}
           />
           <TextInput
+            mode='outlined'
             onChangeText={setEmail}
             value={email}
             label="E-mail"
             placeholder='email@email.com'
             style={styles.textInput}
             type="text"
-            left={<TextInput.Icon name="email" />}
-            activeUnderlineColor="pink"
-            underlineColor="pink"
+            left={<TextInput.Icon name="email-outline" />}
+            activeOutlineColor="#F85C70"
+            outlineColor="#fff"
             maxLength={45}
           />
           <TextInput
+            mode='outlined'
             onChangeText={setPhoneNumber}
             value={phoneNumber}
             label="Telefone"
             placeholder='ex. (48)991234-4567'
             style={styles.textInput}
             type="text"
-            left={<TextInput.Icon name="phone" />}
+            left={<TextInput.Icon name="phone-outline" />}
             activeUnderlineColor="pink"
             underlineColor="pink"
             maxLength={14}
+            activeOutlineColor="#F85C70"
+            outlineColor="#fff"
           />
           <TextInput
+            mode='outlined'
             onChangeText={setPassword}
             value={password}
             label="Senha"
             placeholder='********'
             style={styles.textInput}
             type="text"
-            left={<TextInput.Icon name="lock" />}
+            left={<TextInput.Icon name="key-outline" />}
             activeUnderlineColor="pink"
             underlineColor="pink"
             maxLength={25}
+            activeOutlineColor="#F85C70"
+            outlineColor="#fff"
           />
           <Text style={styles.errorMessage}>{errorMessage}</Text>
           <TouchableOpacity onPress={() => validationFields()}
@@ -94,12 +103,18 @@ export default function Register() {
           <TouchableOpacity
             style={styles.btnNavigate}
             onPress={() => {
+              props.navigation.navigate('SignIn')
+            }}>
+            <Text style={styles.textNavigate}>
+              Já tenho uma conta
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.btnNavigate}
+            onPress={() => {
               navigation.navigate('Login')
             }}>
             <Text style={styles.textNavigate}>
-              Não tenho uma conta
-            </Text>
-            <Text style={{ color: '#7abcdb', textAlign: 'center', marginBottom: 20 }}>
               Esqueci a senha
             </Text>
           </TouchableOpacity>

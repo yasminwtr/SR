@@ -1,8 +1,9 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, StatusBar, SafeAreaView } from 'react-native';
 import React, { useState, useContext } from 'react';
 import styles from './styles'
-import { TextInput } from 'react-native-paper';
+import { TextInput, Title } from 'react-native-paper';
 import AuthContext from '../../contexts/auth';
+
 
 const SignIn = ({navigation}) => {
   const { signed, signIn, user } = useContext(AuthContext);
@@ -22,35 +23,39 @@ const SignIn = ({navigation}) => {
   }
   
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#F85C70"
+      />
+      <Title style={styles.title}> Bem-vindo </Title>
       <TouchableOpacity onPress={() => navigation.navigate('NavigationBar', {})} />
-      <View style={styles.container2}>
-        <View style={styles.boxContainerLogin}>
-          <Text style={styles.title}>
-            Bem-vindo!
-          </Text>
+      <View>
           <TextInput
+            mode='outlined'
             value={emailInput}
             onChangeText={setEmailInput}
             label="E-mail"
             placeholder='email@email.com'
             style={styles.textInput}
             type="text"
-            left={<TextInput.Icon name="account" />}
-            activeUnderlineColor="pink"
-            underlineColor="pink"
+            left={<TextInput.Icon name="account-outline" />}
+            activeOutlineColor="#F85C70"
+            outlineColor="#fff"
             maxLength={45}
             />
           <TextInput
+            mode='outlined'
             value={passwordInput}
             onChangeText={setPasswordInput}
             label="Senha"
-            left={<TextInput.Icon name="lock" />}
+            left={<TextInput.Icon name="key-outline" />}
+            right={<TextInput.Icon name="eye"/>}
             style={styles.textInput}
             placeholder='********'
             secureTextEntry={true}
-            activeUnderlineColor="pink"
-            underlineColor="pink"
+            activeOutlineColor="#F85C70"
+            outlineColor="#fff"
             maxLength={25}
             />
           <Text style={styles.errorMessage}>{errorMessage}</Text>
@@ -62,7 +67,14 @@ const SignIn = ({navigation}) => {
             <Text style={styles.textNavigate}>
               Não tenho uma conta
             </Text>
-            <Text style={{ color: '#7abcdb', textAlign: 'center', marginBottom: 20 }}>
+            {/* <Text style={{ color: '#7abcdb', textAlign: 'center', marginBottom: 20 }}>
+              Esqueci a senha
+            </Text> */}
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.btnNavigate}
+          >
+            <Text style={styles.textNavigate}>
               Esqueci a senha
             </Text>
           </TouchableOpacity>
@@ -71,13 +83,12 @@ const SignIn = ({navigation}) => {
             onPress={validateLogin}
             >
             <Text
-              style={{ color: 'white', textAlign: 'center', fontSize: 25 }}>
+              style={{ color: 'white', textAlign: 'center', fontSize: 20 }}>
               Login
             </Text>
           </TouchableOpacity>
-        </View>
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 export default SignIn;

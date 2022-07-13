@@ -1,22 +1,14 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  container: {
-    backgroundColor: '#fefefe',
+  container:{
+    backgroundColor:'#fefefe',
     height: '100%',
     flex: 1,
     display: 'flex',
     justifyContent: 'center',
   },
-  textInput: {
-    backgroundColor: '#f9f9f9',
-    borderColor: "gray",
-    width: 300,
-    margin: 6,
-    borderRadius: 5,
-    alignSelf: 'center',
-  },
-  buttonLogin: {
+  buttonRegister: {
     backgroundColor: '#F85C70',
     padding: 10,
     borderRadius: 5,
@@ -40,8 +32,12 @@ export default StyleSheet.create({
     marginTop: 5,
     color: '#F85C70'
   },
-  title: {
-    fontSize: 30,
+  textInput:{
+    backgroundColor: '#f9f9f9',
+    borderColor: "gray",
+    width: 300,
+    margin: 6,
+    borderRadius: 5,
     alignSelf: 'center',
   }
 })
