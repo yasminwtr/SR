@@ -3,9 +3,9 @@ const { response, request } = require('express')
 const Pool = require('pg').Pool
 const db = new Pool({
   host: 'localhost',
-  database: 'application_database',
+  database: 'postgres',
   user: 'postgres',
-  password: '123',
+  password: 'yasmin',
   port: 5432
 })
 
@@ -47,7 +47,7 @@ const deleteUser = (request, response) => {
   try {
     const id = parseInt(request.params.id)
 
-    db.query('delete from userdata where id = $1', [id],
+    db.query('delete from person where id = $1', [id],
       (error, results) => {
         if (error) {
           throw error

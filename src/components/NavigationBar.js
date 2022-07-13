@@ -37,6 +37,9 @@ const Configuration = () => (
     <Stack.Screen
       name='Settings'
       component={Settings}
+      options={{
+        headerShown: false
+      }}
     />
 
     <Stack.Screen
@@ -56,6 +59,9 @@ const ServiceStack = ({ navigation }) => (
     <Stack.Screen
       name='Categories'
       component={Categories}
+      options={{
+        headerShown: false
+      }}
     />
 
     <Stack.Screen
@@ -87,7 +93,7 @@ const NavigationBar = () => {
 
       <Tab.Screen
         name="Home"
-        component={Categories}
+        component={ServiceStack}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Image source={require('../../assets/home.png')} />

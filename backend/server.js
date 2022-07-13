@@ -20,7 +20,7 @@ app.get('/services', routes.getServices)
 app.get('/getWorkersByServiceId', routes.getWorkersByServiceId)
 app.get('/users', routes.getUsers)
 app.post('/registerPerson', routes.postPerson)
-app.delete('/person/:id', routes.deleteUser)
+app.delete('/users/:id', routes.deleteUser)
 app.get('/users/:id', routes.getUserById)
 app.put('/users/:id', routes.updateUser)
 

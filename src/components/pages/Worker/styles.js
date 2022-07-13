@@ -2,35 +2,25 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
     page: {
-        backgroundColor: '#f3f8fe',
+        backgroundColor: '#EBEAEA',
         minHeight: 2000
     },
-    input: {
-        marginTop: 40,
-        borderRadius: 10,
-        padding: 15,
-        backgroundColor: '#fcfcfc',
-        borderColor: '#a3a3a3',
-        width: 340,
-        alignSelf: 'center',
-        shadowColor: '#a3a3a3',
-        shadowOffset: {width: -2, height: 4},
-        shadowOpacity: 0.2,
-        shadowRadius: 6,
-        marginBottom: 15
+    flatlist: {
+        padding: 10
     },
     title: {
-        color: '#d88b9f',
+        color: '#F85C70',
         fontSize: 23,
         marginLeft: 20,
-        marginTop: 40
+        marginTop: 40,
+        fontFamily: 'Rubik-Medium'
     },
     profileButton: {
         width: 340,
         height: 60,
         alignSelf: 'center',
         flexDirection: 'row',
-        backgroundColor: '#fcfcfc',
+        backgroundColor: '#F8F8F8',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,
@@ -50,13 +40,8 @@ export default StyleSheet.create({
     name: {
         fontSize: 17,
         position: 'absolute',
-        color: '#a17792',
-        left: 70
-    },
-    km: {
-        fontSize: 14,
-        position: 'absolute',
-        left: 260,
-        color: '#565d61'
+        color: '#3f4040',
+        left: 70,
+        fontFamily: 'Rubik'
     }
 })

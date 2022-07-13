@@ -2,12 +2,12 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
     page: {
-        backgroundColor: '#f3f8fe',
+        backgroundColor: '#EBEAEA',
     },
     container: {
         justifyContent: 'center',
         alignContent: 'center',
-        backgroundColor: '#3d4379',
+        backgroundColor: '#F85C70',
         borderBottomEndRadius: 20,
         borderBottomStartRadius: 20,
         shadowColor: '#3d4379',
@@ -26,16 +26,18 @@ export default StyleSheet.create({
         marginTop: 10,
         fontSize: 25,
         textAlign: 'center',
-        color: '#fff'
+        color: '#fff',
+        fontFamily: 'Rubik'
     },
     email: {
         fontSize: 20,
         textAlign: 'center',
-        color: '#e6e3e3'
+        color: '#EBEAEA',
+        fontFamily: 'Rubik'
     },
     configurations: {
         marginTop: 20,
-        backgroundColor: '#f3f8fe'
+        backgroundColor: '#EBEAEA',
     },
     button: {
         flexDirection: 'row',
@@ -45,8 +47,9 @@ export default StyleSheet.create({
     },
     editText: {
         fontSize: 18,
-        color: '#565d61',
-        marginLeft: 10
+        color: '#3f4040',
+        marginLeft: 10,
+        fontFamily: 'Rubik'
     },
     divider: {
         width: 372,
@@ -58,20 +61,19 @@ export default StyleSheet.create({
         fontSize: 18,
         color: '#b52d2d',
         marginLeft: 10,
+        fontFamily: 'Rubik'
     },
     exitText: {
         fontSize: 18,
-        color: '#a17792',
+        color: '#3f4040',
         marginLeft: 10,
+        fontFamily: 'Rubik'
     },
     serviceText: {
         fontSize: 18,
-        color: '#565d61'
-    },
-    buttonService: {
-        textAlign: 'center',
-        marginBottom: 25,
-        marginTop: 20,
+        color: '#F85C70',
+        marginLeft: 10,
+        fontFamily: 'Rubik'
     },
     textInput: {
         margin: 10

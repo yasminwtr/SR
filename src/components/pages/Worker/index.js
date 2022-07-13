@@ -14,7 +14,7 @@ const Worker = ({ navigation }) => {
 
   const getWorkers = async () => {
     try {
-      const response = await fetch('http://localhost:3000/registerPerson')
+      const response = await api.get('/registerPerson')
       const data = response.json()
       data.then(
         (val) => setWorkers(val)
@@ -45,6 +45,7 @@ const Worker = ({ navigation }) => {
         <Text style={styles.title}>{serviceCategory ?? 'Trabalhadores'}</Text>
 
         <FlatList
+          style={styles.flatlist}
           data={workers}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => {

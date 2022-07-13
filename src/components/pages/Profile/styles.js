@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
     page: {
-        backgroundColor: '#f3f8fe'
+        backgroundColor: '#EBEAEA'
     },
     container: {
         padding: 15,
         justifyContent: 'center',
         alignContent: 'center',
-        backgroundColor: '#3d4379',
+        backgroundColor: '#F85C70',
         height: 300,
         borderBottomEndRadius: 20,
         borderBottomStartRadius: 20,
@@ -27,15 +27,17 @@ export default StyleSheet.create({
         marginTop: 10,
         fontSize: 25,
         textAlign: 'center',
-        color: '#fff'
+        color: '#fff',
+        fontFamily: 'Rubik'
     },
     service: {
         fontSize: 20,
         textAlign: 'center',
-        color: '#e6e3e3'
+        color: '#EBEAEA',
+        fontFamily: 'Rubik'
     },
     button: {
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#f5f5f5',
         padding: 18,
         borderRadius: 30,
         width: 280,
@@ -49,7 +51,8 @@ export default StyleSheet.create({
     buttonText: {
         fontSize: 15,
         textAlign: 'center',
-        color: '#343434'
+        color: '#3f4040',
+        fontFamily: 'Rubik'
     },
     containerContact: {
         marginTop: 50,
@@ -60,15 +63,17 @@ export default StyleSheet.create({
         flexDirection: 'row'
     },
     titleContact: {
-        color: '#565d61',
+        color: '#3f4040',
         fontSize: 17,
-        marginLeft: 5
+        marginLeft: 5,
+        fontFamily: 'Rubik-Medium'
     },
     textContact: {
         fontSize: 16,
         textAlign: 'justify',
         marginBottom: 30,
         marginTop: 5,
-        color: '#343434'
+        color: '#3f4040',
+        fontFamily: 'Rubik'
     }
 })
