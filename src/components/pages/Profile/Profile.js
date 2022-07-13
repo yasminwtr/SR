@@ -69,7 +69,7 @@ const Profile = (navigation) => {
                 <Icon name='map-marked-alt' size={17} color='#3f4040' />
                 <Text style={styles.titleContact}>Preço médio dos serviços</Text>
               </View>
-              <Text style={styles.textContact}>{price}</Text>
+              <Text style={styles.textContact}>R$ {price}</Text>
 
               <View style={styles.viewContact}>
                 <Icon name='map-marked-alt' size={17} color='#3f4040' />

@@ -5,7 +5,7 @@ const db = new Pool({
   host: 'localhost',
   database: 'application_database',
   user: 'postgres',
-  password: '123',
+  password: 'senai',
   port: 5432
 })
 
@@ -24,10 +24,10 @@ const getUserById = (request, response) => {
 const updateUser = (request, response) => {
   try {
     const id = parseInt(request.params.id)
-    const { email, password, name, phoneNumber } = request.body
+    const { email, password, phoneNumber } = request.body
 
-    db.query('update person set email = $1, pass = $2, fullName = $3, phoneNumber =  $4 where idperson = $5',
-    [email, password, name, phoneNumber, id],
+    db.query('update person set email = $1, pass = $2, phoneNumber =  $3 where idperson = $4',
+    [email, password, phoneNumber, id],
       (error, results) => {
         if (error) {
           throw error

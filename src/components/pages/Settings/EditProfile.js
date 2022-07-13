@@ -8,13 +8,12 @@ import api from '../../../api/index';
 const EditProfile = () => {
     const { user } = useContext(AuthContext)
 
-    const [fullname, setFullname] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
 
     function validationFields() {
-        if ((fullname || email || password || phoneNumber) !== '') {
+        if ((email || password || phoneNumber) !== '') {
           updateUser()
         } else {
           setErrorMessage(null)
@@ -27,16 +26,14 @@ const EditProfile = () => {
     const updateUser = async () => {
         const idPerson = user.idperson; 
         try{
-            const response = await api.put(`/users/${idPerson}`, {email, password, fullname, phoneNumber})
+            const response = await api.put(`/users/${idPerson}`, {email, password, phoneNumber})
             const data = response;    
             console.log('updateUserData', data);
   
-            user.fullname = data.fullname;
             user.email = data.email;
             user.password = data.password;
             user.phoneNumber = data.phoneNumber;
 
-            setFullname(fullname)
             setEmail(email)
             setPassword(password)
             setPhoneNumber(phoneNumber)
@@ -50,16 +47,6 @@ const EditProfile = () => {
     return(
         <View>
             <StatusBar barStyle="dark-content" />
-            <TextInput
-                style={styles.textInput}
-                activeOutlineColor='#0000'
-                outlineColor='#0000'
-                mode='outlined'
-                label='Mudar nome'
-                value={fullname}
-                onChangeText={setFullname}>
-            </TextInput>
-
             <TextInput
                 style={styles.textInput}
                 activeOutlineColor='#0000'
