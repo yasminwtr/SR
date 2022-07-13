@@ -9,10 +9,14 @@ export const AuthProvider = ({ children }) => {
   console.log("user @ contexts/auth.js, ", user);
 
   async function signIn(loginData) {
-    const loggedUser = await auth.signIn(loginData);
-    console.log('loginData',loginData); 
-
-    setUser(loggedUser);
+    try {
+      const loggedUser = await auth.signIn(loginData);
+      console.log('loginData',loginData); 
+  
+      setUser(loggedUser);
+    } catch (error) {
+      return true
+    }
   }
 
   async function signOut() {

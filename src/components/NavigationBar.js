@@ -119,7 +119,7 @@ const NavigationBar = () => {
         component={ServiceStack}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Image source={require('../../assets/home.png')} />
+            <Image style={{width:25, height:25}} source={require('../../assets/home.png')} />
           )
         }}
       />
@@ -129,7 +129,7 @@ const NavigationBar = () => {
         component={Profile}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Image source={require('../../assets/profile.png')} />
+            <Image style={{width:25, height:25}} source={require('../../assets/profile.png')} />
           )
         }}
       />
@@ -139,7 +139,7 @@ const NavigationBar = () => {
         component={Configuration}
         options={{
           tabBarIcon: ({ size, color }) => (
-            <Image source={require('../../assets/settings.png')} />
+            <Image style={{width:25, height:25}} source={require('../../assets/settings.png')} />
           )
         }}
       />

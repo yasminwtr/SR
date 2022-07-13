@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StatusBar, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity, StatusBar, SafeAreaView, Vibration } from 'react-native';
 import React, { useState, useContext } from 'react';
 import styles from './styles'
 import { TextInput, Title } from 'react-native-paper';
@@ -11,16 +11,18 @@ const SignIn = ({navigation}) => {
   const [passwordInput, setPasswordInput] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
 
-  function validateLogin() {
-    if ((emailInput, passwordInput) !== '') {
-      signIn({ email: emailInput, password: passwordInput })
-    } else {
+  async function validateLogin() {
+    if ((emailInput, passwordInput) === '') {
       setErrorMessage(null)
       setErrorMessage("Todos os campos são obrigatórios!*")
-      // Vibration.vibrate()
+      Vibration.vibrate()
       return;
     }
-  }
+      const incorrectCredentials = await signIn({ email: emailInput, password: passwordInput })
+      if(incorrectCredentials) {
+        setErrorMessage("Usuário ou senha incorretos")
+      }
+    }
   
   return (
     <SafeAreaView style={styles.container}>
