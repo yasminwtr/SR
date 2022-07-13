@@ -1,94 +1,100 @@
-import { View, StatusBar } from 'react-native';
+import { View, StatusBar, SafeAreaView, Text, Vibration } from 'react-native';
 import React, { useContext, useState } from 'react';
-import { Button, TextInput } from 'react-native-paper';
 import styles from './styles'
 import AuthContext from '../../contexts/auth';
 import api from '../../../api/index';
+import { TextInput, Title, Button } from 'react-native-paper';
 
 const EditProfile = () => {
-    const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
 
-    function validationFields() {
-        if ((email || password || phoneNumber) !== '') {
-          updateUser()
-        } else {
-          setErrorMessage(null)
-          setErrorMessage("Preencha o campo que você deseja alterar.*")
-          Vibration.vibrate()
-          return;
-        }
-      }
+  function validationFields() {
+    if ((email || password || phoneNumber) !== '') {
+      updateUser()
+    } else {
+      setErrorMessage(null)
+      setErrorMessage("Preencha o campo que você deseja alterar.*")
+      Vibration.vibrate()
+      return;
+    }
+  }
 
-    const updateUser = async () => {
-        const idPerson = user.idperson; 
-        try{
-            const response = await api.put(`/users/${idPerson}`, {email, password, phoneNumber})
-            const data = response;    
-            console.log('updateUserData', data);
-  
-            user.email = data.email;
-            user.password = data.password;
-            user.phoneNumber = data.phoneNumber;
+  const updateUser = async () => {
+    const idPerson = user.idperson;
+    try {
+      const response = await api.put(`/users/${idPerson}`, { email, password, phoneNumber })
+      const data = response;
+      console.log('updateUserData', data);
 
-            setEmail(email)
-            setPassword(password)
-            setPhoneNumber(phoneNumber)
+      user.email = data.email;
+      user.password = data.password;
+      user.phoneNumber = data.phoneNumber;
 
-        } catch (error) {
-            console.log(error)
-        }
-      }
-    
+      setEmail(email)
+      setPassword(password)
+      setPhoneNumber(phoneNumber)
 
-    return(
-        <View>
-            <StatusBar barStyle="dark-content" />
-            <TextInput
-                style={styles.textInput}
-                activeOutlineColor='#0000'
-                outlineColor='#0000'
-                mode='outlined'
-                label='Novo email'
-                value={email}
-                onChangeText={setEmail}>
-            </TextInput>
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-            <TextInput
-                style={styles.textInput}
-                activeOutlineColor='#0000'
-                outlineColor='#0000'
-                mode='outlined'
-                label='Nova senha'
-                value={password}
-                onChangeText={setPassword}>
-            </TextInput>
 
-            <TextInput
-                style={styles.textInput}
-                activeOutlineColor='#0000'
-                outlineColor='#0000'
-                mode='outlined'
-                label='Mudar número de telefone'
-                value={phoneNumber}
-                onChangeText={setPhoneNumber}>
-            </TextInput>
+  return (
+    <SafeAreaView>
+      <StatusBar barStyle="dark-content" />
+      <Title style={styles.title}>Alterar Dados</Title>
+      <TextInput
+        mode='outlined'
+        activeOutlineColor="#F85C70"
+        outlineColor="#fff"
+        style={styles.textInput}
+        mode='outlined'
+        label='Novo email'
+        value={email}
+        onChangeText={setEmail}>
+      </TextInput>
 
-            <View style={styles.divider} />
+      <TextInput
+        mode='outlined'
+        activeOutlineColor="#F85C70"
+        outlineColor="#fff"
+        style={styles.textInput}
+        mode='outlined'
+        label='Nova senha'
+        value={password}
+        onChangeText={setPassword}>
+      </TextInput>
 
-            <Button
-                mode='outlined'
-                color='#dc9cae'
-                onPress={() => validationFields()}
-                style={styles.buttonChangePassword}>
-                Editar
-            </Button>
-            
-        </View>
-    )
+      <TextInput
+        mode='outlined'
+        activeOutlineColor="#F85C70"
+        outlineColor="#fff"
+        style={styles.textInput}
+        label='Alterar número de telefone'
+        value={phoneNumber}
+        onChangeText={setPhoneNumber}>
+      </TextInput>
+
+      <View style={styles.divider} />
+
+      <Button
+        mode='contained'
+        color='#F85C70'
+        onPress={() => validationFields()}
+        style={styles.buttonChangePassword}>
+        Editar
+      </Button>
+
+      <Text style={styles.errorMessage}>{errorMessage}</Text> 
+
+    </SafeAreaView>
+  )
 }
 
 export default EditProfile
