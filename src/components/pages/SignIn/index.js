@@ -10,6 +10,8 @@ const SignIn = ({navigation}) => {
   const [emailInput, setEmailInput] = useState('')
   const [passwordInput, setPasswordInput] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
+  const [passwordVisible, setPasswordVisible] = useState(true);
+
 
   async function validateLogin() {
     if ((emailInput, passwordInput) === '') {
@@ -52,10 +54,10 @@ const SignIn = ({navigation}) => {
             onChangeText={setPasswordInput}
             label="Senha"
             left={<TextInput.Icon name="key-outline" />}
-            right={<TextInput.Icon name="eye"/>}
+            right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} onPress={() => setPasswordVisible(!passwordVisible)} />}
             style={styles.textInput}
             placeholder='********'
-            secureTextEntry={true}
+            secureTextEntry={passwordVisible}
             activeOutlineColor="#F85C70"
             outlineColor="#fff"
             maxLength={25}
