@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image, Modal, Pressable } from 'react-native';
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import AuthContext from "../../contexts/auth";
@@ -9,8 +9,10 @@ export default function Settings(props) {
   const { user } = useContext(AuthContext);
   const { signOut } = useContext(AuthContext);
   const [person, setPerson] = useState([])
+  const [modalVisible, setModalVisible] = useState(false);
 
   function handleSignOut() {
+    setModalVisible(!modalVisible)
     signOut();
   }
 
@@ -72,9 +74,29 @@ export default function Settings(props) {
 
           <View style={styles.divider} />
 
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>Você saiu da sua conta</Text>
+                <Pressable
+                  style={[styles.buttonModal, styles.buttonClose]}
+                  onPress={handleSignOut}
+                >
+                  <Text style={styles.textStyle}>Ok</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
           <TouchableOpacity
             style={styles.buttonExit}
-            onPress={handleSignOut}>
+            onPress={() => setModalVisible(!modalVisible)}>
             <Icon style={styles.icon} name='sign-out-alt' size={20} color='#fff' />
             <Text style={styles.exitText}>Sair</Text>
           </TouchableOpacity>

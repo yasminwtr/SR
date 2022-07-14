@@ -65,8 +65,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'row',
-
-  }
+  },
 })
 
 export default styles
