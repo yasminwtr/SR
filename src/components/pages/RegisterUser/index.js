@@ -40,7 +40,7 @@ export default function Register(props) {
             mode='outlined'
             onChangeText={setName}
             value={name}
-            label="Nome Completo"
+            label="Nome completo"
             style={styles.textInput}
             type="text"
             left={<TextInput.Icon name="account-outline" />}
@@ -66,7 +66,7 @@ export default function Register(props) {
             onChangeText={setPhoneNumber}
             value={phoneNumber}
             label="Telefone"
-            placeholder='ex. (48)991234-4567'
+            placeholder='ex: 48 991234456'
             style={styles.textInput}
             type="text"
             left={<TextInput.Icon name="phone-outline" />}
@@ -90,6 +90,7 @@ export default function Register(props) {
             maxLength={25}
             activeOutlineColor="#F85C70"
             outlineColor="#fff"
+            secureTextEntry={true}
           />
           <Text style={styles.errorMessage}>{errorMessage}</Text>
           <TouchableOpacity onPress={() => validationFields()}
@@ -97,7 +98,7 @@ export default function Register(props) {
           >
             <Text
               style={{ color: '#ffff', textAlign: 'center', fontSize: 25 }}>
-              Criar Conta
+              Criar conta
             </Text>
           </TouchableOpacity>
           <TouchableOpacity

@@ -3,9 +3,9 @@ const { response, request } = require('express')
 const Pool = require('pg').Pool
 const db = new Pool({
   host: 'localhost',
-  database: 'application_database',
+  database: 'postgres',
   user: 'postgres',
-  password: '123',
+  password: 'yasmin',
   port: 5432
 })
 
@@ -43,6 +43,28 @@ const updateUser = (request, response) => {
   }
 }
 
+// const updatePhoto = (request, response) => {
+//   try {
+//     const id = parseInt(request.params.id)
+//     const { photo } = request.body
+
+//     db.query('update person set photo = $1 where idperson = $2',
+//     [photo, id],
+//       (error, results) => {
+//         if (error) {
+//           throw error
+//         } response.status(201).send('Foto atualizada com sucesso!')
+//       })
+
+//   } catch (error) {
+//     console.log('Erro: ' + error);
+//     response.status(400).send({
+//       status: 400,
+//       message: 'Erro ao atualizar o registro. ' + error
+//     })
+//   }
+// }
+
 const deleteUser = (request, response) => {
   try {
     const id = parseInt(request.params.id)
@@ -68,7 +90,7 @@ const postPerson = (request, response) => {
     const { name, email, password, phoneNumber } = request.body
     console.log('valores postPerson:', { name, email, password, phoneNumber });
 
-    db.query('INSERT INTO person ( email, pass, fullName, phoneNumber ) values ($1, $2, $3, $4)',
+    db.query('INSERT INTO person ( email, pass, fullName, phoneNumber ) values ($1, $2, $3, $4, $5)',
       [email, password, name, phoneNumber], (error, results) => {
         response.status(201).send('Usuário adicionado')
       }
@@ -179,6 +201,7 @@ const getWorkersByServiceId = (request, response) => {
 
 module.exports = {
   updateUser,
+  // updatePhoto,
   deleteUser,
   getWorkersByServiceId,
   postPerson,

@@ -54,7 +54,6 @@ const EditProfile = () => {
         activeOutlineColor="#F85C70"
         outlineColor="#fff"
         style={styles.textInput}
-        mode='outlined'
         label='Novo email'
         value={email}
         onChangeText={setEmail}>
@@ -65,7 +64,6 @@ const EditProfile = () => {
         activeOutlineColor="#F85C70"
         outlineColor="#fff"
         style={styles.textInput}
-        mode='outlined'
         label='Nova senha'
         value={password}
         onChangeText={setPassword}>

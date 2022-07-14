@@ -86,7 +86,7 @@ const SignIn = ({navigation}) => {
             >
             <Text
               style={{ color: 'white', textAlign: 'center', fontSize: 20 }}>
-              Login
+              Entrar
             </Text>
           </TouchableOpacity>
       </View>

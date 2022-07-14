@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native"
 export default StyleSheet.create({
   page: {
     backgroundColor: '#EBEAEA',
+    height: 1010
   },
   container: {
     justifyContent: 'center',
@@ -14,13 +15,13 @@ export default StyleSheet.create({
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 6,
-    paddingBottom: 40
+    paddingBottom: 35
   },
   profileIcon: {
     width: 120,
     height: 120,
     alignSelf: 'center',
-    marginTop: 20
+    marginTop: 25
   },
 
   name: {

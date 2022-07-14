@@ -43,5 +43,6 @@ export default StyleSheet.create({
   title: {
     fontSize: 30,
     alignSelf: 'center',
+    marginBottom: 15
   }
 })

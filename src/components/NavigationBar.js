@@ -31,6 +31,9 @@ const Register = () => (
     <Stack.Screen
       name='Description'
       component={Description}
+      options={{
+        headerShown: false
+      }}
     />
   </Stack.Navigator>
 )
@@ -50,8 +53,13 @@ const Configuration = () => (
       component={Register}
       options={{
         headerTransparent: true,
-        title: '',
-        headerTintColor: '#F85C70'
+        headerTintColor: '#F85C70',
+        headerBackTitleVisible: false,
+        headerTitle: '',
+        headerLeftContainerStyle: {
+          position: 'absolute',
+          left: 16
+        }
       }}
     />
 
