@@ -23,7 +23,6 @@ app.post('/registerPerson', routes.postPerson)
 app.delete('/users/:id', routes.deleteUser)
 app.get('/users/:id', routes.getUserById)
 app.put('/users/:id', routes.updateUser)
-// app.put('/users/:id', routes.updatePhoto)
 
 app.listen(3000, () => {
   console.log("API REST rodando em http://localhost:3000")

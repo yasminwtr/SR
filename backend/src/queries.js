@@ -27,7 +27,7 @@ const updateUser = (request, response) => {
     const { email, password, phoneNumber } = request.body
 
     db.query('update person set email = $1, pass = $2, phoneNumber =  $3 where idperson = $4',
-    [email, password, phoneNumber, id],
+      [email, password, phoneNumber, id],
       (error, results) => {
         if (error) {
           throw error
@@ -42,28 +42,6 @@ const updateUser = (request, response) => {
     })
   }
 }
-
-// const updatePhoto = (request, response) => {
-//   try {
-//     const id = parseInt(request.params.id)
-//     const { photo } = request.body
-
-//     db.query('update person set photo = $1 where idperson = $2',
-//     [photo, id],
-//       (error, results) => {
-//         if (error) {
-//           throw error
-//         } response.status(201).send('Foto atualizada com sucesso!')
-//       })
-
-//   } catch (error) {
-//     console.log('Erro: ' + error);
-//     response.status(400).send({
-//       status: 400,
-//       message: 'Erro ao atualizar o registro. ' + error
-//     })
-//   }
-// }
 
 const deleteUser = (request, response) => {
   try {
@@ -90,7 +68,6 @@ const deleteUser = (request, response) => {
     })
   }
 }
-
 
 const postPerson = (request, response) => {
   try {
@@ -208,7 +185,6 @@ const getWorkersByServiceId = (request, response) => {
 
 module.exports = {
   updateUser,
-  // updatePhoto,
   deleteUser,
   getWorkersByServiceId,
   postPerson,
