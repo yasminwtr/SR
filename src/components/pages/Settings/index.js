@@ -15,15 +15,16 @@ export default function Settings(props) {
   }
 
   const deleteUser = async (deleteId) => {
+    
     const requestOptions = {
       method: 'delete',
-      headers: { 'Content-type': 'aplication/json' }
+      headers: {'Content-type': 'aplication/json'}
     }
-    try {
+    try{
       console.log(deleteId)
-      await fetch('http://localhost:3000/users/' + deleteId, requestOptions)
-      setPerson(person.filter(person => person.idperson != deleteId))
-    } catch (error) {
+      await fetch('http://localhost:3000/users/'+ deleteId, requestOptions)
+      setPerson(person.filter(person => person.idPerson != deleteId))
+    } catch(error){
       console.log("Erro: " + error)
     }
   }
