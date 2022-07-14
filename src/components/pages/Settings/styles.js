@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
-  page: {
-    backgroundColor: '#EBEAEA',
-    height: 1010
+  page: { 
+    backgroundColor: '#f8f8f8',
+    height: '100%'
   },
   container: {
     justifyContent: 'center',
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 6,
-    paddingBottom: 35
+    paddingBottom: 35,
   },
   profileIcon: {
     width: 120,
@@ -23,7 +23,6 @@ export default StyleSheet.create({
     alignSelf: 'center',
     marginTop: 25
   },
-
   name: {
     marginTop: 10,
     fontSize: 25,
@@ -39,13 +38,16 @@ export default StyleSheet.create({
   },
   configurations: {
     marginTop: 20,
-    backgroundColor: '#EBEAEA',
   },
   button: {
     flexDirection: 'row',
-    marginBottom: 25,
-    marginTop: 20,
-    marginLeft: 40
+    justifyContent:'flex-start',
+    marginBottom: 10,
+    borderRadius:10,
+    margin:10,
+    height:50,
+    alignItems:'center',
+    backgroundColor:'#fff'
   },
   editText: {
     fontSize: 18,
@@ -67,9 +69,11 @@ export default StyleSheet.create({
   },
   exitText: {
     fontSize: 18,
-    color: '#3f4040',
-    marginLeft: 10,
-    fontFamily: 'Rubik'
+    color: '#fff',
+    marginRight: 20,
+    fontFamily: 'Rubik',
+    textAlign:'center',
+    marginLeft:5
   },
   serviceText: {
     fontSize: 18,
@@ -86,19 +90,20 @@ export default StyleSheet.create({
     backgroundColor: '#e3e3e3',
     marginLeft: 20
   },
-  buttonChangePassword: {
-    borderColor: '#dc9cae',
-    width: '40%',
-    alignSelf: 'center',
+  buttonExit: {
+    backgroundColor:'#F85C70',
+    color:'#F85C70',
+    flexDirection: 'row',
+    justifyContent:'center',
+    alignItems:'center',
+    marginBottom: 25,
     marginTop: 20,
-    color: '#fff'
+    marginLeft: 20,
+    width:100,
+    height:50,
+    borderRadius:10
   },
-  title: {
-    color: '#F85C70'
-  },
-  errorMessage: {
-    textAlign: 'center',
-    marginTop: 5,
-    color: '#F85C70'
+  icon: {
+    marginLeft:20
   }
 })

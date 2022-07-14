@@ -8,7 +8,7 @@ import Profile from '../../src/components/pages/Profile/Profile'
 import Worker from '../components/pages/Worker/index';
 import RegisterWorker from './pages/RegisterWorker/index';
 import Description from './pages/RegisterWorker/description';
-import EditProfile from './pages/Settings/EditProfile';
+import EditProfile from './pages/Settings/EditProfile/index'
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.

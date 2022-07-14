@@ -3,9 +3,9 @@ const { response, request } = require('express')
 const Pool = require('pg').Pool
 const db = new Pool({
   host: 'localhost',
-  database: 'postgres',
+  database: 'application_database',
   user: 'postgres',
-  password: 'yasmin',
+  password: 'senai',
   port: 5432
 })
 
@@ -90,7 +90,7 @@ const postPerson = (request, response) => {
     const { name, email, password, phoneNumber } = request.body
     console.log('valores postPerson:', { name, email, password, phoneNumber });
 
-    db.query('INSERT INTO person ( email, pass, fullName, phoneNumber ) values ($1, $2, $3, $4, $5)',
+    db.query('INSERT INTO person ( email, pass, fullName, phoneNumber ) values ($1, $2, $3, $4)',
       [email, password, name, phoneNumber], (error, results) => {
         response.status(201).send('Usuário adicionado')
       }

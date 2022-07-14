@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     elevation: 1,
   },
   containerBox: {
-    backgroundColor: '#EBEAEA',
+    backgroundColor: '#f8f8f8 ',
     flex: 1,
     display: 'flex',
     flexDirection: 'row',
@@ -39,6 +39,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom:20,
     color: '#fff',
+    width:'100%'
   },
   titleHeader: {
     color: '#fff',
