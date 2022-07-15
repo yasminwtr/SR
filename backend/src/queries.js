@@ -3,9 +3,9 @@ const { response, request } = require('express')
 const Pool = require('pg').Pool
 const db = new Pool({
   host: 'localhost',
-  database: 'application_database',
+  database: 'postgres',
   user: 'postgres',
-  password: 'senai',
+  password: 'yasmin',
   port: 5432
 })
 
@@ -45,8 +45,8 @@ const updateUser = (request, response) => {
 
 const deleteUser = (request, response) => {
   try {
-
     const idPerson = parseInt(request.params.id)
+
     if (!isNaN(idPerson)) {
       db.query('delete from person where idperson = $1', [idPerson],
         (error, results) => {
@@ -54,12 +54,11 @@ const deleteUser = (request, response) => {
             throw error
           } response.status(201).send('Usuário deletado com sucesso!')
         })
+
     } else {
       throw Error('Erro ao deletar o usuário. ID não existe!')
+
     }
-
-
-
   } catch (error) {
     console.log(error);
     response.status(400).send({

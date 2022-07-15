@@ -4,6 +4,7 @@ import { Text, View, TouchableOpacity, Image, Modal, Pressable } from 'react-nat
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import AuthContext from "../../contexts/auth";
+import api from "../../../api";
 
 export default function Settings(props) {
   const { user } = useContext(AuthContext);
@@ -15,18 +16,19 @@ export default function Settings(props) {
     setModalVisible(!modalVisible)
     signOut();
   }
-  
+
   const deleteUser = async (deleteId) => {
-    
+
     const requestOptions = {
       method: 'delete',
-      headers: {'Content-type': 'aplication/json'}
+      headers: { 'Content-type': 'aplication/json' }
     }
-    try{
+    try {
       console.log(deleteId)
-      await fetch('http://localhost:3000/users/'+ deleteId, requestOptions)
+      await fetch('http://localhost:3000/users/' + deleteId, requestOptions)
       setPerson(person.filter(person => person.idPerson != deleteId))
-    } catch(error){
+      navigation.navigate('RegisterUser')
+    } catch (error) {
       console.log("Erro: " + error)
     }
   }
@@ -49,7 +51,7 @@ export default function Settings(props) {
             <TouchableOpacity
               onPress={() => { props.navigation.navigate('RegisterWorker') }}
               style={styles.button}>
-              <Icon name='key' size={20} color='#F85C70' />
+              <Icon style={styles.icon} name='star' size={20} color='#F85C70' />
               <Text style={styles.serviceText}>Quero anunciar um serviço</Text>
             </TouchableOpacity>
           </View>
@@ -57,9 +59,9 @@ export default function Settings(props) {
           <View style={styles.divider} />
 
           <TouchableOpacity
-            onPress={() => { props.navigation.navigate('EditProfile') }} 
+            onPress={() => { props.navigation.navigate('EditProfile') }}
             style={styles.button}>
-            <Icon name='key' size={20} color='#3f4040' />
+            <Icon style={styles.icon} name='edit' size={20} color='#3f4040' />
             <Text style={styles.editText}>Editar conta</Text>
           </TouchableOpacity>
 
@@ -67,8 +69,8 @@ export default function Settings(props) {
 
           <View>
             <TouchableOpacity style={styles.button}
-             onPress={() => {deleteUser(user.idperson)}}>
-              <Icon name='trash' size={19} color='#b52d2d' />
+              onPress={() => { deleteUser(user.idperson) }}>
+              <Icon style={styles.icon} name='trash-alt' size={19} color='#b52d2d' />
               <Text style={styles.deleteText}>Excluir conta</Text>
             </TouchableOpacity>
           </View>

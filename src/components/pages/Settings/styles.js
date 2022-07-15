@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
-  page: { 
+  page: {
     backgroundColor: '#f8f8f8',
     height: '100%'
   },
@@ -41,13 +41,13 @@ export default StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    justifyContent:'flex-start',
+    justifyContent: 'flex-start',
     marginBottom: 10,
-    borderRadius:10,
-    margin:10,
-    height:50,
-    alignItems:'center',
-    backgroundColor:'#fff'
+    borderRadius: 10,
+    margin: 10,
+    height: 50,
+    alignItems: 'center',
+    backgroundColor: '#fff'
   },
   editText: {
     fontSize: 18,
@@ -72,8 +72,8 @@ export default StyleSheet.create({
     color: '#fff',
     marginRight: 20,
     fontFamily: 'Rubik',
-    textAlign:'center',
-    marginLeft:5
+    textAlign: 'center',
+    marginLeft: 5
   },
   serviceText: {
     fontSize: 18,
@@ -91,63 +91,60 @@ export default StyleSheet.create({
     marginLeft: 20
   },
   buttonExit: {
-    backgroundColor:'#F85C70',
-    color:'#F85C70',
+    backgroundColor: '#F85C70',
+    color: '#F85C70',
     flexDirection: 'row',
-    justifyContent:'center',
-    alignItems:'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 25,
     marginTop: 20,
     marginLeft: 20,
-    width:100,
-    height:50,
-    borderRadius:10
+    width: 100,
+    height: 50,
+    borderRadius: 10
   },
   icon: {
-    marginLeft:20
+    marginLeft: 20
   },
-    // teste modal
-    centeredView: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: 22
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
     },
-    modalView: {
-      margin: 20,
-      backgroundColor: "white",
-      borderRadius: 20,
-      padding: 35,
-      alignItems: "center",
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5
-    },
-    buttonModal: {
-      borderRadius: 20,
-      padding: 10,
-      elevation: 2
-    },
-    buttonOpen: {
-      backgroundColor: "#F194FF",
-    },
-    buttonClose: {
-      backgroundColor: "#F85C70",
-    },
-    textStyle: {
-      color: "white",
-      fontWeight: "bold",
-      textAlign: "center"
-    },
-    modalText: {
-      marginBottom: 15,
-      textAlign: "center"
-    }
-  
-  
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  buttonModal: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#F85C70",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
 })

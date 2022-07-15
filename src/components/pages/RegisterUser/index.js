@@ -1,8 +1,10 @@
 import { View, Text, TouchableOpacity, Pressable, Keyboard, Vibration } from 'react-native';
 import styles from './styles'
-import React, { useState } from "react";
+import React, { useState, useContext  } from "react";
 import { TextInput, Title } from 'react-native-paper';
 import api from "../../../api";
+import AuthContext from '../../contexts/auth';
+
 
 export default function Register(props) {
   const [email, setEmail] = useState('')
@@ -10,6 +12,7 @@ export default function Register(props) {
   const [password, setPassword] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
+  const { signed, signIn, user } = useContext(AuthContext);
 
   function validationFields() {
     if ((email, name, password, phoneNumber) !== '') {
@@ -21,10 +24,11 @@ export default function Register(props) {
       return;
     }
   }
-
+  
   async function registerNewUser() {
     try {
       const response = await api.post('/registerPerson', { name, email, password, phoneNumber });
+      await signIn({ email, password })
       console.log('response registerPerson:', response);
       props.navigation.navigate('NavigationBar')
     } catch (error) {
