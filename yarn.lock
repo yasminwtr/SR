@@ -13613,8 +13613,6 @@
   "version" "0.1.1"
 
 "strip-ansi@~4.0.0":
-  "integrity" "sha1-qEeQIusaw2iocTibY1JixQXuNo8="
-  "resolved" "https://registry.npmjs.org/strip-ansi/-/strip-ansi-4.0.0.tgz"
   "version" "4.0.0"
   dependencies:
     "ansi-regex" "^3.0.0"

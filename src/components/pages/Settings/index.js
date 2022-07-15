@@ -4,6 +4,7 @@ import { Text, View, TouchableOpacity, Image, Modal, Pressable } from 'react-nat
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import AuthContext from "../../contexts/auth";
+import api from "../../../api";
 
 export default function Settings(props) {
   const { user } = useContext(AuthContext);
@@ -19,13 +20,14 @@ export default function Settings(props) {
   const deleteUser = async (deleteId) => {
     const requestOptions = {
       method: 'delete',
-      headers: { 'Content-type': 'aplication/json' }
+      headers: {'Content-type': 'aplication/json'}
     }
-    try {
+    try{
       console.log(deleteId)
-      await fetch('http://localhost:3000/users/' + deleteId, requestOptions)
-      setPerson(person.filter(person => person.idperson != deleteId))
-    } catch (error) {
+      await fetch('http://localhost:3000/users/'+ deleteId, requestOptions)
+      setPerson(person.filter(person => person.idPerson != deleteId))
+      navigation.navigate('RegisterUser')
+    } catch(error){
       console.log("Erro: " + error)
     }
   }
