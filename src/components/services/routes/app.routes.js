@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import NavigationBar from '../../NavigationBar';
-import RegisterWorker from '../../pages/RegisterWorker';
-import Description from '../../pages/RegisterWorker/description';
+import RegisterWorker from '../../pages/Workers/RegisterWorker/index';
+import Description from '../../pages/Workers/RegisterWorker/description';
 import { ChangePassword } from '../../pages/Settings/changePassword'; 
 import Profile from '../../pages/Profile/Profile';
 

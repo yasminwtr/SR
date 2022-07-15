@@ -58,6 +58,17 @@ export default function Settings(props) {
 
           <View style={styles.divider} />
 
+          <View>
+            <TouchableOpacity
+              onPress={() => { props.navigation.navigate('DeleteWorker') }}
+              style={styles.button}>
+              <Icon style={styles.icon} name='star' size={20} color='#F85C70' />
+              <Text style={styles.serviceText}>Cancelar anúncio de serviço</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.divider} />
+
           <TouchableOpacity
             onPress={() => { props.navigation.navigate('EditProfile') }}
             style={styles.button}>

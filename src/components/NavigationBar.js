@@ -6,14 +6,13 @@ import Categories from './pages/Categories/index'
 import Settings from '../components/pages/Settings/index'
 import Profile from '../../src/components/pages/Profile/Profile'
 import Worker from '../components/pages/Worker/index';
-import RegisterWorker from './pages/RegisterWorker/index';
-import Description from './pages/RegisterWorker/description';
+import RegisterWorker from './pages/Workers/RegisterWorker/index';
+import Description from './pages/Workers/RegisterWorker/description';
 import EditProfile from './pages/Settings/EditProfile/index'
+import DeleteWorker from './pages/Workers/DeleteWorker';
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.
-
-import Icon from 'react-native-vector-icons/FontAwesome5'
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -51,6 +50,21 @@ const Configuration = () => (
     <Stack.Screen
       name='RegisterWorker'
       component={Register}
+      options={{
+        headerTransparent: true,
+        headerTintColor: '#F85C70',
+        headerBackTitleVisible: false,
+        headerTitle: '',
+        headerLeftContainerStyle: {
+          position: 'absolute',
+          left: 16
+        }
+      }}
+    />
+
+    <Stack.Screen
+      name='DeleteWorker'
+      component={DeleteWorker}
       options={{
         headerTransparent: true,
         headerTintColor: '#F85C70',

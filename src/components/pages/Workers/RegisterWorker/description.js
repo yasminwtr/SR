@@ -1,7 +1,7 @@
 import React from "react"
-import { View, StyleSheet, TextInput, ScrollView, TouchableOpacity, Text, Linking } from "react-native";
+import { View, TextInput, ScrollView, TouchableOpacity, Text, Linking } from "react-native";
 import CurrencyInput from 'react-native-currency-input';
-import { Title, Button } from 'react-native-paper';
+import { Title } from 'react-native-paper';
 import styles from "./styles";
 
 const Description = (props) => {

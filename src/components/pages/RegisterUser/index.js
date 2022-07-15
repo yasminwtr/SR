@@ -5,14 +5,13 @@ import { TextInput, Title } from 'react-native-paper';
 import api from "../../../api";
 import AuthContext from '../../contexts/auth';
 
-
 export default function Register(props) {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
-  const { signed, signIn, user } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   function validationFields() {
     if ((email, name, password, phoneNumber) !== '') {

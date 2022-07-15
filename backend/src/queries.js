@@ -3,9 +3,9 @@ const { response, request } = require('express')
 const Pool = require('pg').Pool
 const db = new Pool({
   host: 'localhost',
-  database: 'postgres',
+  database: 'application_database',
   user: 'postgres',
-  password: 'yasmin',
+  password: '123',
   port: 5432
 })
 
@@ -154,6 +154,26 @@ const registerWorker = (request, response) => {
   }
 }
 
+const DeleteWorkerService = (request, response) => {
+  try {
+    const { idWorker, idPerson, idService } = request.body
+    console.log('valores DeleteWorkerService:', { idWorker, idPerson, idService });
+
+    db.query('DELETE FROM worker WHERE idService = $1 and idperson = $2',
+      [idPerson, idService], (error, results) => {
+        console.log('Error', error);
+        response.status(201).send('Trabalhador Removido')
+      }
+    )
+  } catch (error) {
+    console.log('Erro: ' + error);
+    response.status(500).send({
+      status: 500,
+      message: 'Erro ao remover trabalhador. ' + error
+    })
+  }
+}
+
 const getWorkersByServiceId = (request, response) => {
   const { idService } = request.query
   console.log('getWorkersByServiceId', getWorkersByServiceId);
@@ -191,5 +211,6 @@ module.exports = {
   getServices,
   registerWorker,
   getUsers,
-  getUserById
+  getUserById,
+  DeleteWorkerService
 }
