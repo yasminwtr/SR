@@ -5,7 +5,7 @@ import { Title } from 'react-native-paper';
 import styles from "./styles";
 
 const Description = (props) => {
-  const { description, setDescription, price, setPrice, localization, setLocalization, whatsapp, setWhatsapp, finish } = props
+  const { description, setDescription, price, setPrice, city, setCity, localization, setLocalization, whatsapp, setWhatsapp, finish } = props
 
   return (
     <ScrollView>
@@ -50,6 +50,8 @@ const Description = (props) => {
           style={styles.input2}
           maxLength={100}
           placeholder="Estado (ex: Santa Catarina)"
+          value={city}
+          onChangeValue={setCity}
         />
 
         <Title style={styles.titleInput}>

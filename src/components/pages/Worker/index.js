@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ScrollView, Image, Button, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, ImageBackground, Button, FlatList } from 'react-native';
 import styles from './styles'
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
@@ -55,8 +55,13 @@ const Worker = ({ navigation }) => {
                 <TouchableOpacity style={styles.profileButton}
                   onPress={() => navigation.navigate('Profile',
                     { workerId: `${item.idperson}`, name: `${item.fullname}`, email: `${item.email}`, phonenumber: `${item.phonenumber}`,
-                    price: `${item.priceservice}`, localization: `${item.localization}`, whatsapp: `${item.whatsapp}`, description: `${item.descriptionservice}` })}>
-                  <Image source={require("../../../../assets/circle.png")} style={styles.profileIcon} />
+                    price: `${item.priceservice}`, localization: `${item.localization}`, whatsapp: `${item.whatsapp}`, description: `${item.descriptionservice}`,
+                    titleService: `${item.titleservice}`, city: `${item.city}`})}>
+                  <ImageBackground
+                    source={'https://64.media.tumblr.com/35f8d891314ddb3e5d0b6eb57c6dad90/tumblr_p05g8ldYED1sbghg6o6_250.jpg'}
+                    style={styles.profileIcon}
+                    imageStyle={{borderRadius: 100}}>
+                  </ImageBackground>
                   <Text style={styles.name}>{item.fullname}</Text>
                 </TouchableOpacity>
               </View>

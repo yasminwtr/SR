@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, SafeAreaView, Text, TouchableOpacity, View, ScrollView } from "react-native";
 import api from '../../../../api'
 import Description from "./description";
 import AuthContext from "../../../contexts/auth";
@@ -17,6 +17,7 @@ const RegisterWorker = (props) => {
   const [services, setServices] = useState(null);
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [city, setCity] = useState('');
   const [localization, setLocalization] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
   const [snackbarVisible, setSnackbarVisible] = useState(false);
@@ -26,10 +27,10 @@ const RegisterWorker = (props) => {
 
   async function registerWorker() {
     try {
-      if ((description, price, localization, whatsapp) !== '') {
+      if ((description, price, localization, city, whatsapp) !== '') {
         setSnackbarMessage('Serviço registrado com sucesso!')
         setSnackbarVisible(true)
-        const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price, localization: localization, whatsapp: whatsapp });
+        const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price, city: city, localization: localization, whatsapp: whatsapp });
         console.log('response', response);
         // props.navigation.navigate('NavigationBar')
       }
@@ -82,13 +83,15 @@ const RegisterWorker = (props) => {
     )
   } else {
     return (
-      <View>
+      <ScrollView>
         <Description
           finish={registerWorker}
           description={description}
           setDescription={setDescription}
           price={price}
           setPrice={setPrice}
+          city={city}
+          setCity={setCity}
           localization={localization}
           setLocalization={setLocalization}
           whatsapp={whatsapp}
@@ -110,7 +113,7 @@ const RegisterWorker = (props) => {
             {snackbarMessage}
           </Text>
         </Snackbar>
-      </View>
+      </ScrollView>
     )
   }
 };

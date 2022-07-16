@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity, Image, Modal, Pressable } from 'react-native';
+import { Text, View, TouchableOpacity, ImageBackground, Modal, Pressable } from 'react-native';
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import AuthContext from "../../contexts/auth";
@@ -37,8 +37,11 @@ export default function Settings(props) {
     <View style={styles.page}>
       <View style={styles.container}>
         <TouchableOpacity>
-          <Image source={require('../../../../assets/circle.png')}
-            style={styles.profileIcon} />
+          <ImageBackground
+            source={'https://64.media.tumblr.com/90efb16d9f78769f5c4578cb8fd21dfb/2f8fbfc24ba6a2ca-bb/s400x600/ae1dab3b316b369b1d9a3abd34691a1cfea3edd3.pnj'}
+            style={styles.profileIcon}
+            imageStyle={{borderRadius: 100}}>
+          </ImageBackground>
         </TouchableOpacity>
 
         <Text style={styles.name}>{user?.fullname}</Text>

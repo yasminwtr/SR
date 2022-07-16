@@ -5,7 +5,6 @@ import { StatusBar } from 'expo-status-bar';
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import { useRoute } from '@react-navigation/native';
 import AuthContext from "../../contexts/auth";
-import * as ImagePicker from 'expo-image-picker'
 import api from '../../../api/index'
 
 const Profile = ({ navigation }) => {
@@ -17,9 +16,10 @@ const Profile = ({ navigation }) => {
   const phonenumber = route.params?.phonenumber
   const price = route.params?.price
   const localization = route.params?.localization
+  const city = route.params?.city
   const whatsapp = route.params?.whatsapp
   const description = route.params?.description
-  const titleservice = route.params?.titleservice
+  const titleService = route.params?.titleService
 
   const [userServices, setUserServices] = useState([])
 
@@ -31,7 +31,6 @@ const Profile = ({ navigation }) => {
       setUserServices([])
     }
   }
-
   
   useEffect(() => {
     getServices(user.idperson)
@@ -41,13 +40,30 @@ const Profile = ({ navigation }) => {
     <ScrollView>
       <View style={styles.page}>
         <View style={styles.container}>
-          <Image source={require('../../../../assets/circle.png')}
-            style={styles.profileIcon} />
+          {route.params ? (
+            <>
+              <ImageBackground
+                source={'https://64.media.tumblr.com/35f8d891314ddb3e5d0b6eb57c6dad90/tumblr_p05g8ldYED1sbghg6o6_250.jpg'}
+                style={styles.profileIcon}
+                imageStyle={{borderRadius: 100}}>
+              </ImageBackground>
+            </>
+          ) : (
+            <>
+              <ImageBackground
+                source={'https://64.media.tumblr.com/90efb16d9f78769f5c4578cb8fd21dfb/2f8fbfc24ba6a2ca-bb/s400x600/ae1dab3b316b369b1d9a3abd34691a1cfea3edd3.pnj'}
+                style={styles.profileIcon}
+                imageStyle={{borderRadius: 100}}>
+              </ImageBackground>
+            </>
+          )
+          }
 
           <Text style={styles.name}>{name ? name : user.fullname}</Text>
 
           {route.params ? (
             <>
+              <Text style={styles.service}>{titleService}</Text>
               <TouchableOpacity style={styles.button}
                 onPress={() => { Linking.openURL(`${whatsapp}`) }}>
                 <Text style={styles.buttonText}>WhatsApp</Text>
@@ -90,7 +106,7 @@ const Profile = ({ navigation }) => {
                 <Icon name='map-marked-alt' size={17} color='#3f4040' />
                 <Text style={styles.titleContact}>Localização</Text>
               </View>
-              <Text style={styles.textContact}>{localization}</Text>
+              <Text style={styles.textContact}>{city}, {localization}</Text>
 
               <View style={styles.viewContact}>
                 <Icon name='th-list' size={17} color='#3f4040' />
@@ -112,20 +128,20 @@ const Profile = ({ navigation }) => {
                 data={userServices}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => {
-
                   return (
                     <View>
-                      <TouchableOpacity style={styles.profileButton}
+                      <TouchableOpacity style={styles.textContact}
                         onPress={() => {
                           console.log('item', item);
-                          navigation.navigate('Profile',
+                          navigation.navigate('Profile2',
                             {
-                              workerId: `${item.idperson}`, name: `${item.titleservice}`, email: `${item.email}`, phonenumber: `${item.phonenumber}`,
-                              price: `${item.priceservice}`, localization: `${item.localization}`, whatsapp: `${item.whatsapp}`, description: `${item.descriptionservice}`
+                              workerId: `${item.idperson}`, name: `${item.fullname}`, email: `${item.email}`, phonenumber: `${item.phonenumber}`,
+                              price: `${item.priceservice}`, localization: `${item.localization}`, whatsapp: `${item.whatsapp}`, description: `${item.descriptionservice}`,
+                              titleService: `${item.titleservice}`, city: `${item.city}`
                             })
                         }
                         }>
-                        <Text style={styles.service}>{item.titleservice}</Text>
+                        <Text style={styles.textContact}>{item.titleservice}</Text>
                       </TouchableOpacity>
 
                     </View>
@@ -143,12 +159,6 @@ const Profile = ({ navigation }) => {
                 <Text style={styles.titleContact}>Telefone</Text>
               </View>
               <Text style={styles.textContact}>{user?.phonenumber}</Text>
-
-              <View style={styles.viewContact}>
-                <Icon name='map-marked-alt' size={17} color='#3f4040' />
-                <Text style={styles.titleContact}>Localização</Text>
-              </View>
-              <Text style={styles.textContact}>{user?.description}</Text>
             </View>
           </>
         )

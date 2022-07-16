@@ -107,6 +107,20 @@ const ProfileIntern = () => (
     />
 
     <Stack.Screen
+      name='Profile2'
+      component={Profile}
+      options={{
+        headerTransparent: true,
+        title: '',
+        headerTintColor: '#fff',
+        headerLeftContainerStyle: {
+          position: 'absolute',
+          left: 12
+        }
+      }}
+    />
+
+    <Stack.Screen
       name='EditProfile'
       component={EditProfile}
       options={{

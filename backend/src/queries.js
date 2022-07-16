@@ -136,11 +136,11 @@ const getUsers = (request, response) => {
 
 const registerWorker = (request, response) => {
   try {
-    const { idPerson, idService, descriptionService, priceService, localization, whatsapp } = request.body
-    console.log('valores registerWorker:', { idPerson, idService, descriptionService, priceService, localization, whatsapp });
+    const { idPerson, idService, descriptionService, priceService, city, localization, whatsapp } = request.body
+    console.log('valores registerWorker:', { idPerson, idService, descriptionService, priceService, city, localization, whatsapp });
 
-    db.query('INSERT INTO worker ( idPerson, idService, descriptionService, priceService, localization, whatsapp ) values ($1, $2, $3, $4, $5, $6)',
-      [idPerson, idService, descriptionService, priceService, localization, whatsapp], (error, results) => {
+    db.query('INSERT INTO worker ( idPerson, idService, descriptionService, priceService, city, localization, whatsapp ) values ($1, $2, $3, $4, $5, $6, $7)',
+      [idPerson, idService, descriptionService, priceService, city, localization, whatsapp], (error, results) => {
         console.log('Error', error);
         response.status(201).send('Trabalhador adicionado')
       }
@@ -183,17 +183,22 @@ const getWorkersByServiceId = (request, response) => {
         person.idPerson,
         person.email, 
         person.fullname, person.phoneNumber,
-        idService,
+        worker.idService,
+        service.titleService,
         descriptionService,
-        priceService, 
+        priceService,
+        city,
         localization,
         whatsapp 
-        FROM worker 
+        FROM worker
+        INNER JOIN
+        service
+        ON service.idService = worker.idService
         INNER JOIN 
         person 
         ON person.idPerson = worker.idPerson 
         WHERE worker.idService = $1`,
-    [idService], (error, results) => {
+      [idService], (error, results) => {
       console.log('results', results);
       if (error) {
         throw error
@@ -212,6 +217,7 @@ const getServicesFromUser = (request, response) => {
               phoneNumber,
               descriptionService,
               priceService,
+              city,
               localization,
               whatsapp,
               titleservice,

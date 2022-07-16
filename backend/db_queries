@@ -2,9 +2,8 @@ CREATE TABLE person(
     idPerson SERIAL PRIMARY KEY,
     email VARCHAR(45) NOT NULL,
     pass VARCHAR(25) NOT NULL,
-    fullName VARCHAR(45) NOT NULL,
-    phoneNumber VARCHAR(45) NOT NULL,
-    photo VARCHAR(300)
+    fullName VARCHAR(45),
+    phoneNumber VARCHAR(45) NOT NULL
 );
 
 CREATE TABLE service(
@@ -27,7 +26,7 @@ CREATE TABLE worker(
 );
 
 insert into service(titleservice, icon) values ('Mecânico','https://cdn-icons-png.flaticon.com/512/3774/3774278.png');
-insert into service(titleservice, icon) values ('Jardinagem','https://cdn-icons-png.flaticon.com/512/628/628297.png');
+insert into service(titleservice, icon) values ('Jardineiro','https://cdn-icons-png.flaticon.com/512/628/628297.png');
 insert into service(titleservice, icon) values ('Manicure','https://cdn-icons-png.flaticon.com/512/3461/3461984.png');
 insert into service(titleservice, icon) values ('Diarista','https://cdn-icons-png.flaticon.com/512/2553/2553629.png'); 
 insert into service(titleservice, icon) values ('Petsitter','https://cdn-icons-png.flaticon.com/512/6988/6988878.png');
