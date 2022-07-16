@@ -7,6 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     display: 'flex',
     justifyContent: 'center',
+    fontFamily: 'Rubik'
   },
   textInput: {
     backgroundColor: '#f9f9f9',
@@ -15,6 +16,8 @@ export default StyleSheet.create({
     margin: 6,
     borderRadius: 5,
     alignSelf: 'center',
+    fontFamily: 'Rubik',
+    color: '#3f4040'
   },
   buttonLogin: {
     backgroundColor: '#F85C70',
@@ -28,12 +31,13 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
+    fontFamily: 'Rubik',
     elevation: 3,
   },
   textNavigate: {
     textAlign: 'center',
-    color: '#adaeb0'
+    color: '#adaeb0',
+    fontFamily: 'Rubik'
   },
   errorMessage: {
     textAlign: 'center',
@@ -43,6 +47,8 @@ export default StyleSheet.create({
   title: {
     fontSize: 30,
     alignSelf: 'center',
-    marginBottom: 15
+    marginBottom: 15,
+    fontFamily: 'Rubik',
+    color: '#3f4040'
   }
 })

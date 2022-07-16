@@ -11,7 +11,7 @@ export default StyleSheet.create({
       item: {
         marginVertical: 8,
         marginHorizontal: 16,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#F2F2F2',
         padding: 15,
         borderRadius: 15,
         width: 350,
@@ -39,19 +39,20 @@ export default StyleSheet.create({
 
       // pag description
       textDescription: {
-        fontSize: 20,
+        fontSize: 16,
         marginTop: 70,
         color: '#F85C70',
         fontFamily: 'Rubik',
-        marginLeft: 20,
-        marginRight: 20
+        marginLeft: 23,
+        marginRight: 24,
+        textAlign: 'justify'
       },
       inputDescription: {
         marginBottom: 30,
         marginTop: 20,
         borderRadius: 12,
         width: 370,
-        height: 220,
+        height: 200,
         textAlignVertical: 'top',
         alignSelf: 'center',
         backgroundColor: '#fff',
@@ -70,11 +71,12 @@ export default StyleSheet.create({
         lineHeight: 17
       },
       titleInput: {
-        fontSize: 20,
+        fontSize: 16,
         color: '#F85C70',
         fontFamily: 'Rubik',
-        marginLeft: 20,
-        marginRight: 20
+        marginLeft: 23,
+        marginRight: 24,
+        textAlign: 'justify'
       },
       btn: {
         backgroundColor: '#3f4040',
@@ -90,14 +92,15 @@ export default StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 3,
         marginBottom: 30,
-        marginTop: 20
+        marginTop: 20,
+        fontFamily: 'Rubik'
       },
       input: {
         marginBottom: 30,
         marginTop: 20,
         borderRadius: 12,
         width: 370,
-        height: 60,
+        height: 55,
         alignSelf: 'center',
         backgroundColor: '#fff',
         flexDirection: 'row',
@@ -116,7 +119,7 @@ export default StyleSheet.create({
         marginBottom: 30,
         borderRadius: 12,
         width: 370,
-        height: 60,
+        height: 55,
         alignSelf: 'center',
         backgroundColor: '#fff',
         flexDirection: 'row',
@@ -136,7 +139,7 @@ export default StyleSheet.create({
         marginTop: 10,
         borderRadius: 12,
         width: 200,
-        height: 50,
+        height: 45,
         backgroundColor: '#fff',
         flexDirection: 'row',
         shadowColor: "#000",
@@ -150,5 +153,11 @@ export default StyleSheet.create({
         marginLeft: 22,
         paddingLeft: 20,
         paddingRight: 20
+      },
+      link: {
+        fontSize: 15,
+        color: '#3f4040',
+        fontFamily: 'Rubik',
+        textAlign: 'justify'
       }
 })

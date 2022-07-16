@@ -1,11 +1,10 @@
-CREATE DATABASE application_database
-
 CREATE TABLE person(
     idPerson SERIAL PRIMARY KEY,
     email VARCHAR(45) NOT NULL,
     pass VARCHAR(25) NOT NULL,
     fullName VARCHAR(45) NOT NULL,
-    phoneNumber VARCHAR(45) NOT NULL
+    phoneNumber VARCHAR(45) NOT NULL,
+    photo VARCHAR(300)
 );
 
 CREATE TABLE service(
@@ -20,25 +19,12 @@ CREATE TABLE worker(
     idService INT NOT NULL,
     descriptionService VARCHAR(300),
     priceService NUMERIC,
-    localization VARCHAR(100),
+    city VARCHAR(25),
+    localization VARCHAR(25),
     whatsapp VARCHAR(100),
     FOREIGN KEY (idPerson) REFERENCES person (idPerson),
     FOREIGN KEY (idService) REFERENCES service (idService)
 );
-
-SELECT
-  idWorker,
-  worker.idPerson,
-  person.idPerson,
-  fullname,
-  phoneNumber,
-  idService,
-  descriptionService,
-  localization
-FROM worker
-INNER JOIN person
-ON person.idPerson = worker.idPerson
-WHERE worker.idService = 1
 
 insert into service(titleservice, icon) values ('Mecânico','https://cdn-icons-png.flaticon.com/512/3774/3774278.png');
 insert into service(titleservice, icon) values ('Jardinagem','https://cdn-icons-png.flaticon.com/512/628/628297.png');

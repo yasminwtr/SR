@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.18,
     shadowRadius: 1.00,
     elevation: 1,
+    fontFamily: 'Rubik'
   },
   containerBox: {
     backgroundColor: '#f8f8f8 ',
@@ -27,7 +28,8 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    fontFamily: 'Rubik'
   },
   header: {
     display: 'flex',
@@ -35,16 +37,18 @@ export const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: '#F85C70',
     margin: 'auto',
-    height: '40%',
+    height: '30%',
     alignItems: 'center',
     marginBottom:20,
     color: '#fff',
-    width:'100%'
+    width:'100%',
+    fontFamily: 'Rubik',
+    justifyContent: 'center'
   },
   titleHeader: {
     color: '#fff',
-    marginLeft: 20,
-    fontSize:25
+    fontSize:25,
+    fontFamily: 'Rubik'
   },
   icon: {
     width: 45,
@@ -52,19 +56,23 @@ export const styles = StyleSheet.create({
     marginLeft:8
   },
   titleContainer: {
-    color:'#000000',
+    color: '#3f4040',
     margin:20,
-    marginBottom:20
+    marginBottom:20,
+    fontFamily: 'Rubik-Medium',
+    fontSize: 20
   },
   btnContainer: {
-    color:'#000000',
-    marginRight: 20
+    color: '#3f4040',
+    marginRight: 20,
+    fontFamily: 'Rubik'
   },
   container: {
     justifyContent:'space-between',
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'row',
+    fontFamily: 'Rubik'
   },
 })
 

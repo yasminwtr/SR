@@ -82,8 +82,42 @@ const Configuration = () => (
       component={EditProfile}
       options={{
         headerTransparent: true,
+        headerTintColor: '#F85C70',
+        headerBackTitleVisible: false,
+        headerTitle: '',
+        headerLeftContainerStyle: {
+          position: 'absolute',
+          left: 16
+        }
+      }}
+    />
+  </Stack.Navigator>
+)
+
+const ProfileIntern = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name='Profile'
+      component={Profile}
+      options={{
+        headerTransparent: true,
         title: '',
-        headerTintColor: '#F85C70'
+        headerTintColor: '#fff'
+      }}
+    />
+
+    <Stack.Screen
+      name='EditProfile'
+      component={EditProfile}
+      options={{
+        headerTransparent: true,
+        headerTintColor: '#F85C70',
+        headerBackTitleVisible: false,
+        headerTitle: '',
+        headerLeftContainerStyle: {
+          position: 'absolute',
+          left: 16
+        }
       }}
     />
   </Stack.Navigator>
@@ -104,8 +138,13 @@ const ServiceStack = ({ navigation }) => (
       component={Worker}
       options={{
         headerTransparent: true,
-        title: '',
-        headerTintColor: '#F85C70'
+        headerTintColor: '#F85C70',
+        headerBackTitleVisible: false,
+        headerTitle: '',
+        headerLeftContainerStyle: {
+          position: 'absolute',
+          left: 16
+        }
       }}
     />
 
@@ -114,8 +153,13 @@ const ServiceStack = ({ navigation }) => (
       component={Profile}
       options={{
         headerTransparent: true,
-        title: '',
-        headerTintColor: '#fff'
+        headerTintColor: '#fff',
+        headerBackTitleVisible: false,
+        headerTitle: '',
+        headerLeftContainerStyle: {
+          position: 'absolute',
+          left: 12
+        }
       }}
     />
   </Stack.Navigator>
@@ -127,7 +171,7 @@ const NavigationBar = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#fff',
+          backgroundColor: '#fafafa',
           paddingBottom: 5,
           paddingTop: 6,
           borderTopWidth: 0,
@@ -148,7 +192,7 @@ const NavigationBar = () => {
 
       <Tab.Screen
         name="Perfil"
-        component={Profile}
+        component={ProfileIntern}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Image style={{width:25, height:25}} source={require('../../assets/profile.png')} />

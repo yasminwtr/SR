@@ -25,7 +25,8 @@ export default StyleSheet.create({
   },
   textNavigate: {
     textAlign: 'center',
-    color: '#adaeb0'
+    color: '#adaeb0',
+    fontFamily: 'Rubik'
   },
   errorMessage: {
     textAlign: 'center',
@@ -39,5 +40,7 @@ export default StyleSheet.create({
     margin: 6,
     borderRadius: 5,
     alignSelf: 'center',
+    color: '#3f4040',
+    fontFamily: 'Rubik'
   }
 })

@@ -48,18 +48,8 @@ const EditProfile = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      <Title style={styles.title}>Alterar Perfil</Title>
+      <Title style={styles.title}>Editar conta</Title>
       <View style={styles.containerInputs}>
-        <TextInput
-          mode='outlined'
-          activeOutlineColor="#F85C70"
-          outlineColor="#fff"
-          style={styles.textInput}
-          label='E-mail atual'
-          value={email}
-          onChangeText={setEmail}>
-        </TextInput>
-
         <TextInput
           mode='outlined'
           activeOutlineColor="#F85C70"
@@ -67,6 +57,7 @@ const EditProfile = () => {
           style={styles.textInput}
           label='Novo e-mail'
           value={email}
+          placeholder='email@email.com'
           onChangeText={setEmail}>
         </TextInput>
 
@@ -76,6 +67,7 @@ const EditProfile = () => {
           outlineColor="#fff"
           style={styles.textInput}
           label='Nova senha'
+          placeholder='*******'
           value={password}
           onChangeText={setPassword}>
         </TextInput>
@@ -87,6 +79,7 @@ const EditProfile = () => {
           style={styles.textInput}
           label='Alterar número de telefone'
           value={phoneNumber}
+          placeholder='48 991304290'
           onChangeText={setPhoneNumber}>
         </TextInput>
 

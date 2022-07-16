@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
     page: {
-        backgroundColor: '#EBEAEA'
+        backgroundColor: '#F2F2F2'
     },
     container: {
         padding: 15,
@@ -37,7 +37,7 @@ export default StyleSheet.create({
         fontFamily: 'Rubik'
     },
     button: {
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#fafafa',
         padding: 18,
         borderRadius: 30,
         width: 280,

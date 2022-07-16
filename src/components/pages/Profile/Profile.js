@@ -56,8 +56,8 @@ const Profile = ({ navigation }) => {
           ) : (
             <>
               <TouchableOpacity style={styles.button}
-                onPress={() => { navigation.navigate('NavigationBar') }}>
-                <Text style={styles.buttonText}>Conferir link</Text>
+                onPress={() => { navigation.navigate('EditProfile') }}>
+                <Text style={styles.buttonText}>Editar conta</Text>
               </TouchableOpacity>
             </>
           )
@@ -104,8 +104,8 @@ const Profile = ({ navigation }) => {
             <View style={styles.containerContact}>
 
               <View style={styles.viewContact}>
-                <Icon name='th-list' size={17} color='#3f4040' />
-                <Text style={styles.titleContact}>Serviços Anunciados</Text>
+                <Icon name='thumbtack' size={17} color='#3f4040' />
+                <Text style={styles.titleContact}>Serviços anunciados</Text>
               </View>
 
               <FlatList

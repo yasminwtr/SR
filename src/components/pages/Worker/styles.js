@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
     page: {
-        backgroundColor: '#EBEAEA',
+        backgroundColor: '#F2F2F2',
         minHeight: 2000
     },
     flatlist: {

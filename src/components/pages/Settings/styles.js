@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
   page: {
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#F2F2F2',
     height: '100%'
   },
   container: {
@@ -50,7 +50,7 @@ export default StyleSheet.create({
     backgroundColor: '#fff'
   },
   editText: {
-    fontSize: 18,
+    fontSize: 17,
     color: '#3f4040',
     marginLeft: 10,
     fontFamily: 'Rubik'
@@ -62,13 +62,13 @@ export default StyleSheet.create({
     marginLeft: 20
   },
   deleteText: {
-    fontSize: 18,
+    fontSize: 17,
     color: '#b52d2d',
     marginLeft: 10,
     fontFamily: 'Rubik'
   },
   exitText: {
-    fontSize: 18,
+    fontSize: 17,
     color: '#fff',
     marginRight: 20,
     fontFamily: 'Rubik',
@@ -76,7 +76,7 @@ export default StyleSheet.create({
     marginLeft: 5
   },
   serviceText: {
-    fontSize: 18,
+    fontSize: 17,
     color: '#F85C70',
     marginLeft: 10,
     fontFamily: 'Rubik'

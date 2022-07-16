@@ -10,7 +10,7 @@ const Description = (props) => {
   return (
     <ScrollView>
         <Title style={styles.textDescription}>
-          Adicione uma breve descrição sobre o serviço a ser anunciado
+          1. Adicione uma breve descrição sobre o serviço a ser anunciado
         </Title>
         <TextInput
           value={description}
@@ -22,7 +22,7 @@ const Description = (props) => {
         />
 
         <Title style={styles.titleInput}>
-          Preço médio dos seus serviços
+          2. Preço médio dos seus serviços
         </Title>
         <CurrencyInput
           style={styles.currencyInput}
@@ -36,7 +36,7 @@ const Description = (props) => {
         />
 
         <Title style={styles.titleInput}>
-          Preencha a localização a qual você realiza os seus serviços
+          3. Preencha a localização a qual você realiza os seus serviços
         </Title>
         <TextInput
           value={localization}
@@ -53,12 +53,12 @@ const Description = (props) => {
         />
 
         <Title style={styles.titleInput}>
-          Adicione o seu link para o WhatsApp personalizado.
+          4. Adicione o seu link para o WhatsApp personalizado.
         </Title>
         <TouchableOpacity
           style={styles.titleInput}
           onPress={() => { Linking.openURL('https://www.convertte.com.br/gerador-link-whatsapp/') }}>
-          <Text>(clique aqui)</Text>
+          <Text style={styles.link}>Clique aqui para gerar o link.</Text>
         </TouchableOpacity>
         <TextInput
           value={whatsapp}

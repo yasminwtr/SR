@@ -66,7 +66,7 @@ export const Categories = (props) => {
         backgroundColor="#F85C70"
       />
       <View style={styles.header}>
-        <Title style={styles.titleHeader}> Serviços Residênciais </Title>
+        <Text style={styles.titleHeader}>Serviços Residênciais</Text>
       </View>
       <View style={styles.container}>
         <Title style={styles.titleContainer}> Categorias </Title>

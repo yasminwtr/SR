@@ -3,6 +3,7 @@ import styles from './styles'
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
+import api from '../../../api';
 
 const Worker = ({ navigation }) => {
   const [workers, setWorkers] = useState([])
