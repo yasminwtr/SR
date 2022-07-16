@@ -202,6 +202,35 @@ const getWorkersByServiceId = (request, response) => {
     })
 }
 
+const getServicesFromUser = (request, response) => {
+  const idperson = parseInt(request.params.id)
+  console.log('request.params',request.params);
+  console.log('@@@@@!!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ getServicesFromUser', idperson, request);
+  db.query(`SELECT 
+              worker.idworker,
+              person.fullname,
+              phoneNumber,
+              descriptionService,
+              priceService,
+              localization,
+              whatsapp,
+              titleservice,
+              email
+            FROM worker
+            INNER JOIN person
+            ON worker.idperson = person.idperson
+            INNER JOIN service
+            ON service.idservice = worker.idservice
+            WHERE worker.idperson = $1`,
+    [idperson], (error, results) => {
+      console.log('results', results);
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+}
+
 module.exports = {
   updateUser,
   deleteUser,
@@ -212,5 +241,6 @@ module.exports = {
   registerWorker,
   getUsers,
   getUserById,
-  DeleteWorkerService
+  DeleteWorkerService,
+  getServicesFromUser
 }

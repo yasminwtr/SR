@@ -70,10 +70,6 @@ export const Categories = (props) => {
       </View>
       <View style={styles.container}>
         <Title style={styles.titleContainer}> Categorias </Title>
-        {/* <TouchableOpacity
-          onPress={fetchData}>
-          <Title style={styles.btnContainer}> Atualizar </Title>
-        </TouchableOpacity> */}
       </View>
       <View style={styles.containerBox}>
         {

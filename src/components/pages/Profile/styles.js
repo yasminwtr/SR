@@ -71,9 +71,17 @@ export default StyleSheet.create({
     textContact: {
         fontSize: 16,
         textAlign: 'justify',
-        marginBottom: 30,
+        marginBottom: 20,
         marginTop: 5,
         color: '#3f4040',
         fontFamily: 'Rubik'
+    },
+    service:{
+      fontSize: 16,
+      textAlign: 'justify',
+      // marginBottom: 5,
+      marginTop: 5,
+      color: '#3f4040',
+      fontFamily: 'Rubik'
     }
 })

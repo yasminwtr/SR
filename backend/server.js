@@ -24,6 +24,7 @@ app.get('/users', routes.getUsers)
 app.get('/users/:id', routes.getUserById)
 app.delete('/users/:id', routes.deleteUser)
 app.delete('/DeleteWorkerService/:id', routes.DeleteWorkerService)
+app.get('/getServicesFromUser/:id', routes.getServicesFromUser)
 
 app.listen(3000, () => {
   console.log("API REST rodando em http://localhost:3000")
