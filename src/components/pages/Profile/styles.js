@@ -76,6 +76,13 @@ export default StyleSheet.create({
         color: '#3f4040',
         fontFamily: 'Rubik'
     },
+    textService: {
+        fontSize: 16,
+        textAlign: 'justify',
+        marginTop: 5,
+        color: '#3f4040',
+        fontFamily: 'Rubik'
+    },
     service:{
       fontSize: 18,
       textAlign: 'center',

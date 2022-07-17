@@ -2,7 +2,7 @@ import React from "react"
 import { View, TextInput, ScrollView, TouchableOpacity, Text, Linking } from "react-native";
 import CurrencyInput from 'react-native-currency-input';
 import { Title } from 'react-native-paper';
-import styles from "./styles";
+import styles from "../styles";
 
 const Description = (props) => {
   const { description, setDescription, price, setPrice, city, setCity, localization, setLocalization, whatsapp, setWhatsapp, finish } = props
@@ -39,19 +39,19 @@ const Description = (props) => {
           3. Preencha a localização a qual você realiza os seus serviços
         </Title>
         <TextInput
-          value={localization}
-          onChangeText={setLocalization}
+          value={city}
+          onChangeText={setCity}
           style={styles.input}
           maxLength={100}
           placeholder="Cidade (ex: Florianópolis)"
         />
 
         <TextInput
+          value={localization}
+          onChangeValue={setLocalization}
           style={styles.input2}
           maxLength={100}
           placeholder="Estado (ex: Santa Catarina)"
-          value={city}
-          onChangeValue={setCity}
         />
 
         <Title style={styles.titleInput}>

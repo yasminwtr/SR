@@ -3,10 +3,11 @@ import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from "react-nati
 import api from '../../../../api'
 import { Title } from 'react-native-paper';
 import AuthContext from "../../../contexts/auth";
+import styles from '../styles'
 
 const Item = ({ item, onPress, backgroundColor }) => (
-  <TouchableOpacity onPress={onPress} style={[backgroundColor]}>
-    <Text>{item.titleservice}</Text>
+  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
+    <Text style={styles.titleService}>{item.titleservice}</Text>
   </TouchableOpacity>
 );
 
@@ -16,26 +17,28 @@ const DeleteWorker = (props) => {
 
   const { user } = useContext(AuthContext);
 
-  async function deleteWorker() {
+  async function deleteService() {
     try {
         setSelectedId()
-        const response = await api.delete('/DeleteWorkerService', { idPerson: user.idperson, idService: selectedId, idWorker: Worker.idworker });
-        console.log('response', response);
-        console.log('deu certo');
+        const idPerson = user.idperson;
+        const response = await api.delete(`/workers/${idPerson}`, {data: {idService: selectedId}});
+        console.log('response', response); console.log(selectedId)
+      
     } catch (error) {
       console.log('Não foi possível excluir');
-      console.log('error:',error);
+      console.log('error:', error);
     }
   }
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await api.get('/services');
       setServices(response.data)
-      console.log('Serviços pegos');
     }
     fetchData()
       .catch(console.error);
   }, [])
+
   const renderItem = ({ item }) => {
     const backgroundColor = item.idservice === selectedId ? "black" : "#fff";
     const color = item.idservice === selectedId ? '#b899ad' : '#b899ad';
@@ -43,16 +46,17 @@ const DeleteWorker = (props) => {
     return (
       <Item
         item={item}
-        onPress={deleteWorker}
+        onPress={() => setSelectedId(item.idservice)}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
       />
     );
   };
+
   if (selectedId == null) {
     return (
-      <SafeAreaView>
-        <Title>
+      <SafeAreaView style={styles.container}>
+        <Title style={styles.title}>
           Escolha o serviço
           anunciado que deseja remover
         </Title>
@@ -65,7 +69,9 @@ const DeleteWorker = (props) => {
       </SafeAreaView>
     )
   } else {
-    console.log('nao sei mds');
+    return (
+      deleteService()
+      )
   }
 }
 

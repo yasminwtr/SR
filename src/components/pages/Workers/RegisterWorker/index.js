@@ -4,7 +4,7 @@ import api from '../../../../api'
 import Description from "./description";
 import AuthContext from "../../../contexts/auth";
 import { Snackbar, Title } from 'react-native-paper';
-import styles from './styles'
+import styles from '../styles'
 
 const Item = ({ item, onPress, backgroundColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
@@ -32,7 +32,7 @@ const RegisterWorker = (props) => {
         setSnackbarVisible(true)
         const response = await api.post('/registerWorker', { idPerson: user.idperson, idService: selectedId, descriptionService: description, priceService: price, city: city, localization: localization, whatsapp: whatsapp });
         console.log('response', response);
-        // props.navigation.navigate('NavigationBar')
+        
       }
       else {
         setSnackbarMessage('Preencha todos os campos')

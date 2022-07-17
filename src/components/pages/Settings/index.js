@@ -18,7 +18,6 @@ export default function Settings(props) {
   }
 
   const deleteUser = async (deleteId) => {
-
     const requestOptions = {
       method: 'delete',
       headers: { 'Content-type': 'aplication/json' }

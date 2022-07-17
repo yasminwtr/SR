@@ -24,16 +24,22 @@ app.post('/', (request, response) => {
 })
 
 app.put('/users/:id', routes.updateUser)
+
 app.post('/registerWorker', routes.registerWorker)
 app.post('/login', routes.authenticate)
 app.post('/registerPerson', routes.postPerson)
+
 app.get('/services', routes.getServices)
 app.get('/getWorkersByServiceId', routes.getWorkersByServiceId)
 app.get('/users', routes.getUsers)
 app.get('/users/:id', routes.getUserById)
-app.delete('/users/:id', routes.deleteUser)
-app.delete('/DeleteWorkerService/:id', routes.DeleteWorkerService)
+app.get('/workers', routes.getWorkers)
+app.get('/workers/:id', routes.getWorkerById)
 app.get('/getServicesFromUser/:id', routes.getServicesFromUser)
+
+
+app.delete('/users/:id', routes.deleteUser)
+app.delete('/workers/:id', routes.deleteWorkerService)
 
 app.listen(3000, () => {
   console.log("API REST rodando em http://localhost:3000")

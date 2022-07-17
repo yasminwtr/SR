@@ -130,7 +130,7 @@ const Profile = ({ navigation }) => {
                 renderItem={({ item }) => {
                   return (
                     <View>
-                      <TouchableOpacity style={styles.textContact}
+                      <TouchableOpacity
                         onPress={() => {
                           console.log('item', item);
                           navigation.navigate('Profile2',
@@ -141,13 +141,16 @@ const Profile = ({ navigation }) => {
                             })
                         }
                         }>
-                        <Text style={styles.textContact}>{item.titleservice}</Text>
+                        <Text style={styles.textService}>{item.titleservice}</Text>
                       </TouchableOpacity>
 
                     </View>
                   )
                 }}
               />
+
+              <View style={{marginBottom: 20}}/>
+
               <View style={styles.viewContact}>
                 <Icon name='envelope-open-text' size={17} color='#3f4040' />
                 <Text style={styles.titleContact}>Email</Text>
@@ -170,45 +173,3 @@ const Profile = ({ navigation }) => {
 }
 
 export default Profile
-
-// photo function
-// const [hasGalleryPermission, setHasGalleryPermission] = useState(null)
-// const [photo, setPhoto] = useState('https://64.media.tumblr.com/473151094beb750c93d18f2243d52975/7653ca59a6c472a1-cc/s640x960/0bac061a8e6f2051c218152d6e887bdfea2b1371.jpg')
-
-// useEffect(() => {
-//   (async () => {
-//     const galleryStatus = ImagePicker.requestMediaLibraryPermissionsAsync
-//     setHasGalleryPermission(galleryStatus.status === 'granted')
-//   })()
-// }, [])
-
-// const pickImage = async () => {
-//   let result = await ImagePicker.launchImageLibraryAsync({
-//     mediaTypes: ImagePicker.MediaTypeOptions.Images,
-//     allowsEditing: true,
-//     cropping: true,
-//     aspect: [4, 3],
-//     quality: 1
-//   })
-
-//   console.log(result);
-
-//   if(!result.cancelled){
-//     updatePhoto()
-//   }
-// }
-
-// const updatePhoto = async () => {
-//   const idPerson = user.idperson;
-//   try {
-//     const response = await api.put(`/users/${idPerson}`, { photo })
-//     const data = response;
-//     console.log('updateUserPhoto', data);
-
-//     user.photo = data.photo;
-//     setPhoto(photo)
-
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
