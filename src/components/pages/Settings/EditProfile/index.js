@@ -103,7 +103,7 @@ const EditProfile = () => {
         action={{
           label: 'Ok',
           onPress: () => {
-            deleteService
+            updateUser
           },
         }}
         style={{ backgroundColor: "#fff" }}

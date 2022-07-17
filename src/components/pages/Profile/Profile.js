@@ -42,19 +42,15 @@ const Profile = ({ navigation }) => {
         <View style={styles.container}>
           {route.params ? (
             <>
-              <ImageBackground
-                source={'https://64.media.tumblr.com/35f8d891314ddb3e5d0b6eb57c6dad90/tumblr_p05g8ldYED1sbghg6o6_250.jpg'}
-                style={styles.profileIcon}
-                imageStyle={{borderRadius: 100}}>
-              </ImageBackground>
+              <Image
+                source={require('../../../../assets/circle2.png')}
+                style={styles.profileIcon}/>
             </>
           ) : (
             <>
-              <ImageBackground
-                source={'https://64.media.tumblr.com/90efb16d9f78769f5c4578cb8fd21dfb/2f8fbfc24ba6a2ca-bb/s400x600/ae1dab3b316b369b1d9a3abd34691a1cfea3edd3.pnj'}
-                style={styles.profileIcon}
-                imageStyle={{borderRadius: 100}}>
-              </ImageBackground>
+                <Image
+                source={require('../../../../assets/circle2.png')}
+                style={styles.profileIcon}/>
             </>
           )
           }
@@ -97,7 +93,7 @@ const Profile = ({ navigation }) => {
               <Text style={styles.textContact}>{phonenumber}</Text>
 
               <View style={styles.viewContact}>
-                <Icon name='map-marked-alt' size={17} color='#3f4040' />
+                <Icon name='money-check-alt' size={17} color='#3f4040' />
                 <Text style={styles.titleContact}>Preço médio dos serviços</Text>
               </View>
               <Text style={styles.textContact}>R$ {price}</Text>

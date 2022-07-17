@@ -37,9 +37,9 @@ export const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: '#F85C70',
     margin: 'auto',
-    height: '30%',
+    height: '32%',
     alignItems: 'center',
-    marginBottom:20,
+    marginBottom: 20,
     color: '#fff',
     width:'100%',
     fontFamily: 'Rubik',
@@ -47,8 +47,9 @@ export const styles = StyleSheet.create({
   },
   titleHeader: {
     color: '#fff',
-    fontSize:25,
-    fontFamily: 'Rubik'
+    fontSize: 25,
+    fontFamily: 'Rubik-Medium',
+    marginTop: 10
   },
   icon: {
     width: 45,

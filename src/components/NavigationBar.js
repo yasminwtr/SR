@@ -10,6 +10,8 @@ import RegisterWorker from './pages/Workers/RegisterWorker/index';
 import Description from './pages/Workers/RegisterWorker/description';
 import EditProfile from './pages/Settings/EditProfile/index'
 import DeleteWorker from './pages/Workers/DeleteWorker';
+import Icon from 'react-native-vector-icons/Ionicons'
+import IconFontA from 'react-native-vector-icons/FontAwesome' 
 
 // ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
 // !! usem somente os do font awesome 5.
@@ -113,6 +115,7 @@ const ProfileIntern = () => (
         headerTransparent: true,
         title: '',
         headerTintColor: '#fff',
+        headerBackTitleVisible: false,
         headerLeftContainerStyle: {
           position: 'absolute',
           left: 12
@@ -190,8 +193,8 @@ const NavigationBar = () => {
           paddingTop: 6,
           borderTopWidth: 0,
         },
-        tabBarActiveTintColor: '#000000',
-        tabBarInactiveTintColor: '#000000'
+        tabBarActiveTintColor: '#3f4040',
+        tabBarInactiveTintColor: '#3f4040'
       }}>
 
       <Tab.Screen
@@ -208,8 +211,8 @@ const NavigationBar = () => {
         name="Perfil"
         component={ProfileIntern}
         options={{
-          tabBarIcon: ({ size, color }) => (
-            <Image style={{width:25, height:25}} source={require('../../assets/profile.png')} />
+          tabBarIcon: ({ size }) => (
+            <IconFontA name='user-circle-o' size={size} color='#F85C70' />
           )
         }}
       />
@@ -218,8 +221,8 @@ const NavigationBar = () => {
         name="Configurações"
         component={Configuration}
         options={{
-          tabBarIcon: ({ size, color }) => (
-            <Image style={{width:25, height:25}} source={require('../../assets/settings.png')} />
+          tabBarIcon: ({ size }) => (
+            <IconFontA name='cogs' size={size} color='#F85C70' />
           )
         }}
       />

@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, View, TouchableOpacity, ImageBackground, Modal, Pressable } from 'react-native';
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import IconFeather from 'react-native-vector-icons/Feather'
 import AuthContext from "../../contexts/auth";
 import api from "../../../api";
 
@@ -66,8 +67,8 @@ export default function Settings(props) {
             <TouchableOpacity
               onPress={() => { props.navigation.navigate('DeleteWorker') }}
               style={styles.button}>
-              <Icon style={styles.icon} name='star' size={20} color='#F85C70' />
-              <Text style={styles.serviceText}>Cancelar anúncio de serviço</Text>
+              <Icon style={styles.icon} name='backspace' size={20} color='#3f4040' />
+              <Text style={styles.editText}>Cancelar anúncio de serviço</Text>
             </TouchableOpacity>
           </View>
 

@@ -18,8 +18,8 @@ export default StyleSheet.create({
         shadowRadius: 6
     },
     profileIcon: {
-        width: 120,
-        height: 120,
+        width: 140,
+        height: 140,
         alignSelf: 'center',
         marginTop: 70
     },

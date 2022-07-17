@@ -40,12 +40,20 @@ export default StyleSheet.create({
       // pag description
       textDescription: {
         fontSize: 16,
-        marginTop: 70,
-        color: '#F85C70',
+        marginTop: 10,
+        color: '#3f4040',
         fontFamily: 'Rubik',
         marginLeft: 23,
         marginRight: 24,
         textAlign: 'justify'
+      },
+      titleForm: {
+        fontSize: 22,
+        textAlign: 'left',
+        margin: 26,
+        marginTop: 70,
+        color: '#F85C70',
+        fontFamily: 'Rubik-Medium'
       },
       inputDescription: {
         marginBottom: 30,
@@ -72,14 +80,14 @@ export default StyleSheet.create({
       },
       titleInput: {
         fontSize: 16,
-        color: '#F85C70',
+        color: '#3f4040',
         fontFamily: 'Rubik',
         marginLeft: 23,
         marginRight: 24,
         textAlign: 'justify'
       },
       btn: {
-        backgroundColor: '#3f4040',
+        backgroundColor: '#F85C70',
         padding: 10,
         borderRadius: 5,
         margin: '4%',
@@ -156,7 +164,7 @@ export default StyleSheet.create({
       },
       link: {
         fontSize: 15,
-        color: '#3f4040',
+        color: '#F85C70',
         fontFamily: 'Rubik',
         textAlign: 'justify'
       }

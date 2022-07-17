@@ -113,15 +113,6 @@ export default function Register(props) {
               Já tenho uma conta
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.btnNavigate}
-            onPress={() => {
-              navigation.navigate('Login')
-            }}>
-            <Text style={styles.textNavigate}>
-              Esqueci a senha
-            </Text>
-          </TouchableOpacity>
         </View>
       </Pressable>
     </View>

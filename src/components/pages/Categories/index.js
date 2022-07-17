@@ -60,13 +60,13 @@ export const Categories = (props) => {
   );
 
   return (
-    <SafeAreaView>
+    <View>
       <StatusBar
         animated={true}
         backgroundColor="#F85C70"
       />
       <View style={styles.header}>
-        <Text style={styles.titleHeader}>Serviços Residênciais</Text>
+        <Text style={styles.titleHeader}>S | R</Text>
       </View>
       <View style={styles.container}>
         <Title style={styles.titleContainer}> Categorias </Title>
@@ -84,7 +84,7 @@ export const Categories = (props) => {
           })
         }
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 

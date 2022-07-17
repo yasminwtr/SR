@@ -71,17 +71,8 @@ const SignIn = ({navigation}) => {
             <Text style={styles.textNavigate}>
               Não tenho uma conta
             </Text>
-            {/* <Text style={{ color: '#7abcdb', textAlign: 'center', marginBottom: 20 }}>
-              Esqueci a senha
-            </Text> */}
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.btnNavigate}
-          >
-            <Text style={styles.textNavigate}>
-              Esqueci a senha
-            </Text>
-          </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.buttonLogin}
             onPress={validateLogin}
@@ -96,22 +87,3 @@ const SignIn = ({navigation}) => {
   )
 }
 export default SignIn;
-
-
-// function validateLogin() {
-  
-  //     let dadosLogin = {
-    //         email: '123',
-    //         senha: '123'
-    //     }
-    
-    //     if (emailInput === dadosLogin.email && passwordInput === dadosLogin.senha) {
-      //         setPasswordInput(null)
-      //         setEmailInput(null)
-      //         navigation.navigate('NavigationBar')
-      //     } else {
-        //         setErrorMessage(null)
-        //         setErrorMessage("Usuário ou Senha incorretos")
-        //         return;
-        //     }
-        // }
