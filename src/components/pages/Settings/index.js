@@ -11,6 +11,7 @@ export default function Settings(props) {
   const { signOut } = useContext(AuthContext);
   const [person, setPerson] = useState([])
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalDelete, setModalDelete] = useState(false)
 
   function handleSignOut() {
     setModalVisible(!modalVisible)
@@ -26,7 +27,8 @@ export default function Settings(props) {
       console.log(deleteId)
       await fetch('http://localhost:3000/users/' + deleteId, requestOptions)
       setPerson(person.filter(person => person.idPerson != deleteId))
-      navigation.navigate('RegisterUser')
+      setModalVisible(!modalVisible)
+      // navigation.navigate('RegisterUser')
     } catch (error) {
       console.log("Erro: " + error)
     }
@@ -80,9 +82,30 @@ export default function Settings(props) {
 
           <View style={styles.divider} />
 
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalDelete}
+            onRequestClose={() => {
+              setModalDelete(!modalDelete);
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>Sua conta foi excluída.</Text>
+                <Pressable
+                  style={[styles.buttonModal, styles.buttonClose]}
+                  onPress={() => {deleteUser(user.idperson)}}
+                >
+                  <Text style={styles.textStyle}>Ok</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+
           <View>
             <TouchableOpacity style={styles.button}
-              onPress={() => { deleteUser(user.idperson) }}>
+              onPress={() => setModalDelete(!modalVisible)}>
               <Icon style={styles.icon} name='trash-alt' size={19} color='#b52d2d' />
               <Text style={styles.deleteText}>Excluir conta</Text>
             </TouchableOpacity>
@@ -110,6 +133,7 @@ export default function Settings(props) {
               </View>
             </View>
           </Modal>
+
           <TouchableOpacity
             style={styles.buttonExit}
             onPress={() => setModalVisible(!modalVisible)}>

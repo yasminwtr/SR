@@ -42,15 +42,15 @@ const Description = (props) => {
           value={city}
           onChangeText={setCity}
           style={styles.input}
-          maxLength={100}
+          maxLength={25}
           placeholder="Cidade (ex: Florianópolis)"
         />
 
         <TextInput
           value={localization}
-          onChangeValue={setLocalization}
+          onChangeText={setLocalization}
           style={styles.input2}
-          maxLength={100}
+          maxLength={25}
           placeholder="Estado (ex: Santa Catarina)"
         />
 

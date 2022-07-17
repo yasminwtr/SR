@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import api from '../../../../api'
-import { Title } from 'react-native-paper';
+import { Title, Snackbar } from 'react-native-paper';
 import AuthContext from "../../../contexts/auth";
 import styles from '../styles'
 
@@ -14,19 +14,24 @@ const Item = ({ item, onPress, backgroundColor }) => (
 const DeleteWorker = (props) => {
   const [selectedId, setSelectedId] = useState(null);
   const [services, setServices] = useState(null);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
 
   const { user } = useContext(AuthContext);
 
   async function deleteService() {
     try {
         setSelectedId()
+        setSnackbarMessage('Serviço removido com sucesso!')
+        setSnackbarVisible(true)
         const idPerson = user.idperson;
         const response = await api.delete(`/workers/${idPerson}`, {data: {idService: selectedId}});
         console.log('response', response); console.log(selectedId)
       
     } catch (error) {
-      console.log('Não foi possível excluir');
       console.log('error:', error);
+      setSnackbarMessage('Não foi possível remover o serviço, certifique-se de que você está registrado nele.')
+      setSnackbarVisible(true)
     }
   }
 
@@ -66,6 +71,23 @@ const DeleteWorker = (props) => {
           keyExtractor={(item) => item.idservice}
           extraData={selectedId}
         />
+
+        <Snackbar
+          visible={snackbarVisible}
+          onDismiss={() => setSnackbarVisible(false)}
+          action={{
+            label: 'Ok',
+            onPress: () => {
+              deleteService
+            },
+          }}
+          style={{ backgroundColor: "#fff" }}
+          theme={{ colors: { surface: 'black', accent: 'red' }, }}
+        >
+          <Text>
+            {snackbarMessage}
+          </Text>
+        </Snackbar>
       </SafeAreaView>
     )
   } else {

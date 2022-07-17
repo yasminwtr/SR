@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import styles from './styles'
 import AuthContext from '../../../contexts/auth';
 import api from '../../../../api/index';
-import { TextInput, Title } from 'react-native-paper';
+import { TextInput, Title, Snackbar } from 'react-native-paper';
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext)
@@ -11,14 +11,17 @@ const EditProfile = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [errorMessage, setErrorMessage] = useState(null)
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
 
   function validationFields() {
-    if ((email || password || phoneNumber) !== '') {
+    if ((email && password && phoneNumber) !== '') {
       updateUser()
+      setSnackbarMessage('Conta editada com sucesso!')
+      setSnackbarVisible(true)
     } else {
-      setErrorMessage(null)
-      setErrorMessage("Preencha o campo que você deseja alterar.*")
+      setSnackbarMessage('Preencha todos os campos.')
+      setSnackbarVisible(true)
       Vibration.vibrate()
       return;
     }
@@ -43,7 +46,6 @@ const EditProfile = () => {
       console.log(error)
     }
   }
-
 
   return (
     <SafeAreaView style={styles.container}>
@@ -94,7 +96,23 @@ const EditProfile = () => {
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.errorMessage}>{errorMessage}</Text>
+      
+      <Snackbar
+        visible={snackbarVisible}
+        onDismiss={() => setSnackbarVisible(false)}
+        action={{
+          label: 'Ok',
+          onPress: () => {
+            deleteService
+          },
+        }}
+        style={{ backgroundColor: "#fff" }}
+        theme={{ colors: { surface: 'black', accent: 'red' }, }}
+      >
+        <Text>
+          {snackbarMessage}
+        </Text>
+      </Snackbar>
 
     </SafeAreaView>
   )

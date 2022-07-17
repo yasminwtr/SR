@@ -20,7 +20,7 @@ export default StyleSheet.create({
         height: 60,
         alignSelf: 'center',
         flexDirection: 'row',
-        backgroundColor: '#F8F8F8',
+        backgroundColor: '#fafafa',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,
