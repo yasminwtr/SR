@@ -25,9 +25,41 @@ CREATE TABLE worker(
     FOREIGN KEY (idService) REFERENCES service (idService)
 );
 
-insert into service(titleservice, icon) values ('Mecânico','https://cdn-icons-png.flaticon.com/512/3774/3774278.png');
-insert into service(titleservice, icon) values ('Jardineiro','https://cdn-icons-png.flaticon.com/512/628/628297.png');
-insert into service(titleservice, icon) values ('Manicure','https://cdn-icons-png.flaticon.com/512/3461/3461984.png');
-insert into service(titleservice, icon) values ('Diarista','https://cdn-icons-png.flaticon.com/512/2553/2553629.png'); 
-insert into service(titleservice, icon) values ('Petsitter','https://cdn-icons-png.flaticon.com/512/6988/6988878.png');
-insert into service(titleservice, icon) values ('Babá','https://cdn-icons-png.flaticon.com/512/2641/2641657.png'); 
+insert into service(titleservice, icon) values('Eletricista','https://cdn-icons-png.flaticon.com/512/7663/7663762.png');
+insert into service(titleservice, icon) values('Jardineiro','https://cdn-icons-png.flaticon.com/512/628/628297.png');
+insert into service(titleservice, icon) values('Manicure','https://cdn-icons-png.flaticon.com/512/3461/3461984.png');
+insert into service(titleservice, icon) values('Diarista','https://cdn-icons-png.flaticon.com/512/2553/2553629.png'); 
+insert into service(titleservice, icon) values('Petsitter','https://cdn-icons-png.flaticon.com/512/6988/6988878.png');
+insert into service(titleservice, icon) values('Babá','https://cdn-icons-png.flaticon.com/512/2641/2641657.png'); 
+
+insert into person(email, pass, fullname, phonenumber) values('samuel.ervano@gmail.com', '1234', 'Samuel Venancio', '48976720502');
+insert into person(email, pass, fullname, phonenumber) values('jose.muniz@gmail.com', '1234', 'José Sodre Muniz', '48975508647');
+insert into person(email, pass, fullname, phonenumber) values('iago.carino@gmail.com', '1234', 'Iago Nogueira', '4724755568');
+insert into person(email, pass, fullname, phonenumber) values('mario.sales@gmail.com', '1234', 'Mario de Carvalho', '4825837750');
+insert into person(email, pass, fullname, phonenumber) values('fernando.silva@gmail.com', '1234', 'Fernando Silva', '4826611515');
+insert into person(email, pass, fullname, phonenumber) values('renato.brum@outlook.com', '1234', 'Renato Pinheiro', '4935950462');
+insert into person(email, pass, fullname, phonenumber) values('jania.goulart@hotmail.com', '1234', 'Jania Albenaz Goulart', '4736455317');
+insert into person(email, pass, fullname, phonenumber) values('gabrielle.trindade@hotmail.com', '1234', 'Gabrielle Carvalho', '4926257752');
+insert into person(email, pass, fullname, phonenumber) values('emanuela.castelete@hotmail.com', '1234', 'Emanuela Castelete', '4722397304');
+insert into person(email, pass, fullname, phonenumber) values('ana.giacomini@outlook.com', '1234', 'Ana Carolina Medel', '4824946237');
+insert into person(email, pass, fullname, phonenumber) values('maria.belmiro@outlook.com', '1234', 'Maria Helena Furtunato', '4824162144');
+insert into person(email, pass, fullname, phonenumber) values('laisa.frotte@gmail.com', '1234', 'Laisa Dias', '48994038457');
+
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(2, 1, 'Manutenção preventiva e corretiva.', 30.43, 'Chapecó', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(4, 1, 'Instalação de quadros de distribuição de força.', 56.64, 'Brusque', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(5, 1, 'Análise do consumo de energia.', 90.20, 'Blumenau', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(1, 2, 'Realizo implantação, criação e manutenção de jardins, corte de grama e cuidado de flores de ambiente interno e externo.', 120.34, 'Joinville', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(9, 2, 'Poda de árvores e corte de grama.', 43.07, 'São José', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(4, 3, 'Tratamento estético das mãos e pés, como corte de unhas, polimento e esmaltagem.', 86.45, 'Brusque', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(12, 3, 'Esmalto as unhas das mãos e dos pés, crio desenhos e aplico unhas de gel e acrílico.', 64.21, 'Florianópolis', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(3, 4, 'Limpeza e higienização de banheiros, assim como outros cômodos.', 100.23, 'Florianópolis', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(11, 4, 'Retirada de pó e outras sujeiras de móveis e cômodos.', 93.43, 'Balneário Camboriú', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(10, 4, 'Limpeza e higienização de banheiros, assim como outros cômodos.', 52.78, 'Florianópolis', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(6, 4, 'Retirada de pó e outras sujeiras de móveis e cômodos.', 34.54, 'Florianópolis', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(9, 5, 'Passear, dar banho, alimentar, brincar.', 30.12, 'São José', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(1, 5, 'Monitoro o seu pet e lhe dou todos os cuidados.', 50.00, 'Joinville', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(5, 5, 'Me disponibilizo a ficar com o seu pet em momentos de ausência.', 80.34, 'Blumenau', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(12, 5, 'Cuido das necessidades básicas, levo para passear e treino.', 63.48, 'Florianópolis', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(11, 6, 'Planejo refeições, preparar comida e/ ou alimentar as crianças.', 200.65, 'Balneário Camboriú', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(8, 6, 'Levo as crianças para a escola, atividades ou encontros para brincar.', 120.43, 'Lages', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');
+insert into worker(idperson, idservice, descriptionservice, priceservice, city, localization, whatsapp) values(7, 6, 'Preparo mamadeiras para bebês e cuido de equipamentos de alimentação.', 94.99, 'Florianópolis', 'Santa Catarina', 'https://api.whatsapp.com/send?phone=5548991601340&text=Ol%C3%A1%2C%20tudo%20bem%3F%20%3A)');

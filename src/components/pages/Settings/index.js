@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity, ImageBackground, Modal, Pressable } from 'react-native';
+import { Text, View, TouchableOpacity, Image, Modal, Pressable } from 'react-native';
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import IconFeather from 'react-native-vector-icons/Feather'
 import AuthContext from "../../contexts/auth";
-import api from "../../../api";
 
 export default function Settings(props) {
   const { user } = useContext(AuthContext);
@@ -29,7 +27,7 @@ export default function Settings(props) {
       await fetch('http://localhost:3000/users/' + deleteId, requestOptions)
       setPerson(person.filter(person => person.idPerson != deleteId))
       setModalVisible(!modalVisible)
-      // navigation.navigate('RegisterUser')
+    
     } catch (error) {
       console.log("Erro: " + error)
     }
@@ -38,13 +36,9 @@ export default function Settings(props) {
   return (
     <View style={styles.page}>
       <View style={styles.container}>
-        <TouchableOpacity>
-          <ImageBackground
-            source={'https://64.media.tumblr.com/90efb16d9f78769f5c4578cb8fd21dfb/2f8fbfc24ba6a2ca-bb/s400x600/ae1dab3b316b369b1d9a3abd34691a1cfea3edd3.pnj'}
-            style={styles.profileIcon}
-            imageStyle={{borderRadius: 100}}>
-          </ImageBackground>
-        </TouchableOpacity>
+          <Image
+            source={require('../../../../assets/circle2.png')}
+            style={styles.profileIcon}/>
 
         <Text style={styles.name}>{user?.fullname}</Text>
         <Text style={styles.email}>{user?.email}</Text>

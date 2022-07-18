@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, ScrollView, Image, Linking, ImageBackground, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image, Linking, FlatList } from 'react-native';
 import styles from './styles'
 import { StatusBar } from 'expo-status-bar';
 import Icon from 'react-native-vector-icons/FontAwesome5'
@@ -43,7 +43,7 @@ const Profile = ({ navigation }) => {
           {route.params ? (
             <>
               <Image
-                source={require('../../../../assets/circle2.png')}
+                source={require('../../../../assets/circle3.png')}
                 style={styles.profileIcon}/>
             </>
           ) : (

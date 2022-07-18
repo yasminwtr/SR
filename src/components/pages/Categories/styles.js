@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   titleHeader: {
-    color: '#fff',
+    color: '#F2F2F2',
     fontSize: 25,
     fontFamily: 'Rubik-Medium',
     marginTop: 10

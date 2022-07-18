@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StatusBar, SafeAreaView, Vibration } from 'react-native';
+import { View, Text, TouchableOpacity, StatusBar, SafeAreaView, Vibration, Image } from 'react-native';
 import React, { useState, useContext } from 'react';
 import styles from './styles'
 import { TextInput, Title } from 'react-native-paper';
@@ -32,6 +32,7 @@ const SignIn = ({navigation}) => {
         animated={true}
         backgroundColor="#F85C70"
       />
+
       <Title style={styles.title}> Bem-vindo </Title>
       <TouchableOpacity onPress={() => navigation.navigate('NavigationBar', {})} />
       <View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text } from 'react-native';
+import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Categories from './pages/Categories/index'
@@ -12,9 +12,6 @@ import EditProfile from './pages/Settings/EditProfile/index'
 import DeleteWorker from './pages/Workers/DeleteWorker';
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconFontA from 'react-native-vector-icons/FontAwesome' 
-
-// ícones, para acessar a biblioteca cliquem aqui: https://oblador.github.io/react-native-vector-icons/
-// !! usem somente os do font awesome 5.
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -140,7 +137,7 @@ const ProfileIntern = () => (
   </Stack.Navigator>
 )
 
-const ServiceStack = ({ navigation }) => (
+const ServiceStack = () => (
   <Stack.Navigator>
     <Stack.Screen
       name='Categories'
@@ -201,8 +198,8 @@ const NavigationBar = () => {
         name="Home"
         component={ServiceStack}
         options={{
-          tabBarIcon: ({ size, color }) => (
-            <Image style={{width:25, height:25}} source={require('../../assets/home.png')} />
+          tabBarIcon: ({ size }) => (
+            <Icon name='home' size={size} color='#F85C70' />
           )
         }}
       />

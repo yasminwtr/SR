@@ -1,5 +1,5 @@
 import React from "react"
-import { View, TextInput, ScrollView, TouchableOpacity, Text, Linking } from "react-native";
+import { TextInput, ScrollView, TouchableOpacity, Text, Linking } from "react-native";
 import CurrencyInput from 'react-native-currency-input';
 import { Title } from 'react-native-paper';
 import styles from "../styles";

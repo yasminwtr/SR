@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Pressable, Keyboard, Vibration } from 'react-native';
 import styles from './styles'
 import React, { useState, useContext  } from "react";
-import { TextInput, Title } from 'react-native-paper';
+import { TextInput } from 'react-native-paper';
 import api from "../../../api";
 import AuthContext from '../../contexts/auth';
 

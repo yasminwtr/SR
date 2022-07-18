@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, SafeAreaView, Text, TouchableOpacity } from "react-native";
 import api from '../../../../api'
 import { Title, Snackbar } from 'react-native-paper';
 import AuthContext from "../../../contexts/auth";

@@ -5,8 +5,9 @@ import styles from './styles'
 import { Title } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import 'react-native-gesture-handler';
-export const Categories = (props) => {
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+export const Categories = (props) => {
   const [services, setServices] = useState([]);
   const [refresh, setRefresh] = useState(false);
 
@@ -66,7 +67,7 @@ export const Categories = (props) => {
         backgroundColor="#F85C70"
       />
       <View style={styles.header}>
-        <Text style={styles.titleHeader}>S | R</Text>
+        <Text style={styles.titleHeader}>Serviços Residencias</Text>
       </View>
       <View style={styles.container}>
         <Title style={styles.titleContainer}> Categorias </Title>

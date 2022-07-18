@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { FlatList, SafeAreaView, Text, TouchableOpacity, View, ScrollView } from "react-native";
+import { FlatList, SafeAreaView, Text, TouchableOpacity, ScrollView } from "react-native";
 import api from '../../../../api'
 import Description from "./description";
 import AuthContext from "../../../contexts/auth";
