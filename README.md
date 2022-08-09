@@ -3,7 +3,7 @@ O S|R é um aplicativo voltado a área de serviços residenciais, como eletricis
 Tem com objetivo criar uma relação entre o usuário que busca esses serviços e esses trabalhadores, além de trazer mais visibilidade para serviços que em sua maioria se mantém apenas de contatos. Nele você tem acesso aos trabalhadores por categorias, disponibizando as informações de contato sobre a pessoa. Você pode cadastrar e/ou contratar serviços.
 
 ## Tecnologias
-JavaScript, React Native, Node JS, Axios e Expo. É usado o PostgreSQL como banco de dados.
+JavaScript, React Native, Node JS, Axios e Expo. É usado o PostgreSQL como banco de dados.<br>
 Mídia: Flaticon.
 
 ## Equipe:
